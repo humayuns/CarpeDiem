@@ -2,7 +2,6 @@
 
 Class MainWindow
 
-
     dim timer1 as New DispatcherTimer
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         AddHandler timer1.Tick, AddressOf timer1_Tick
@@ -16,4 +15,5 @@ Class MainWindow
             timer1.IsEnabled = False
         End If
     End sub
+
 End Class
