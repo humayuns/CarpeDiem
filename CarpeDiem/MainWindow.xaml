@@ -1,8 +1,9 @@
 ﻿<Window x:Class="MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="MainWindow" Height="350" Width="525">
+    Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
-        
+        <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="36" Margin="10,232,0,0" VerticalAlignment="Top" Width="497"/>
+
     </Grid>
 </Window>
