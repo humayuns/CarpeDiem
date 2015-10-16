@@ -4,9 +4,7 @@ Class MainWindow
 
     dim timer1 as New DispatcherTimer
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
-        AddHandler timer1.Tick, AddressOf timer1_Tick
-        timer1.Interval = new TimeSpan(0,0,1)
-        timer1.Start()
+
     End Sub
 
     Private sub timer1_Tick(sender As Object, e As EventArgs)
@@ -16,4 +14,9 @@ Class MainWindow
         End If
     End sub
 
+    Private Sub button_Click(sender As Object, e As RoutedEventArgs) Handles button.Click
+        AddHandler timer1.Tick, AddressOf timer1_Tick
+        timer1.Interval = new TimeSpan(0,0,1)
+        timer1.Start()
+    End Sub
 End Class
