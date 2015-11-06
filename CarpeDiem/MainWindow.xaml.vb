@@ -9,8 +9,9 @@ Class MainWindow
 
     Private sub timer1_Tick(sender As Object, e As EventArgs)
         Progressbar1.Value += 10
-        If Progressbar1.Value >= 100 then
+        If Progressbar1.Value >= 100 Then
             timer1.IsEnabled = False
+            Progressbar1.Value = 0
         End If
     End sub
 
