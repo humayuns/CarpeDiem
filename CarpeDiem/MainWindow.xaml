@@ -4,7 +4,7 @@
     Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
         <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="36" Margin="10,232,0,0" VerticalAlignment="Top" Width="497"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="57,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="57,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="10,273,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top"/>
 
