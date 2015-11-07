@@ -1,13 +1,15 @@
 ﻿<Window x:Class="MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+    Title="Car" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
-        <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="36" Margin="10,232,0,0" VerticalAlignment="Top" Width="497"/>
-        <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="57,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="10,273,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelTarget" Content="Target" HorizontalAlignment="Left" Margin="182,201,0,0" VerticalAlignment="Top"/>
+        <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="36" Margin="7,232,0,0" VerticalAlignment="Top" Width="497"/>
+        <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="54,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="7,273,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="7,201,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelTarget" Content="Target" HorizontalAlignment="Left" Margin="179,201,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="404,127,0,0" VerticalAlignment="Top" Width="100" Source="John-Keating.jpg"/>
+        <Label x:Name="labelTitle" Content="Carpe Diem" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" FontSize="64" Width="349"/>
 
     </Grid>
 </Window>
