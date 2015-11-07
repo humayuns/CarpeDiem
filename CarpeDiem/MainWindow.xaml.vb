@@ -50,6 +50,7 @@ Class MainWindow
         AddHandler timer1.Tick, AddressOf timer1_Tick
         timer1.Interval = New TimeSpan(0, 0, 1)
         timer1.Start()
+
     End Sub
 
     Private Function GetHoursDifference() As Integer
@@ -60,5 +61,9 @@ Class MainWindow
     Private Sub textBoxHours_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxHours.TextChanged
         targetTime = Date.Now.AddHours(textBoxHours.Text)
         labelTarget.Content = targetTime.ToString()
+    End Sub
+
+    Private Sub Window_MouseDown(sender As Object, e As MouseButtonEventArgs)
+        If (e.ChangedButton = MouseButton.Left) Then Me.DragMove()
     End Sub
 End Class
