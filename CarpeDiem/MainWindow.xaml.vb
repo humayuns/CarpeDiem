@@ -57,5 +57,8 @@ Class MainWindow
         Return 0
     End Function
 
-
+    Private Sub textBoxHours_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxHours.TextChanged
+        targetTime = Date.Now.AddHours(textBoxHours.Text)
+        labelTarget.Content = targetTime.ToString()
+    End Sub
 End Class
