@@ -66,4 +66,9 @@ Class MainWindow
     Private Sub Window_MouseDown(sender As Object, e As MouseButtonEventArgs)
         If (e.ChangedButton = MouseButton.Left) Then Me.DragMove()
     End Sub
+
+    Private Sub buttonSprite_Click(sender As Object, e As RoutedEventArgs) Handles buttonSprite.Click
+        Dim s As New SpriteWindow
+        s.Show()
+    End Sub
 End Class

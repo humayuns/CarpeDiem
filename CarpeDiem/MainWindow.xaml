@@ -3,14 +3,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Carpe Diem" Height="350" Width="525" Loaded="Window_Loaded" MouseDown="Window_MouseDown">
     <Grid>
-        <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="36" Margin="7,232,0,0" VerticalAlignment="Top" Width="497"/>
-        <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="54,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"/>
-        <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="7,273,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="7,201,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelTarget" Content="Target" HorizontalAlignment="Left" Margin="115,201,0,0" VerticalAlignment="Top"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="404,127,0,0" VerticalAlignment="Top" Width="100" Source="John-Keating.jpg"/>
+        <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="36" Margin="7,208,0,0" VerticalAlignment="Top" Width="497"/>
+        <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="54,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"/>
+        <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="7,273,0,0" VerticalAlignment="Top" Width="75" Background="#FF0CA83E"/>
+        <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="7,177,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelTarget" Content="Target" HorizontalAlignment="Left" Margin="115,177,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="404,103,0,0" VerticalAlignment="Top" Width="100" Source="John-Keating.jpg"/>
         <Label x:Name="labelTitle" Content="Carpe Diem" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" FontSize="64" Width="349"/>
-        <Label x:Name="labelHoursLeft" Content="00" HorizontalAlignment="Left" Margin="87,201,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelHoursLeft" Content="00" HorizontalAlignment="Left" Margin="87,177,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="buttonSprite" Content="Sprite" HorizontalAlignment="Left" Margin="87,273,0,0" VerticalAlignment="Top" Width="75" Background="#FF0CA83E"/>
+        <ProgressBar x:Name="ProgressbarFood" HorizontalAlignment="Left" Height="19" Margin="7,249,0,0" VerticalAlignment="Top" Width="497" Background="#FFBD2E2E" Foreground="#FFF3EA1C" Value="100"/>
 
     </Grid>
 </Window>
