@@ -19,7 +19,7 @@ Class MainWindow
 
 
         'Progressbar1.Value += 10
-
+        labelHoursLeft.Content = Math.Round(targetTime.Subtract(Now).TotalHours, 2)
 
         If Progressbar1.Value >= 100 Then
             timer1.IsEnabled = False
