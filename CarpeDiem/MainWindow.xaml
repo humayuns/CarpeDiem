@@ -11,8 +11,9 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="404,103,0,0" VerticalAlignment="Top" Width="100" Source="John-Keating.jpg"/>
         <Label x:Name="labelTitle" Content="Carpe Diem" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" FontSize="64" Width="349"/>
         <Label x:Name="labelHoursLeft" Content="00" HorizontalAlignment="Left" Margin="87,177,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="buttonSprite" Content="Sprite" HorizontalAlignment="Left" Margin="87,273,0,0" VerticalAlignment="Top" Width="75" Background="#FF0CA83E"/>
+        <Button x:Name="buttonSprite" Content="Sprite" HorizontalAlignment="Left" Margin="87,273,0,0" VerticalAlignment="Top" Width="75" Background="#FF4AC8EE"/>
         <ProgressBar x:Name="ProgressbarFood" HorizontalAlignment="Left" Height="19" Margin="7,249,0,0" VerticalAlignment="Top" Width="497" Background="#FFBD2E2E" Foreground="#FFF3EA1C" Value="100"/>
+        <Button x:Name="buttonFood" Content="Food" HorizontalAlignment="Left" Margin="167,273,0,0" VerticalAlignment="Top" Width="75" Background="#FFF19E26"/>
 
     </Grid>
 </Window>
