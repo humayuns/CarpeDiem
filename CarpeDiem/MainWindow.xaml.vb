@@ -71,4 +71,9 @@ Class MainWindow
         Dim s As New SpriteWindow
         s.Show()
     End Sub
+
+    Private Sub buttonClock_Click(sender As Object, e As RoutedEventArgs) Handles buttonClock.Click
+        Dim c As New ClockWindow
+        c.Show()
+    End Sub
 End Class

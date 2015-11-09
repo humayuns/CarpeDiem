@@ -67,9 +67,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClockWindow.xaml.vb">
+      <DependentUpon>ClockWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SpriteWindow.xaml.vb">
       <DependentUpon>SpriteWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="ClockWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -143,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IconWPF128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="clock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

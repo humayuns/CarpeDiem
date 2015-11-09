@@ -14,6 +14,7 @@
         <Button x:Name="buttonSprite" Content="Sprite" HorizontalAlignment="Left" Margin="87,273,0,0" VerticalAlignment="Top" Width="75" Background="#FF4AC8EE"/>
         <ProgressBar x:Name="ProgressbarFood" HorizontalAlignment="Left" Height="19" Margin="7,249,0,0" VerticalAlignment="Top" Width="497" Background="#FFBD2E2E" Foreground="#FFF3EA1C" Value="100"/>
         <Button x:Name="buttonFood" Content="Food" HorizontalAlignment="Left" Margin="167,273,0,0" VerticalAlignment="Top" Width="75" Background="#FFF19E26"/>
+        <Button x:Name="buttonClock" Content="Clock" HorizontalAlignment="Left" Margin="247,273,0,0" VerticalAlignment="Top" Width="75" Background="#FF269EF1"/>
 
     </Grid>
 </Window>
