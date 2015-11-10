@@ -154,5 +154,11 @@
   <ItemGroup>
     <Resource Include="clock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="clock-dot.png" />
+    <Resource Include="clock-hours.png" />
+    <Resource Include="clock-minutes.png" />
+    <Resource Include="clock-seconds.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
