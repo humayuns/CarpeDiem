@@ -76,4 +76,8 @@ Class MainWindow
         Dim c As New ClockWindow
         c.Show()
     End Sub
+
+    Private Sub buttonClose_Click(sender As Object, e As RoutedEventArgs) Handles buttonClose.Click
+        Me.Close()
+    End Sub
 End Class
