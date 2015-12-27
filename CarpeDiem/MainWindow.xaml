@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Carpe Diem" Height="250" Width="525" Loaded="Window_Loaded" MouseDown="Window_MouseDown">
+    Title="Carpe Diem" Height="250" Width="525" Loaded="Window_Loaded" MouseDown="Window_MouseDown" Icon="ClearD-A.ico">
     <Grid>
         <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="28" Margin="65,117,0,0" VerticalAlignment="Top" Width="439"/>
         <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="54,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"/>

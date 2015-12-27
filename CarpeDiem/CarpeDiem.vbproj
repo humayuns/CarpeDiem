@@ -48,6 +48,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ClearD-A.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -162,6 +165,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ClearD-A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ClearD-A.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
