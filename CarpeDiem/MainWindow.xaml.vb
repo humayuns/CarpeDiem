@@ -85,4 +85,8 @@ Class MainWindow
     Private Sub buttonClose_Click(sender As Object, e As RoutedEventArgs) Handles buttonClose.Click
         Me.Close()
     End Sub
+
+    Private Sub buttonCountDown_Click(sender As Object, e As RoutedEventArgs) Handles buttonCountDown.Click
+        MsgBox("Add CountDown Here!", MsgBoxStyle.Information)
+    End Sub
 End Class

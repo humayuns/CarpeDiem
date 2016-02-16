@@ -16,7 +16,8 @@
         <Button x:Name="buttonFood" Content="Food" HorizontalAlignment="Left" Margin="167,182,0,0" VerticalAlignment="Top" Width="75" Background="#FFF19E26"/>
         <Button x:Name="buttonClock" Content="Clock" HorizontalAlignment="Left" Margin="247,182,0,0" VerticalAlignment="Top" Width="75" Background="#FF269EF1"/>
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="52" Margin="10,117,0,0" VerticalAlignment="Top" Width="50" Source="User.png"/>
-        <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="327,182,0,0" VerticalAlignment="Top" Width="75" Background="#FFF15D26"/>
+        <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="407,182,0,0" VerticalAlignment="Top" Width="75" Background="#FFF15D26"/>
+        <Button x:Name="buttonCountDown" Content="CountDown" HorizontalAlignment="Left" Margin="327,182,0,0" VerticalAlignment="Top" Width="75" Background="#FF80DCCC"/>
 
     </Grid>
 </Window>
