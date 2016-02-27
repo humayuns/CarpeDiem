@@ -49,7 +49,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ClearD-A.ico</ApplicationIcon>
+    <ApplicationIcon>Images\ClearD-A.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
@@ -149,28 +149,28 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="John-Keating.jpg" />
+    <Resource Include="Images\John-Keating.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="IconWPF128.png" />
+    <Resource Include="Images\IconWPF128.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="clock.png" />
+    <Resource Include="Images\clock.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="clock-dot.png" />
-    <Resource Include="clock-hours.png" />
-    <Resource Include="clock-minutes.png" />
-    <Resource Include="clock-seconds.png" />
+    <Resource Include="Images\clock-dot.png" />
+    <Resource Include="Images\clock-hours.png" />
+    <Resource Include="Images\clock-minutes.png" />
+    <Resource Include="Images\clock-seconds.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="User.png" />
+    <Resource Include="Images\User.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ClearD-A.png" />
+    <Resource Include="Images\ClearD-A.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ClearD-A.ico" />
+    <Resource Include="Images\ClearD-A.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

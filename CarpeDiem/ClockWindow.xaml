@@ -7,19 +7,19 @@
         mc:Ignorable="d"
         Title="ClockWindow" Height="120" Width="120" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="120" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="clock.png"/>
-        <Image x:Name="imageHours" HorizontalAlignment="Left" Height="50" Margin="58,10,0,0" VerticalAlignment="Top" Width="3" Source="clock-hours.png" RenderTransformOrigin="0.417,0.995">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="120" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Images/clock.png"/>
+        <Image x:Name="imageHours" HorizontalAlignment="Left" Height="50" Margin="58,10,0,0" VerticalAlignment="Top" Width="3" Source="Images/clock-hours.png" RenderTransformOrigin="0.417,0.995">
             <Image.RenderTransform>
                 <RotateTransform x:Name="HoursAngle" Angle="0"/>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="imageMinutes" HorizontalAlignment="Left" Height="50" Margin="58,10,0,0" VerticalAlignment="Top" Width="3" Source="clock-minutes.png" RenderTransformOrigin="0.417,0.99">
+        <Image x:Name="imageMinutes" HorizontalAlignment="Left" Height="50" Margin="58,10,0,0" VerticalAlignment="Top" Width="3" Source="Images/clock-minutes.png" RenderTransformOrigin="0.417,0.99">
             <Image.RenderTransform>
                 <RotateTransform x:Name="MinutesAngle" Angle="0"/>
             </Image.RenderTransform>
         </Image>
 
-        <Image x:Name="imageSeconds" HorizontalAlignment="Left" Height="50" Margin="58,10,0,0" VerticalAlignment="Top" Width="3" Source="clock-seconds.png" RenderTransformOrigin="0.524,0.995">
+        <Image x:Name="imageSeconds" HorizontalAlignment="Left" Height="50" Margin="58,10,0,0" VerticalAlignment="Top" Width="3" Source="Images/clock-seconds.png" RenderTransformOrigin="0.524,0.995">
             <Image.RenderTransform>
                 <RotateTransform x:Name="SecondsAngle" Angle="0"/>
             </Image.RenderTransform>
