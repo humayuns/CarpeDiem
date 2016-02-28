@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CarpeDiem", "CarpeDiem\CarpeDiem.vbproj", "{5D63EACF-CA8E-4C55-8966-D083792530A9}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CarpeDiem.Tests", "CarpeDiem.Tests\CarpeDiem.Tests.vbproj", "{B2A74813-508F-4CD0-B7ED-0A97F04265DF}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CarpeDiem.Core", "CarpeDiem.Core\CarpeDiem.Core.vbproj", "{6179C4BF-B2CD-4E80-9C55-547B7E43A61E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5D63EACF-CA8E-4C55-8966-D083792530A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D63EACF-CA8E-4C55-8966-D083792530A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D63EACF-CA8E-4C55-8966-D083792530A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2A74813-508F-4CD0-B7ED-0A97F04265DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A74813-508F-4CD0-B7ED-0A97F04265DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A74813-508F-4CD0-B7ED-0A97F04265DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A74813-508F-4CD0-B7ED-0A97F04265DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6179C4BF-B2CD-4E80-9C55-547B7E43A61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6179C4BF-B2CD-4E80-9C55-547B7E43A61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6179C4BF-B2CD-4E80-9C55-547B7E43A61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6179C4BF-B2CD-4E80-9C55-547B7E43A61E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

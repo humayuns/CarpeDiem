@@ -89,4 +89,8 @@ Class MainWindow
     Private Sub buttonCountDown_Click(sender As Object, e As RoutedEventArgs) Handles buttonCountDown.Click
         MsgBox("Add CountDown Here!", MsgBoxStyle.Information)
     End Sub
+
+    Private Sub buttonFood_Click(sender As Object, e As RoutedEventArgs) Handles buttonFood.Click
+
+    End Sub
 End Class
