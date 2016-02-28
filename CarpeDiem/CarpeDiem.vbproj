@@ -9,9 +9,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>CarpeDiem</RootNamespace>
     <AssemblyName>CarpeDiem</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -171,6 +172,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ClearD-A.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarpeDiem.Core\CarpeDiem.Core.vbproj">
+      <Project>{6179c4bf-b2cd-4e80-9c55-547b7e43a61e}</Project>
+      <Name>CarpeDiem.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

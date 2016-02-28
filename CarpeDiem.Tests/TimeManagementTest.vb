@@ -6,7 +6,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     <TestMethod()> Public Sub TimeAfter3Hours()
 
-        Assert.AreEqual(TimeManagement.TimeAfterHours(3).Hour, Now.AddHours(3).Hour)
+        Assert.AreEqual(TimeManagement.TimeAfterHours(3), Now.AddHours(3))
     End Sub
 
 End Class

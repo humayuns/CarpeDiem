@@ -1,22 +1,32 @@
 ﻿Imports System.Windows.Threading
+Imports CarpeDiem.Core
 
 Class MainWindow
 
-    Dim timer1 As New DispatcherTimer
+    ReadOnly timer1 As New DispatcherTimer
     Dim timeDiff As Date
     Dim minutesDiff As Integer = 0
+
+    Dim timeDiffFood As Date
+    Dim minutesDiffFood As Integer = 0
+
     Dim remainingMinutes = 0
 
     Dim targetTime As DateTime
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
+        UpdateFoodClock()
+    End Sub
 
+    Private Sub UpdateFoodClock()
+        timeDiffFood = TimeManagement.TimeAfterHours(3)
+        minutesDiffFood = timeDiffFood.Subtract(Date.Now).TotalMinutes
     End Sub
 
     Private sub timer1_Tick(sender As Object, e As EventArgs)
 
 
         Progressbar1.Value = (100 * timeDiff.Subtract(Date.Now).TotalMinutes / minutesDiff)
-
+        ProgressbarFood.Value = (100 * timeDiffFood.Subtract(Date.Now).TotalMinutes / minutesDiffFood)
 
         'Progressbar1.Value += 10
         labelHoursLeft.Content = Math.Round(targetTime.Subtract(Now).TotalHours, 2)
@@ -44,11 +54,8 @@ Class MainWindow
 
         timeDiff = Date.Now.AddHours(textBoxHours.Text)
 
-        'MsgBox(timeDiff.ToString(), MsgBoxStyle.Information)
-
-        Dim diff = timeDiff.Subtract(Date.Now)
-        Debug.WriteLine(diff)
-        'MsgBox(diff.TotalMinutes, MsgBoxStyle.Information)
+        Dim diff As TimeSpan = timeDiff.Subtract(Date.Now)
+        'Debug.WriteLine(diff)
 
         minutesDiff = diff.TotalMinutes
 
@@ -91,6 +98,6 @@ Class MainWindow
     End Sub
 
     Private Sub buttonFood_Click(sender As Object, e As RoutedEventArgs) Handles buttonFood.Click
-
+        UpdateFoodClock()
     End Sub
 End Class
