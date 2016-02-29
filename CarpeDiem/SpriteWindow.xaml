@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="SpriteWindow" Height="300" Width="300" WindowStyle="None" MouseDown="Window_MouseDown" AllowsTransparency="True" Background="{x:Null}">
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="100,83,0,0" VerticalAlignment="Top" Width="100" Source="IconWPF128.png"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="100,83,0,0" VerticalAlignment="Top" Width="100" Source="Images/IconWPF128.png"/>
     </Grid>
 </Window>
