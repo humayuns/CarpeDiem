@@ -19,7 +19,7 @@ Class MainWindow
 
     Private Sub UpdateFoodClock()
         timeDiffFood = TimeManagement.TimeAfterHours(3)
-        minutesDiffFood = timeDiffFood.Subtract(Date.Now).TotalMinutes
+        minutesDiffFood = TimeManagement.TotalMinutesAfter(3) 'timeDiffFood.Subtract(Date.Now).TotalMinutes
     End Sub
 
     Private sub timer1_Tick(sender As Object, e As EventArgs)
