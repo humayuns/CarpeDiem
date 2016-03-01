@@ -41,8 +41,6 @@ Class MainWindow
             MsgBox("Finished!", MsgBoxStyle.Information)
         End If
 
-        labelTime.Content = Now.ToLongTimeString()
-
 
     End Sub
 
@@ -92,7 +90,7 @@ Class MainWindow
     End Sub
 
     Private Sub buttonClose_Click(sender As Object, e As RoutedEventArgs) Handles buttonClose.Click
-        Close()
+        Me.Close()
     End Sub
 
     Private Sub buttonCountDown_Click(sender As Object, e As RoutedEventArgs) Handles buttonCountDown.Click
