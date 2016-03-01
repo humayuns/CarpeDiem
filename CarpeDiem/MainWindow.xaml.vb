@@ -28,7 +28,6 @@ Class MainWindow
         Progressbar1.Value = (100 * timeDiff.Subtract(Date.Now).TotalMinutes / minutesDiff)
         ProgressbarFood.Value = (100 * timeDiffFood.Subtract(Date.Now).TotalMinutes / minutesDiffFood)
 
-        'Progressbar1.Value += 10
         labelHoursLeft.Content = Math.Round(targetTime.Subtract(Now).TotalHours, 2)
 
         If Progressbar1.Value >= 100 Then
@@ -64,11 +63,6 @@ Class MainWindow
         timer1.Start()
 
     End Sub
-
-    Private Function GetHoursDifference() As Integer
-        'get the number of hours
-        Return 0
-    End Function
 
     Private Sub textBoxHours_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxHours.TextChanged
         targetTime = Date.Now.AddHours(Val(textBoxHours.Text))
