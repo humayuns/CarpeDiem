@@ -17,4 +17,10 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Assert.AreEqual(totalMinutesAfter, totalMinutesAfterTest)
     End Sub
 
+    <TestMethod()> public sub TimeAfter5Minutes()
+        Dim result = TimeManagement.GetTimeAfterMinutes(5)
+        Dim timeafter5min = Now.AddMinutes(5)
+        Assert.AreEqual(result, timeafter5min)
+    End sub
+
 End Class

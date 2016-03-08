@@ -9,5 +9,9 @@
         Return TimeAfterHours(hours).Subtract(Date.Now).TotalMinutes
     End Function
 
+    Public Shared Function GetTimeAfterMinutes(minutes As Integer) As Date
+        return now
+    End Function
+
 
 End Class

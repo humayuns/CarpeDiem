@@ -37,6 +37,7 @@ Class MainWindow
 
         If Progressbar1.Value <= 0 Then
             timer1.IsEnabled = False
+            ' TODO: * Need a fix here!!
             MsgBox("Finished!", MsgBoxStyle.Information)
         End If
 
