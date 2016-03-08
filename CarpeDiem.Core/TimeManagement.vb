@@ -10,7 +10,7 @@
     End Function
 
     Public Shared Function GetTimeAfterMinutes(minutes As Integer) As Date
-        return now
+        return now.AddMinutes(minutes)
     End Function
 
 
