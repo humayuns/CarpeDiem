@@ -9,7 +9,7 @@
         <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="7,86,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelTarget" Content="Target" HorizontalAlignment="Left" Margin="115,86,0,0" VerticalAlignment="Top"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="404,10,0,0" VerticalAlignment="Top" Width="100" Source="Images/John-Keating.jpg"/>
-        <Label x:Name="labelTitle" Content="Carpe Diem" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Width="349" Foreground="#FFF10000" FontStyle="Italic"/>
+        <Label x:Name="labelTitle" Content="Carpe Diem" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="29.333" Width="182" Foreground="#FFF10000" FontStyle="Italic" FontWeight="Bold"/>
         <Label x:Name="labelHoursLeft" Content="00" HorizontalAlignment="Left" Margin="87,86,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSprite" Content="Sprite" HorizontalAlignment="Left" Margin="87,182,0,0" VerticalAlignment="Top" Width="75" Background="#FF4AC8EE"/>
         <ProgressBar x:Name="ProgressbarFood" HorizontalAlignment="Left" Height="19" Margin="65,150,0,0" VerticalAlignment="Top" Width="439" Background="#FFBD2E2E" Foreground="#FFF3EA1C" Value="100"/>
@@ -18,6 +18,8 @@
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="52" Margin="10,117,0,0" VerticalAlignment="Top" Width="50" Source="Images/User.png"/>
         <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="407,182,0,0" VerticalAlignment="Top" Width="75" Background="#FFF15D26"/>
         <Button x:Name="buttonCountDown" Content="CountDown" HorizontalAlignment="Left" Margin="327,182,0,0" VerticalAlignment="Top" Width="75" Background="#FF80DCCC"/>
+        <Label x:Name="labelTime" Content="00:00:00 AM" HorizontalAlignment="Left" Margin="212,10,0,0" VerticalAlignment="Top" FontSize="32" Width="187" Foreground="#FF464646" FontFamily="Adobe Caslon Pro Bold" Background="#FFE4E4E4" Height="42" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
+        <Label x:Name="labelTimeUTC" Content="Long Date String" HorizontalAlignment="Left" Margin="212,57,0,0" VerticalAlignment="Top" FontSize="16" Width="187" Foreground="#FF464646" FontFamily="Adobe Caslon Pro Bold" Background="#FFC7DCFF" Height="29" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
 
     </Grid>
 </Window>

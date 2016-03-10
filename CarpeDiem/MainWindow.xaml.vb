@@ -24,6 +24,8 @@ Class MainWindow
 
     Private sub timer1_Tick(sender As Object, e As EventArgs)
 
+        labelTime.Content = DateTime.Now.ToString("hh:mm:ss tt")
+        labelTimeUTC.Content = DateTime.Now.ToLongDateString()
 
         Progressbar1.Value = (100 * timeDiff.Subtract(Date.Now).TotalMinutes / minutesDiff)
         ProgressbarFood.Value = (100 * timeDiffFood.Subtract(Date.Now).TotalMinutes / minutesDiffFood)
