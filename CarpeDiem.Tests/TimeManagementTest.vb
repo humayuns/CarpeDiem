@@ -17,10 +17,16 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Assert.AreEqual(totalMinutesAfter, totalMinutesAfterTest)
     End Sub
 
-    <TestMethod()> public sub TimeAfter5Minutes()
+    <TestMethod()> Public Sub TimeAfter5Minutes()
         Dim result = TimeManagement.GetTimeAfterMinutes(5)
         Dim timeafter5min = Now.AddMinutes(5)
         Assert.AreEqual(result, timeafter5min)
-    End sub
+    End Sub
+
+    <TestMethod()> Public Sub TimeFormatTest()
+        Dim result = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
+        Dim formatted = DateTime.Now.ToString("hh:mm:ss tt")
+        Assert.AreEqual(result, formatted)
+    End Sub
 
 End Class

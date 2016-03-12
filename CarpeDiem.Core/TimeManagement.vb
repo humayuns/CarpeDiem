@@ -10,7 +10,12 @@
     End Function
 
     Public Shared Function GetTimeAfterMinutes(minutes As Integer) As Date
-        return now.AddMinutes(minutes)
+        Return now.AddMinutes(minutes)
+    End Function
+
+    Public Shared Function GetFormattedDateTime(format As String) As String
+        ' Example: "hh:mm:ss tt"
+        Return DateTime.Now.ToString(format)
     End Function
 
 
