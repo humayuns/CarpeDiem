@@ -1,6 +1,4 @@
-﻿Imports System.Text
-Imports CarpeDiem.Core
-Imports Microsoft.VisualStudio.TestTools.UnitTesting
+﻿Imports CarpeDiem.Core
 
 <TestClass()> Public Class TimeManagementTest
 
@@ -19,8 +17,8 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     <TestMethod()> Public Sub TimeAfter5Minutes()
         Dim result = TimeManagement.GetTimeAfterMinutes(5)
-        Dim timeafter5min = Now.AddMinutes(5)
-        Assert.AreEqual(result, timeafter5min)
+        Dim timeafter5Min = Now.AddMinutes(5)
+        Assert.AreEqual(result, timeafter5Min)
     End Sub
 
     <TestMethod()> Public Sub TimeFormatTest()
