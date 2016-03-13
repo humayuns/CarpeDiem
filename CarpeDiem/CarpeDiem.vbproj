@@ -74,10 +74,20 @@
     <Compile Include="ClockWindow.xaml.vb">
       <DependentUpon>ClockWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CountDown.xaml.vb">
+      <DependentUpon>CountDown.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SpriteWindow.xaml.vb">
       <DependentUpon>SpriteWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StopWatch.xaml.vb">
+      <DependentUpon>StopWatch.xaml</DependentUpon>
+    </Compile>
     <Page Include="ClockWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CountDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,6 +104,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SpriteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StopWatch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,8 +10,6 @@ Class MainWindow
     Dim timeDiffFood As Date
     Dim minutesDiffFood As Integer = 0
 
-    Dim remainingMinutes = 0
-
     Dim targetTime As DateTime
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         UpdateFoodClock()
@@ -22,9 +20,9 @@ Class MainWindow
         minutesDiffFood = TimeManagement.TotalMinutesAfter(3) 'timeDiffFood.Subtract(Date.Now).TotalMinutes
     End Sub
 
-    Private sub timer1_Tick(sender As Object, e As EventArgs)
+    Private Sub timer1_Tick(sender As Object, e As EventArgs)
 
-        labelTime.Content = DateTime.Now.ToString("hh:mm:ss tt")
+        labelTime.Content = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
         labelTimeUTC.Content = DateTime.Now.ToLongDateString()
 
         Progressbar1.Value = (100 * timeDiff.Subtract(Date.Now).TotalMinutes / minutesDiff)
@@ -41,7 +39,6 @@ Class MainWindow
             timer1.IsEnabled = False
             MsgBox("Finished!", MsgBoxStyle.Information)
         End If
-
 
     End Sub
 
@@ -72,7 +69,7 @@ Class MainWindow
     End Sub
 
     Private Sub Window_MouseDown(sender As Object, e As MouseButtonEventArgs)
-        If (e.ChangedButton = MouseButton.Left) Then Me.DragMove()
+        If (e.ChangedButton = MouseButton.Left) Then DragMove()
     End Sub
 
     Private Sub buttonSprite_Click(sender As Object, e As RoutedEventArgs) Handles buttonSprite.Click
@@ -86,14 +83,20 @@ Class MainWindow
     End Sub
 
     Private Sub buttonClose_Click(sender As Object, e As RoutedEventArgs) Handles buttonClose.Click
-        Me.Close()
+        Close()
     End Sub
 
     Private Sub buttonCountDown_Click(sender As Object, e As RoutedEventArgs) Handles buttonCountDown.Click
-        MsgBox("Add CountDown Here!", MsgBoxStyle.Information)
+        Dim c As New CountDown
+        c.Show()
     End Sub
 
     Private Sub buttonFood_Click(sender As Object, e As RoutedEventArgs) Handles buttonFood.Click
         UpdateFoodClock()
+    End Sub
+
+    Private Sub buttonStopWatch_Click(sender As Object, e As RoutedEventArgs) Handles buttonStopWatch.Click
+        Dim s As New StopWatch
+        s.Show()
     End Sub
 End Class
