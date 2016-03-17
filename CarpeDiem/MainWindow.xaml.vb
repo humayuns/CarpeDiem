@@ -4,6 +4,7 @@ Imports CarpeDiem.Core
 Class MainWindow
 
     ReadOnly timer1 As New DispatcherTimer
+
     Dim timeDiff As Date
     Dim minutesDiff As Integer = 0
 
@@ -12,6 +13,7 @@ Class MainWindow
 
     Dim targetTime As DateTime
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
+        AddHandler timer1.Tick, AddressOf timer1_Tick
         UpdateFoodClock()
     End Sub
 
@@ -57,7 +59,7 @@ Class MainWindow
 
         minutesDiff = diff.TotalMinutes
 
-        AddHandler timer1.Tick, AddressOf timer1_Tick
+
         timer1.Interval = New TimeSpan(0, 0, 1)
         timer1.Start()
 
