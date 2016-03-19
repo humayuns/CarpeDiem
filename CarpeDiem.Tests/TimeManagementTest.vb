@@ -4,7 +4,7 @@
 
     <TestMethod()> Public Sub TimeAfter3Hours()
 
-        Assert.AreEqual(TimeManagement.TimeAfterHours(3), Now.AddHours(3))
+        Assert.AreEqual(TimeManagement.TimeAfterHours(3).ToShortTimeString(), Now.AddHours(3).ToShortTimeString())
     End Sub
 
     <TestMethod()> Public Sub TotalMinutesAfter2Hours()
