@@ -15,7 +15,7 @@
 
     Public Shared Function GetFormattedDateTime(format As String) As String
         ' Example: "hh:mm:ss tt"
-        Return DateTime.Now.ToString(format)
+        Return Date.Now.ToString(format)
     End Function
 
 

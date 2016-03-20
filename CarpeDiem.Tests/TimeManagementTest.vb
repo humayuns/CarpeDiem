@@ -3,12 +3,10 @@
 <TestClass()> Public Class TimeManagementTest
 
     <TestMethod()> Public Sub TimeAfter3Hours()
-
         Assert.AreEqual(TimeManagement.TimeAfterHours(3).ToShortTimeString(), Now.AddHours(3).ToShortTimeString())
     End Sub
 
     <TestMethod()> Public Sub TotalMinutesAfter2Hours()
-
         Dim totalMinutesAfter = TimeManagement.TotalMinutesAfter(2)
         Dim totalMinutesAfterTest = CInt(TimeManagement.TimeAfterHours(2).Subtract(Date.Now).TotalMinutes)
         Debug.Print(totalMinutesAfterTest.ToString())
@@ -25,6 +23,10 @@
         Dim result = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
         Dim formatted = DateTime.Now.ToString("hh:mm:ss tt")
         Assert.AreEqual(result, formatted)
+    End Sub
+
+    <TestMethod()> Public Sub test()
+
     End Sub
 
 End Class
