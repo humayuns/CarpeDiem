@@ -21,7 +21,7 @@
 
     <TestMethod()> Public Sub TimeFormatTest()
         Dim result = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
-        Dim formatted = DateTime.Now.ToString("hh:mm:ss tt")
+        Dim formatted = Date.Now.ToString("hh:mm:ss tt")
         Assert.AreEqual(result, formatted)
     End Sub
 
