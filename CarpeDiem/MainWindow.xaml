@@ -17,10 +17,13 @@
         <Button x:Name="buttonClock" Content="Clock" HorizontalAlignment="Left" Margin="247,182,0,0" VerticalAlignment="Top" Width="75" Background="#FF269EF1"/>
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="52" Margin="10,117,0,0" VerticalAlignment="Top" Width="50" Source="Images/User.png"/>
         <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="487,182,0,0" VerticalAlignment="Top" Width="75" Background="#FFF15D26"/>
-        <Button x:Name="buttonCountDown" Content="CountDown" HorizontalAlignment="Left" Margin="327,182,0,0" VerticalAlignment="Top" Width="75" Background="#FF80DCCC"/>
         <Label x:Name="labelTime" Content="00:00:00 AM" HorizontalAlignment="Left" Margin="270,10,0,0" VerticalAlignment="Top" FontSize="32" Width="187" Foreground="#FF464646" FontFamily="Adobe Caslon Pro Bold" Background="#FFE4E4E4" Height="42" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
         <Label x:Name="labelTimeUTC" Content="Long Date String" HorizontalAlignment="Left" Margin="270,57,0,0" VerticalAlignment="Top" FontSize="16" Width="187" Foreground="#FF464646" FontFamily="Adobe Caslon Pro Bold" Background="#FFC7DCFF" Height="29" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
-        <Button x:Name="buttonStopWatch" Content="Stop Watch" HorizontalAlignment="Left" Margin="407,182,0,0" VerticalAlignment="Top" Width="75" Background="#FF26FFA6"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="327,182,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="CountDown"/>
+            <ComboBoxItem Content="Stop Watch"/>
+        </ComboBox>
+        <Button x:Name="buttonGo" Content="Go" HorizontalAlignment="Left" Margin="452,182,0,0" VerticalAlignment="Top" Width="30" Background="#FF22B900"/>
 
     </Grid>
 </Window>

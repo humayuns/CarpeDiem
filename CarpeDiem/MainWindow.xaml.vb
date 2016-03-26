@@ -24,6 +24,7 @@ Class MainWindow
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
 
+        ' Display current local and UTC time.
         labelTime.Content = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
         labelTimeUTC.Content = DateTime.Now.ToLongDateString()
 
@@ -88,17 +89,20 @@ Class MainWindow
         Close()
     End Sub
 
-    Private Sub buttonCountDown_Click(sender As Object, e As RoutedEventArgs) Handles buttonCountDown.Click
-        Dim c As New CountDown
-        c.Show()
-    End Sub
 
     Private Sub buttonFood_Click(sender As Object, e As RoutedEventArgs) Handles buttonFood.Click
         UpdateFoodClock()
     End Sub
 
-    Private Sub buttonStopWatch_Click(sender As Object, e As RoutedEventArgs) Handles buttonStopWatch.Click
-        Dim s As New StopWatch
-        s.Show()
+
+    Private Sub buttonGo_Click(sender As Object, e As RoutedEventArgs) Handles buttonGo.Click
+        Select Case comboBox.Text
+            Case "CountDown"
+                Dim c As New CountDown
+                c.Show()
+            Case "Stop Watch"
+                Dim s As New StopWatch
+                s.Show()
+        End Select
     End Sub
 End Class
