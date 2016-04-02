@@ -103,6 +103,11 @@ Class MainWindow
             Case "Stop Watch"
                 Dim s As New StopWatch
                 s.Show()
+            Case "Focus"
+                Dim f As New Focus
+                f.Show()
         End Select
     End Sub
+
+
 End Class

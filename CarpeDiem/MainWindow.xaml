@@ -22,6 +22,7 @@
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="327,182,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="CountDown"/>
             <ComboBoxItem Content="Stop Watch"/>
+            <ComboBoxItem Content="Focus"/>
         </ComboBox>
         <Button x:Name="buttonGo" Content="Go" HorizontalAlignment="Left" Margin="452,182,0,0" VerticalAlignment="Top" Width="30" Background="#FF22B900"/>
 

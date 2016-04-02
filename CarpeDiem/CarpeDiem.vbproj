@@ -77,6 +77,9 @@
     <Compile Include="CountDown.xaml.vb">
       <DependentUpon>CountDown.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Focus.xaml.vb">
+      <DependentUpon>Focus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SpriteWindow.xaml.vb">
       <DependentUpon>SpriteWindow.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CountDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Focus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
