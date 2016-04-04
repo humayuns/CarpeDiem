@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Focus" Height="300" Width="300">
+        Title="Focus" Height="152.788" Width="452.788" Loaded="Window_Loaded">
     <Grid>
-        
+        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="48" Margin="10,29,0,0" VerticalAlignment="Top" Width="425"/>
+        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>
