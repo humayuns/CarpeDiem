@@ -71,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BodyClock.xaml.vb">
+      <DependentUpon>BodyClock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ClockWindow.xaml.vb">
       <DependentUpon>ClockWindow.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
     <Compile Include="StopWatch.xaml.vb">
       <DependentUpon>StopWatch.xaml</DependentUpon>
     </Compile>
+    <Page Include="BodyClock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ClockWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

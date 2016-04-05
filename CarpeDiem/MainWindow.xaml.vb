@@ -106,6 +106,9 @@ Class MainWindow
             Case "Focus"
                 Dim f As New Focus
                 f.Show()
+            Case "Body Clock"
+                Dim b As New BodyClock
+                b.Show()
         End Select
     End Sub
 
