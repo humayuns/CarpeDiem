@@ -8,7 +8,8 @@
         Title="Focus" Height="152.788" Width="452.788" Loaded="Window_Loaded">
     <Grid>
         <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="48" Margin="10,29,0,0" VerticalAlignment="Top" Width="425"/>
-        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="75" Background="#FF31B637"/>
+        <Label x:Name="label" Content="Score: 0" HorizontalAlignment="Left" Margin="387,79,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

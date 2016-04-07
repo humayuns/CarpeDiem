@@ -20,5 +20,6 @@ Public Class Focus
         timer1.Interval = New TimeSpan(0, 0, 1)
         timer1.Start()
         ProgressBar1.Value = 100
+        buttonStart.Content = "Stop"
     End Sub
 End Class
