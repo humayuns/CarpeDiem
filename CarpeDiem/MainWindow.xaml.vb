@@ -26,7 +26,7 @@ Class MainWindow
 
         ' Display current local and UTC time.
         labelTime.Content = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
-        labelTimeUTC.Content = DateTime.Now.ToLongDateString()
+        labelTimeUTC.Content = Date.Now.ToLongDateString()
 
         Progressbar1.Value = (100 * timeDiff.Subtract(Date.Now).TotalMinutes / minutesDiff)
         ProgressbarFood.Value = (100 * timeDiffFood.Subtract(Date.Now).TotalMinutes / minutesDiffFood)
