@@ -112,6 +112,9 @@ Class MainWindow
             Case "Main"
                 Dim m As New MainWindow
                 m.Show()
+            Case "Calendar"
+                Dim c As New Calendar
+                c.Show()
         End Select
     End Sub
 
