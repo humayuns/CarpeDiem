@@ -7,7 +7,7 @@
         <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="54,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"/>
         <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="7,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF0CA83E"/>
         <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="7,86,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelTarget" Content="Target" HorizontalAlignment="Left" Margin="115,86,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelTarget" Content="Target" HorizontalAlignment="Left" Margin="120,86,0,0" VerticalAlignment="Top"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="462,10,0,0" VerticalAlignment="Top" Width="100" Source="Images/John-Keating.jpg"/>
         <Label x:Name="labelTitle" Content="Carpe Diem" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="29.333" Width="182" Foreground="#FFF10000" FontStyle="Italic" FontWeight="Bold"/>
         <Label x:Name="labelHoursLeft" Content="00" HorizontalAlignment="Left" Margin="87,86,0,0" VerticalAlignment="Top"/>
