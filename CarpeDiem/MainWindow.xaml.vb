@@ -109,6 +109,9 @@ Class MainWindow
             Case "Body Clock"
                 Dim b As New BodyClock
                 b.Show()
+            Case "Main"
+                Dim m As New MainWindow
+                m.Show()
         End Select
     End Sub
 
