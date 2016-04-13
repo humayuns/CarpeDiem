@@ -115,6 +115,9 @@ Class MainWindow
             Case "Calendar"
                 Dim c As New Calendar
                 c.Show()
+            Case "Ability"
+                Dim a As New Ability
+                a.Show()
         End Select
     End Sub
 
