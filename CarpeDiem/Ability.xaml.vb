@@ -19,11 +19,16 @@ Public Class Ability
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
         ' change progress bar value according to time difference
         ProgressBar1.Value = (100 * targetTime.Subtract(Date.Now).TotalSeconds / totalSeconds)
-
+        abilityTransparent.ProgressBar1.Value = ProgressBar1.Value
         Debug.Print(ProgressBar1.Value)
         If ProgressBar1.Value = 0 Then
             timer1.Stop()
-            MsgBox("Finished!", MsgBoxStyle.Information)
+            'MsgBox("Finished!", MsgBoxStyle.Information)
+            Dim m = New MediaPlayer
+            m.Open(New Uri("C:\Windows\Media\tada.wav"))
+            m.Play()
+
+            abilityTransparent.ProgressBar1.Visibility = Visibility.Hidden
         End If
     End Sub
 
@@ -41,9 +46,9 @@ Public Class Ability
 
     Private Sub image_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs) Handles image.MouseRightButtonUp
 
-
-
         abilityTransparent.Show()
+        abilityTransparent.ProgressBar1.Visibility = Visibility.Visible
         Me.Hide()
+
     End Sub
 End Class
