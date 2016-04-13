@@ -39,6 +39,7 @@ Public Class Ability
         targetTime = TimeManagement.GetTimeAfterMinutes(textBoxTime.Text)
         totalSeconds = targetTime.Subtract(Date.Now).TotalSeconds
         ProgressBar1.Value = 100
+        abilityTransparent.ProgressBar1.Visibility = Visibility.Visible
         timer1.Start()
     End Sub
 
@@ -46,7 +47,7 @@ Public Class Ability
 
         PlaySound("C:\Windows\Media\Windows Unlock.wav")
         abilityTransparent.Show()
-        abilityTransparent.ProgressBar1.Visibility = Visibility.Visible
+
         Me.Hide()
 
     End Sub
