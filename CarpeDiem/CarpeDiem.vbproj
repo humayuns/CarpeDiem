@@ -74,6 +74,9 @@
     <Compile Include="Ability.xaml.vb">
       <DependentUpon>Ability.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AbilityTransparent.xaml.vb">
+      <DependentUpon>AbilityTransparent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BodyClock.xaml.vb">
       <DependentUpon>BodyClock.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
       <DependentUpon>StopWatch.xaml</DependentUpon>
     </Compile>
     <Page Include="Ability.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AbilityTransparent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Ability" Height="125.439" Width="452.632" WindowStyle="ToolWindow" MouseDown="Window_MouseDown">
+        Title="Ability" Height="125.439" Width="452.632" MouseDown="Window_MouseDown" WindowStyle="ToolWindow">
     <Grid>
         <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="371,10,0,0" VerticalAlignment="Top" Width="64" Source="Images/artifact_epic.png"/>
         <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="10" Margin="10,74,0,0" VerticalAlignment="Top" Width="425"/>
