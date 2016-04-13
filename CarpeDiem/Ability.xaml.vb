@@ -24,9 +24,7 @@ Public Class Ability
         If ProgressBar1.Value = 0 Then
             timer1.Stop()
             'MsgBox("Finished!", MsgBoxStyle.Information)
-            Dim m = New MediaPlayer
-            m.Open(New Uri("C:\Windows\Media\tada.wav"))
-            m.Play()
+            PlaySound("C:\Windows\Media\tada.wav")
 
             abilityTransparent.ProgressBar1.Visibility = Visibility.Hidden
         End If
@@ -46,9 +44,16 @@ Public Class Ability
 
     Private Sub image_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs) Handles image.MouseRightButtonUp
 
+        PlaySound("C:\Windows\Media\Windows Unlock.wav")
         abilityTransparent.Show()
         abilityTransparent.ProgressBar1.Visibility = Visibility.Visible
         Me.Hide()
 
+    End Sub
+
+    Private Sub PlaySound(path As String)
+        Dim m = New MediaPlayer
+        m.Open(New Uri(path))
+        m.Play()
     End Sub
 End Class
