@@ -24,7 +24,6 @@
             <ComboBoxItem Content="Stop Watch"/>
             <ComboBoxItem Content="Focus"/>
             <ComboBoxItem Content="Body Clock"/>
-            <ComboBoxItem Content="Main"/>
             <ComboBoxItem Content="Calendar"/>
             <ComboBoxItem Content="Ability"/>
         </ComboBox>

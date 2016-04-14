@@ -87,6 +87,7 @@ Class MainWindow
 
     Private Sub buttonClose_Click(sender As Object, e As RoutedEventArgs) Handles buttonClose.Click
         Close()
+        End
     End Sub
 
 
@@ -109,9 +110,6 @@ Class MainWindow
             Case "Body Clock"
                 Dim b As New BodyClock
                 b.Show()
-            Case "Main"
-                Dim m As New MainWindow
-                m.Show()
             Case "Calendar"
                 Dim c As New Calendar
                 c.Show()
