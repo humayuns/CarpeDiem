@@ -46,9 +46,7 @@ Public Class Ability
 
     Private Sub image_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs) Handles image.MouseRightButtonUp
 
-
         abilityTransparent.Show()
-
         Me.Hide()
 
     End Sub
@@ -65,5 +63,16 @@ Public Class Ability
 
     Private Sub checkBoxTopMost_Unchecked(sender As Object, e As RoutedEventArgs) Handles checkBoxTopMost.Unchecked
         abilityTransparent.Topmost = False
+    End Sub
+
+    Private Sub textBoxImage_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxImage.TextChanged
+
+        Try
+            Dim imgpath = My.Application.Info.DirectoryPath & "/images/" & textBoxImage.Text & ".png"
+
+            image.Source = New BitmapImage(New Uri(imgpath))
+            abilityTransparent.image.Source = image.Source
+        Catch
+        End Try
     End Sub
 End Class

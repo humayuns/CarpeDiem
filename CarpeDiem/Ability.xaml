@@ -9,9 +9,10 @@
     <Grid>
         <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="371,10,0,0" VerticalAlignment="Top" Width="64" Source="Images/artifact_epic.png"/>
         <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="10" Margin="10,74,0,0" VerticalAlignment="Top" Width="425"/>
-        <TextBox x:Name="textBoxTime" HorizontalAlignment="Left" Height="23" Margin="10,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="135,49,0,0" VerticalAlignment="Top" Width="75"/>
-        <CheckBox x:Name="checkBoxTopMost" Content="TopMost" HorizontalAlignment="Left" Margin="215,52,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxTime" HorizontalAlignment="Left" Height="23" Margin="10,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="89,46,0,0" VerticalAlignment="Top" Width="75" Height="23" />
+        <CheckBox x:Name="checkBoxTopMost" Content="TopMost" HorizontalAlignment="Left" Margin="169,51,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxImage" HorizontalAlignment="Left" Height="23" Margin="251,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
