@@ -40,12 +40,13 @@ Public Class Ability
         totalSeconds = targetTime.Subtract(Date.Now).TotalSeconds
         ProgressBar1.Value = 100
         abilityTransparent.ProgressBar1.Visibility = Visibility.Visible
+        PlaySound("C:\Windows\Media\Windows Unlock.wav")
         timer1.Start()
     End Sub
 
     Private Sub image_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs) Handles image.MouseRightButtonUp
 
-        PlaySound("C:\Windows\Media\Windows Unlock.wav")
+
         abilityTransparent.Show()
 
         Me.Hide()
@@ -56,5 +57,13 @@ Public Class Ability
         Dim m = New MediaPlayer
         m.Open(New Uri(path))
         m.Play()
+    End Sub
+
+    Private Sub checkBoxTopMost_Checked(sender As Object, e As RoutedEventArgs) Handles checkBoxTopMost.Checked
+        abilityTransparent.Topmost = True
+    End Sub
+
+    Private Sub checkBoxTopMost_Unchecked(sender As Object, e As RoutedEventArgs) Handles checkBoxTopMost.Unchecked
+        abilityTransparent.Topmost = False
     End Sub
 End Class
