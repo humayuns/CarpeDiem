@@ -18,6 +18,8 @@ Public Class Ability
         For Each file As String In IO.Directory.GetFiles(My.Application.Info.DirectoryPath & "/images/")
             comboBoxImage.Items.Add(IO.Path.GetFileName(file))
         Next
+
+        Me.checkBoxTopMost.IsChecked = True
     End Sub
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
