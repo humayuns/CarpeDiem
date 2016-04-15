@@ -46,6 +46,8 @@ Public Class Ability
 
     Private Sub image_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs) Handles image.MouseRightButtonUp
 
+        abilityTransparent.Left = Me.Left + 371
+        abilityTransparent.Top = Me.Top + 50
         abilityTransparent.Show()
         Me.Hide()
 
