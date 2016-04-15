@@ -14,6 +14,10 @@ Public Class Ability
             abilityTransparent = New AbilityTransparent
             abilityTransparent.ParentWindow = Me
         End If
+
+        For Each file As String In IO.Directory.GetFiles(My.Application.Info.DirectoryPath & "/images/")
+            comboBoxImage.Items.Add(IO.Path.GetFileName(file))
+        Next
     End Sub
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
@@ -72,6 +76,16 @@ Public Class Ability
         Try
             Dim imgpath = My.Application.Info.DirectoryPath & "/images/" & textBoxImage.Text & ".png"
 
+            image.Source = New BitmapImage(New Uri(imgpath))
+            abilityTransparent.image.Source = image.Source
+        Catch
+        End Try
+    End Sub
+
+    Private Sub comboBoxImage_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles comboBoxImage.SelectionChanged
+        Try
+            Dim imgpath = My.Application.Info.DirectoryPath & "/images/" & e.AddedItems(0)
+            Debug.Print(comboBoxImage.Text)
             image.Source = New BitmapImage(New Uri(imgpath))
             abilityTransparent.image.Source = image.Source
         Catch
