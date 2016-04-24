@@ -18,15 +18,27 @@ Public Class Focus
     End Sub
 
     Private Sub buttonStart_Click(sender As Object, e As RoutedEventArgs) Handles buttonStart.Click
-        timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
-        timer1.IsEnabled = True
-        timer1.Start()
-        ProgressBar1.Value = 0
-        buttonStart.Content = "Stop"
+
+        If buttonStart.Content = "Stop" Then
+            timer1.Stop()
+            buttonStart.Content = "Start"
+            If ProgressBar1.Value > 95 Then
+                score += 1
+                label.Content = "Score: " & score.ToString()
+            End If
+        Else
+            timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            timer1.IsEnabled = True
+            timer1.Start()
+            ProgressBar1.Value = 0
+            buttonStart.Content = "Stop"
+        End If
     End Sub
 
     Private Sub buttonReset_Click(sender As Object, e As RoutedEventArgs) Handles buttonReset.Click
         timer1.Stop()
         ProgressBar1.Value = 0
+        score = 0
+        label.Content = "Score: " & score.ToString()
     End Sub
 End Class
