@@ -18,7 +18,7 @@ Public Class Focus
     End Sub
 
     Private Sub buttonStart_Click(sender As Object, e As RoutedEventArgs) Handles buttonStart.Click
-        timer1.Interval = New TimeSpan(0, 0, 0, 10)
+        timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
         timer1.IsEnabled = True
         timer1.Start()
         ProgressBar1.Value = 0
