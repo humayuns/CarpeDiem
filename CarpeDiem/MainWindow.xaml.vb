@@ -119,5 +119,7 @@ Class MainWindow
         End Select
     End Sub
 
-
+    Private Sub Grid_Unloaded(sender As Object, e As RoutedEventArgs)
+        End
+    End Sub
 End Class
