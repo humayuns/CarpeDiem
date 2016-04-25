@@ -30,6 +30,7 @@ Class MainWindow
 
         Progressbar1.Value = (100 * timeDiff.Subtract(Date.Now).TotalMinutes / minutesDiff)
         ProgressbarFood.Value = (100 * timeDiffFood.Subtract(Date.Now).TotalMinutes / minutesDiffFood)
+        ProgressbarLT.Value = TimeManagement.GetDifferencePercentage(My.Settings.LTGoalStart, My.Settings.LTGoalEnd)
 
         labelHoursLeft.Content = Math.Round(targetTime.Subtract(Now).TotalHours, 2)
 

@@ -52,6 +52,24 @@ Partial Friend NotInheritable Class MySettings
             Return defaultInstance
         End Get
     End Property
+    
+    <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("2016-01-01")>  _
+    Public ReadOnly Property LTGoalStart() As Date
+        Get
+            Return CType(Me("LTGoalStart"),Date)
+        End Get
+    End Property
+    
+    <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("2016-12-31")>  _
+    Public ReadOnly Property LTGoalEnd() As Date
+        Get
+            Return CType(Me("LTGoalEnd"),Date)
+        End Get
+    End Property
 End Class
 
 Namespace My

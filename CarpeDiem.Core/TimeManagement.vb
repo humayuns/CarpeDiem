@@ -18,5 +18,8 @@
         Return Date.Now.ToString(format)
     End Function
 
+    Public Shared Function GetDifferencePercentage(startDate As Date, endDate As Date) As Decimal
+        Return 100 * (Now.Subtract(endDate).TotalMinutes / startDate.Subtract(endDate).TotalMinutes)
+    End Function
 
 End Class
