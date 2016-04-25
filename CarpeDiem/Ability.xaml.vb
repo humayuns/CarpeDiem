@@ -59,12 +59,6 @@ Public Class Ability
 
     End Sub
 
-    Private Sub PlaySound(path As String)
-        Dim m = New MediaPlayer
-        m.Open(New Uri(path))
-        m.Play()
-    End Sub
-
     Private Sub checkBoxTopMost_Checked(sender As Object, e As RoutedEventArgs) Handles checkBoxTopMost.Checked
         abilityTransparent.Topmost = True
     End Sub

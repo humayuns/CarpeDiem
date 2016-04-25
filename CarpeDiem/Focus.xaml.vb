@@ -25,6 +25,7 @@ Public Class Focus
             If ProgressBar1.Value > 95 Then
                 score += 1
                 label.Content = "Score: " & score.ToString()
+                PlaySound("C:\Windows\Media\tada.wav")
             End If
         Else
             timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)

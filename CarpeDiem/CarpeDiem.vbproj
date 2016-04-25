@@ -92,6 +92,7 @@
     <Compile Include="Focus.xaml.vb">
       <DependentUpon>Focus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Functions.vb" />
     <Compile Include="SpriteWindow.xaml.vb">
       <DependentUpon>SpriteWindow.xaml</DependentUpon>
     </Compile>
