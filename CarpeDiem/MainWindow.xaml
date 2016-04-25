@@ -30,6 +30,7 @@
         <Button x:Name="buttonGo" Content="Go" HorizontalAlignment="Left" Margin="452,214,0,0" VerticalAlignment="Top" Width="30" Background="#FF22B900"/>
         <ProgressBar x:Name="ProgressbarInspiration" HorizontalAlignment="Left" Height="19" Margin="87,168,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FF1865C1" Value="100"/>
         <ProgressBar x:Name="ProgressbarLT" HorizontalAlignment="Left" Height="5" Margin="87,140,0,0" VerticalAlignment="Top" Width="475"/>
+        <DatePicker x:Name="DatePickerLT" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" FontSize="8" Height="24" BorderThickness="0"/>
 
     </Grid>
 </Window>
