@@ -13,7 +13,8 @@ Public Class Focus
         If ProgressBar1.Value < 100 Then
             ProgressBar1.Value += 1
         Else
-            timer1.Stop()
+            ProgressBar1.Value = 0
+            'timer1.Stop()
         End If
     End Sub
 
