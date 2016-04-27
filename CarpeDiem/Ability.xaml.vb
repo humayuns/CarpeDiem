@@ -87,4 +87,8 @@ Public Class Ability
         Catch
         End Try
     End Sub
+
+    Private Sub Ability_Unloaded(sender As Object, e As RoutedEventArgs) Handles Me.Unloaded
+        abilityTransparent.Close
+    End Sub
 End Class
