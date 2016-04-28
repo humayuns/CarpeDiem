@@ -24,9 +24,39 @@ Public Class Focus
             timer1.Stop()
             buttonStart.Content = "Start"
             If ProgressBar1.Value > 95 Then
-                score += 1
+                Dim newscore = math.Abs(95 - ProgressBar1.Value)
+                labelnewscore.Content = "+" + newscore.ToString()
+                labelnewscore.Foreground = Brushes.Green
+                score += newscore
                 label.Content = "Score: " & score.ToString()
-                PlaySound("C:\Windows\Media\tada.wav")
+                Select Case newscore
+                    Case 1
+                        PlaySound("C:\Windows\Media\Windows Foreground.wav")
+                    Case 2
+                        PlaySound("C:\Windows\Media\Windows User Account Control.wav")
+                    Case 3
+                        PlaySound("C:\Windows\Media\Windows Hardware Insert.wav")
+                    Case 4
+                        PlaySound("C:\Windows\Media\Windows Unlock.wav")
+                    Case 5
+                        PlaySound("C:\Windows\Media\tada.wav")
+                End Select
+            Else
+                Dim newscore = 0
+                If ProgressBar1.Value < 10 Then
+                    PlaySound("C:\Windows\Media\Windows Hardware Fail.wav")
+                    newscore = -3
+                Elseif ProgressBar1.Value < 50 then
+                    PlaySound("C:\Windows\Media\Windows Battery Critical.wav")
+                    newscore = -2
+                Elseif ProgressBar1.Value < 95 then
+                    PlaySound("C:\Windows\Media\Windows Battery Low.wav")
+                    newscore = -1
+                End If
+                score += newscore
+                labelnewscore.Content = newscore.ToString()
+                labelnewscore.Foreground = Brushes.Red
+                label.Content = "Score: " & score.ToString()
             End If
         Else
             timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
@@ -34,6 +64,7 @@ Public Class Focus
             timer1.Start()
             ProgressBar1.Value = 0
             buttonStart.Content = "Stop"
+            labelnewscore.Content = ""
         End If
     End Sub
 
