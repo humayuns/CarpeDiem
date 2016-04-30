@@ -27,7 +27,7 @@ Public Class Focus
                 Dim newscore = math.Abs(95 - ProgressBar1.Value)
                 labelnewscore.Content = "+" + newscore.ToString()
                 labelnewscore.Foreground = Brushes.Green
-                score += newscore
+                score += newscore ' TODO: Add score streak for 5 points, add +5 on each streak hit.
                 label.Content = "Score: " & score.ToString()
                 Select Case newscore
                     Case 1
@@ -58,13 +58,19 @@ Public Class Focus
                 labelnewscore.Foreground = Brushes.Red
                 label.Content = "Score: " & score.ToString()
             End If
+
+            If checkBoxAuto.IsChecked Then
+                buttonStart_Click(Nothing, Nothing)
+            End If
         Else
             timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
             timer1.IsEnabled = True
             timer1.Start()
             ProgressBar1.Value = 0
             buttonStart.Content = "Stop"
-            labelnewscore.Content = ""
+            If Not checkBoxAuto.IsChecked Then
+                labelnewscore.Content = ""
+            End If
         End If
     End Sub
 
