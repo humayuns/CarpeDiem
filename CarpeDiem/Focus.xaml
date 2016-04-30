@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Focus" Height="153.924" Width="464.148" Loaded="Window_Loaded" MouseDown="Window_MouseDown">
+        Title="Focus" Height="153.924" Width="464.148" Loaded="Window_Loaded" MouseDown="Window_MouseDown" WindowStyle="ToolWindow">
     <Grid>
         <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="48" Margin="10,29,0,0" VerticalAlignment="Top" Width="425"/>
         <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="75" Background="#FF31B637"/>
-        <Label x:Name="label" Content="Score: 0" HorizontalAlignment="Left" Margin="387,79,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Score: 0" HorizontalAlignment="Left" Margin="372,77,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonReset" Content="Reset" HorizontalAlignment="Left" Margin="90,82,0,0" VerticalAlignment="Top" Width="75" Background="#FF4F72CF"/>
         <Label x:Name="labelnewscore" Content="" HorizontalAlignment="Left" Margin="170,77,0,0" VerticalAlignment="Top" Foreground="#FF10933F"/>
 
