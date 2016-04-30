@@ -74,4 +74,8 @@ Public Class Focus
         score = 0
         label.Content = "Score: " & score.ToString()
     End Sub
+
+    Private Sub Window_MouseDown(sender As Object, e As MouseButtonEventArgs)
+        If (e.ChangedButton = MouseButton.Left) Then DragMove()
+    End Sub
 End Class
