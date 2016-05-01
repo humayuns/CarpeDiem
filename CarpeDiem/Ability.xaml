@@ -11,9 +11,10 @@
         <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="10" Margin="10,74,0,0" VerticalAlignment="Top" Width="425"/>
         <TextBox x:Name="textBoxTime" HorizontalAlignment="Left" Height="23" Margin="10,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74"/>
         <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="89,46,0,0" VerticalAlignment="Top" Width="75" Height="23" Background="#FF31C345" />
-        <CheckBox x:Name="checkBoxTopMost" Content="TopMost" HorizontalAlignment="Left" Margin="169,51,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBoxTopMost" Content="TopMost" HorizontalAlignment="Left" Margin="169,50,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBoxImage" HorizontalAlignment="Left" Height="23" Margin="251,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="comboBoxImage" HorizontalAlignment="Left" Margin="251,24,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+        <CheckBox x:Name="checkBoxRepeat" Content="Repeat" HorizontalAlignment="Left" Margin="251,6,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

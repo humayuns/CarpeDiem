@@ -33,6 +33,9 @@ Public Class Ability
             PlaySound("C:\Windows\Media\tada.wav")
 
             abilityTransparent.ProgressBar1.Visibility = Visibility.Hidden
+            If not checkBoxRepeat.IsChecked Then
+                Me.Close
+            End If
         End If
     End Sub
 
