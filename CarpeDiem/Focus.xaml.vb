@@ -4,6 +4,7 @@ Public Class Focus
 
     ReadOnly timer1 As New DispatcherTimer
     Dim score As Integer
+    Dim previous_score As Integer
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         AddHandler timer1.Tick, AddressOf timer1_Tick
@@ -25,6 +26,14 @@ Public Class Focus
             buttonStart.Content = "Start"
             If ProgressBar1.Value > 95 Then
                 Dim newscore = math.Abs(95 - ProgressBar1.Value)
+                If previous_score >= 5 and Newscore = 5 then ' streak
+                    newscore = previous_score + 5
+                    PlaySound("C:\Windows\Media\tada.wav")
+                Else
+                    newscore = math.Abs(95 - ProgressBar1.Value)
+                End If
+                previous_score = newscore
+                Debug.WriteLine(previous_score)
                 labelnewscore.Content = "+" + newscore.ToString()
                 labelnewscore.Foreground = Brushes.Green
                 score += newscore ' TODO: Add score streak for 5 points, add +5 on each streak hit.
