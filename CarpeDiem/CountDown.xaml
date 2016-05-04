@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="CountDown" Height="121.916" Width="217.51" WindowStyle="ToolWindow">
+        Title="CountDown" Height="121.916" Width="217.51" WindowStyle="ToolWindow" Loaded="Window_Loaded">
     <Grid>
-        <Label x:Name="labelTime" Content="00:00:00 AM" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="32" Width="187" Foreground="#FF464646" FontFamily="Adobe Caslon Pro Bold" Background="#FFE4E4E4" Height="42" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
-        <Button x:Name="button" Content="Start" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75" Background="#FF19CD32"/>
-        <Button x:Name="button_Copy" Content="Close" HorizontalAlignment="Left" Margin="90,57,0,0" VerticalAlignment="Top" Width="75" Background="#FFF36262"/>
+        <Label x:Name="labelTime" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Width="187" Foreground="#FF464646" FontFamily="Adobe Caslon Pro Bold" Background="#FFE4E4E4" Height="42" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
+        <Button x:Name="button" Content="Start" HorizontalAlignment="Left" Margin="42,57,0,0" VerticalAlignment="Top" Width="75" Background="#FF19CD32"/>
+        <Button x:Name="button_Copy" Content="Close" HorizontalAlignment="Left" Margin="122,57,0,0" VerticalAlignment="Top" Width="75" Background="#FFF36262"/>
+        <TextBox x:Name="textBoxTarget" HorizontalAlignment="Left" Height="20" Margin="10,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="27"/>
 
     </Grid>
 </Window>
