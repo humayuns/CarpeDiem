@@ -29,7 +29,7 @@
         </ComboBox>
         <Button x:Name="buttonGo" Content="Go" HorizontalAlignment="Left" Margin="452,214,0,0" VerticalAlignment="Top" Width="30" Background="#FF22B900"/>
         <ProgressBar x:Name="ProgressbarInspiration" HorizontalAlignment="Left" Height="10" Margin="87,164,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FF1865C1" Value="100"/>
-        <ProgressBar x:Name="ProgressbarLT" HorizontalAlignment="Left" Height="5" Margin="87,144,0,0" VerticalAlignment="Top" Width="475"/>
+        <ProgressBar x:Name="ProgressbarLT" HorizontalAlignment="Left" Height="5" Margin="87,144,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF00971B"/>
         <ProgressBar x:Name="ProgressbarMonth" HorizontalAlignment="Left" Height="3" Margin="87,140,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF2868B6"/>
         <ProgressBar x:Name="ProgressbarMotivation" HorizontalAlignment="Left" Height="12" Margin="87,175,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FFBF6001" Value="100"/>
 
