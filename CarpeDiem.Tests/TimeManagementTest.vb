@@ -27,6 +27,9 @@
 
     <TestMethod()> Public Sub test()
 
+        Dim msg = "All good"
+        Assert.AreEqual(msg, "All good")
+
     End Sub
 
 End Class

@@ -12,7 +12,7 @@
         <Label x:Name="labelTitle" Content="Carpe Diem" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="29.333" Width="182" Foreground="#FFF10000" FontStyle="Italic" FontWeight="Bold"/>
         <Label x:Name="labelHoursLeft" Content="00" HorizontalAlignment="Left" Margin="87,86,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSprite" Content="Sprite" HorizontalAlignment="Left" Margin="87,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF4AC8EE"/>
-        <ProgressBar x:Name="ProgressbarFood" HorizontalAlignment="Left" Height="19" Margin="87,148,0,0" VerticalAlignment="Top" Width="475" Background="#FFBD2E2E" Foreground="#FFF3EA1C" Value="100"/>
+        <ProgressBar x:Name="ProgressbarFood" HorizontalAlignment="Left" Height="13" Margin="87,150,0,0" VerticalAlignment="Top" Width="475" Background="#FFBD2E2E" Foreground="#FFF3EA1C" Value="100"/>
         <Button x:Name="buttonFood" Content="Food" HorizontalAlignment="Left" Margin="167,214,0,0" VerticalAlignment="Top" Width="75" Background="#FFF19E26"/>
         <Button x:Name="buttonClock" Content="Clock" HorizontalAlignment="Left" Margin="247,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF269EF1"/>
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="70" Margin="10,117,0,0" VerticalAlignment="Top" Width="70" Source="Images/User.png"/>
@@ -28,8 +28,10 @@
             <ComboBoxItem Content="Ability"/>
         </ComboBox>
         <Button x:Name="buttonGo" Content="Go" HorizontalAlignment="Left" Margin="452,214,0,0" VerticalAlignment="Top" Width="30" Background="#FF22B900"/>
-        <ProgressBar x:Name="ProgressbarInspiration" HorizontalAlignment="Left" Height="19" Margin="87,168,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FF1865C1" Value="100"/>
-        <ProgressBar x:Name="ProgressbarLT" HorizontalAlignment="Left" Height="5" Margin="87,140,0,0" VerticalAlignment="Top" Width="475"/>
+        <ProgressBar x:Name="ProgressbarInspiration" HorizontalAlignment="Left" Height="10" Margin="87,164,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FF1865C1" Value="100"/>
+        <ProgressBar x:Name="ProgressbarLT" HorizontalAlignment="Left" Height="5" Margin="87,144,0,0" VerticalAlignment="Top" Width="475"/>
+        <ProgressBar x:Name="ProgressbarMonth" HorizontalAlignment="Left" Height="3" Margin="87,140,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF2868B6"/>
+        <ProgressBar x:Name="ProgressbarMotivation" HorizontalAlignment="Left" Height="12" Margin="87,175,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FFBF6001" Value="100"/>
 
     </Grid>
 </Window>

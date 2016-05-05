@@ -28,4 +28,14 @@
         Return 100 * (Now.Subtract(endDate).TotalMinutes / startDate.Subtract(endDate).TotalMinutes)
     End Function
 
+    Public Shared Function GetFirstDayOfMonth(DateTime as Date)
+        Return new DateTime(dateTime.Year, dateTime.Month, 1)
+    End Function
+
+    Public Shared Function GetLastDayOfMonth(dateTime As DateTime) As DateTime
+	    Dim firstDayOfTheMonth As New DateTime(dateTime.Year, dateTime.Month, 1)
+	    Return firstDayOfTheMonth.AddMonths(1).AddDays(-1)
+    End Function
+
+
 End Class
