@@ -37,5 +37,13 @@
 	    Return firstDayOfTheMonth.AddMonths(1).AddDays(-1)
     End Function
 
+    Public Shared Function GetFirstDayOfWeek(dt As DateTime, startOfWeek As DayOfWeek) As DateTime
+	    Dim diff As Integer = dt.DayOfWeek - startOfWeek
+	    If diff < 0 Then
+		    diff += 7
+	    End If
+	    Return dt.AddDays(-1 * diff).[Date]
+    End Function
+
 
 End Class
