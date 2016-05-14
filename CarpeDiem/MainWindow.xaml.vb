@@ -5,22 +5,32 @@ Class MainWindow
 
     ReadOnly timer1 As New DispatcherTimer
 
-    Dim timeDiff As Date
-    Dim minutesDiff As Integer = 0
 
-    Dim timeDiffFood As Date
-    Dim minutesDiffFood As Integer = 0
+    dim timeDiff as new TimeCountDown
+    Dim timeDiffFood as new TimeCountDown
+    Dim timeDiffMotivation as new TimeCountDown
+    Dim timeDiffInspiration as new TimeCountDown
+
 
     Dim targetTime As DateTime
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         AddHandler timer1.Tick, AddressOf timer1_Tick
         UpdateFoodClock()
+        RefreshMotivation()
+        RefreshInspiration()
     End Sub
 
     Private Sub UpdateFoodClock()
-        timeDiffFood = TimeManagement.TimeAfterHours(3)
-        minutesDiffFood = TimeManagement.TotalMinutesAfter(3) 'timeDiffFood.Subtract(Date.Now).TotalMinutes
+        timeDiffFood.AddHours(3)
     End Sub
+
+    Private sub RefreshMotivation()
+        timeDiffMotivation.AddHours(1)
+    End sub
+
+    Private sub RefreshInspiration()
+        timeDiffInspiration.AddHours(0.10)
+    End sub
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
 
@@ -28,8 +38,10 @@ Class MainWindow
         labelTime.Content = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
         labelTimeUTC.Content = Date.Now.ToLongDateString()
 
-        Progressbar1.Value = (100 * timeDiff.Subtract(Date.Now).TotalMinutes / minutesDiff)
-        ProgressbarFood.Value = (100 * timeDiffFood.Subtract(Date.Now).TotalMinutes / minutesDiffFood)
+        Progressbar1.Value = timeDiff.GetDifferencePercentage()
+        ProgressbarFood.Value = timeDiffFood.GetDifferencePercentage()
+        ProgressbarMotivation.Value = timeDiffMotivation.GetDifferencePercentage()
+        ProgressbarInspiration.Value = timeDiffInspiration.GetDifferencePercentage()
 
         ProgressbarLT.Value = TimeManagement.GetDifferencePercentage(My.Settings.LTGoalStart, My.Settings.LTGoalEnd)
         ProgressbarMonth.Value = TimeManagement.GetDifferencePercentage(TimeManagement.GetFirstDayOfMonth(now), TimeManagement.GetLastDayOfMonth(now))
@@ -58,13 +70,7 @@ Class MainWindow
         targetTime = Date.Now.AddHours(textBoxHours.Text)
         labelTarget.Content = targetTime.ToString()
 
-        timeDiff = Date.Now.AddHours(textBoxHours.Text)
-
-        Dim diff As TimeSpan = timeDiff.Subtract(Date.Now)
-        'Debug.WriteLine(diff)
-
-        minutesDiff = diff.TotalMinutes
-
+        timeDiff.AddHours(textBoxHours.Text)
 
         timer1.Interval = New TimeSpan(0, 0, 1)
         timer1.Start()
@@ -126,5 +132,13 @@ Class MainWindow
 
     Private Sub Grid_Unloaded(sender As Object, e As RoutedEventArgs)
         End
+    End Sub
+
+    Private Sub buttonMotivation_Click(sender As Object, e As RoutedEventArgs) Handles buttonMotivation.Click
+        RefreshMotivation()
+    End Sub
+
+    Private Sub buttonInspiration_Click(sender As Object, e As RoutedEventArgs) Handles buttonInspiration.Click
+        RefreshInspiration()
     End Sub
 End Class
