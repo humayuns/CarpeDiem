@@ -1,7 +1,5 @@
 ﻿Public Class TimeCountDown
 
-
-    ' move this to seperate class
     Public timeDiff As Date
     Public minutesDiff As Integer = 0
 
