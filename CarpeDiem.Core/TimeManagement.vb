@@ -28,7 +28,7 @@
         Return 100 * (Now.Subtract(endDate).TotalMinutes / startDate.Subtract(endDate).TotalMinutes)
     End Function
 
-    Public Shared Function GetFirstDayOfMonth(DateTime as Date)
+    Public Shared Function GetFirstDayOfMonth(DateTime as Date) As DateTime
         Return new DateTime(dateTime.Year, dateTime.Month, 1)
     End Function
 
@@ -37,6 +37,12 @@
 	    Return firstDayOfTheMonth.AddMonths(1).AddDays(-1)
     End Function
 
+    ''' <summary>
+    ''' Get first day of week according to provided date.
+    ''' </summary>
+    ''' <param name="dt">Date</param>
+    ''' <param name="startOfWeek">Week Start Day</param>
+    ''' <returns></returns>
     Public Shared Function GetFirstDayOfWeek(dt As DateTime, startOfWeek As DayOfWeek) As DateTime
 	    Dim diff As Integer = dt.DayOfWeek - startOfWeek
 	    If diff < 0 Then
