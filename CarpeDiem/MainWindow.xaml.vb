@@ -33,8 +33,12 @@ Class MainWindow
     End sub
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
+        UpdateProgress()
+    End Sub
 
-        ' Display current local and UTC time.
+    Private Sub UpdateProgress()
+
+    ' Display current local and UTC time.
         labelTime.Content = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
         labelTimeUTC.Content = Date.Now.ToLongDateString()
 
@@ -59,7 +63,6 @@ Class MainWindow
             timer1.IsEnabled = False
             MsgBox("Finished!", MsgBoxStyle.Information)
         End If
-
     End Sub
 
     Private Sub button_Click(sender As Object, e As RoutedEventArgs) Handles button.Click
@@ -108,7 +111,7 @@ Class MainWindow
 
 
     Private Sub buttonGo_Click(sender As Object, e As RoutedEventArgs) Handles buttonGo.Click
-        Select Case comboBox.Text
+        Select Case ComboBox.Text
             Case "CountDown"
                 Dim c As New CountDown
                 c.Show()

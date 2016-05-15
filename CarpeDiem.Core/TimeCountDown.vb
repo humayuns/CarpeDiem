@@ -7,9 +7,9 @@
         Return (100 * timeDiff.Subtract(Date.Now).TotalMinutes / minutesDiff)
     End Function
 
-    Public sub AddHours(hours As Double)
+    Public Sub AddHours(hours As Double)
         timeDiff = TimeManagement.TimeAfterHours(hours)
         minutesDiff = TimeManagement.TotalMinutesAfter(hours)
-    End sub
+    End Sub
    
 End Class
