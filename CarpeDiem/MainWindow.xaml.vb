@@ -38,7 +38,7 @@ Class MainWindow
 
     Private Sub UpdateProgress()
 
-    ' Display current local and UTC time.
+        ' Display current local and UTC time.
         labelTime.Content = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
         labelTimeUTC.Content = Date.Now.ToLongDateString()
 
@@ -68,8 +68,6 @@ Class MainWindow
     Private Sub button_Click(sender As Object, e As RoutedEventArgs) Handles button.Click
 
         ' set up timer and start it
-
-
         targetTime = Date.Now.AddHours(textBoxHours.Text)
         labelTarget.Content = targetTime.ToString()
 
