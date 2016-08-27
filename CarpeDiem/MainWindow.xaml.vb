@@ -28,11 +28,12 @@ Class MainWindow
         timeDiffMotivation.AddHours(1)
     End sub
 
-    Private sub RefreshInspiration()
+    Private Sub RefreshInspiration()
         timeDiffInspiration.AddHours(0.10)
-    End sub
+    End Sub
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
+        ' Need to add a feature where can restore energy from sleep.
         UpdateProgress()
     End Sub
 
