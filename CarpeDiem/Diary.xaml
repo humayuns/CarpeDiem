@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Diary" Height="404" Width="671" Loaded="Window_Loaded">
+        Title="Diary" Height="600" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Calendar x:Name="Calendar1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="326" Margin="194,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="440" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <TextBox x:Name="textBoxSpecial" HorizontalAlignment="Left" Height="129" Margin="10,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <Label x:Name="label" Content="Special Symbols" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="533" Margin="194,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="579" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <TextBox x:Name="textBoxSpecial" HorizontalAlignment="Left" Height="336" Margin="10,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <Label x:Name="label" Content="Special Symbols" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
 
     </Grid>
 </Window>
