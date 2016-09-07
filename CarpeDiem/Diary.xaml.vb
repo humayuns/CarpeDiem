@@ -40,10 +40,20 @@ Public Class Diary
         If File.Exists("Diary\specialsymbols.txt") Then
             textBoxSpecial.Text = File.ReadAllText("Diary\specialsymbols.txt")
         End If
+
+        comboBox.Text = "Segoe UI"
     End Sub
 
     Private Sub textBoxSpecial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxSpecial.TextChanged
         If Not Directory.Exists("Diary") Then Directory.CreateDirectory("Diary")
         File.WriteAllText("Diary\specialsymbols.txt", textBoxSpecial.Text)
+    End Sub
+
+    Private Sub textBoxFontSize_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxFontSize.TextChanged
+        textBox.FontSize = textBoxFontSize.Text
+    End Sub
+
+    Private Sub comboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles comboBox.SelectionChanged
+        textBox.FontFamily = New FontFamily(comboBox.Text)
     End Sub
 End Class
