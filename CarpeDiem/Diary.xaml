@@ -9,6 +9,8 @@
     <Grid>
         <Calendar x:Name="Calendar1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="326" Margin="194,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="440" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <TextBox x:Name="textBoxSpecial" HorizontalAlignment="Left" Height="129" Margin="10,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <Label x:Name="label" Content="Special Symbols" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -12,6 +12,8 @@ Public Class Diary
             textBox.Text = ""
         End If
 
+
+
     End Sub
 
 
@@ -34,5 +36,14 @@ Public Class Diary
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         Calendar1.SelectedDate = Now
+
+        If File.Exists("Diary\specialsymbols.txt") Then
+            textBoxSpecial.Text = File.ReadAllText("Diary\specialsymbols.txt")
+        End If
+    End Sub
+
+    Private Sub textBoxSpecial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxSpecial.TextChanged
+        If Not Directory.Exists("Diary") Then Directory.CreateDirectory("Diary")
+        File.WriteAllText("Diary\specialsymbols.txt", textBoxSpecial.Text)
     End Sub
 End Class
