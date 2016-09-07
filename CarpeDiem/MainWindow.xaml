@@ -13,7 +13,7 @@
         <Label x:Name="labelHoursLeft" Content="00" HorizontalAlignment="Left" Margin="87,86,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSprite" Content="Sprite" HorizontalAlignment="Left" Margin="87,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF4AC8EE"/>
         <ProgressBar x:Name="ProgressbarFood" HorizontalAlignment="Left" Height="13" Margin="87,154,0,0" VerticalAlignment="Top" Width="475" Background="#FFBD2E2E" Foreground="#FFF3EA1C" Value="100"/>
-        <Button x:Name="buttonFood" Content="Food" HorizontalAlignment="Left" Margin="167,214,0,0" VerticalAlignment="Top" Width="75" Background="#FFF19E26"/>
+        <Button x:Name="buttonFood" Content="Food" HorizontalAlignment="Left" Margin="327,188,0,0" VerticalAlignment="Top" Width="75" Background="#FFF19E26" FontSize="9" Height="15" Foreground="White"/>
         <Button x:Name="buttonClock" Content="Clock" HorizontalAlignment="Left" Margin="247,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF269EF1"/>
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="70" Margin="10,117,0,0" VerticalAlignment="Top" Width="70" Source="Images/User.png"/>
         <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="487,214,0,0" VerticalAlignment="Top" Width="75" Background="#FFF15D26"/>
@@ -36,6 +36,7 @@
         <ProgressBar x:Name="ProgressbarWeek" HorizontalAlignment="Left" Height="8" Margin="87,131,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF00828F"/>
         <Button x:Name="buttonMotivation" Content="Motivation" HorizontalAlignment="Left" Margin="407,188,0,0" VerticalAlignment="Top" Width="75" Background="#FFBF6001" FontSize="9" Height="15" Foreground="#FFFFDADA"/>
         <Button x:Name="buttonInspiration" Content="Inspiration" HorizontalAlignment="Left" Margin="487,188,0,0" VerticalAlignment="Top" Width="75" Background="#FF1865C1" FontSize="9" Height="15" Foreground="White"/>
+        <Button x:Name="buttonClock_Copy" Content="Diary" HorizontalAlignment="Left" Margin="167,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF2476EC"/>
 
     </Grid>
 </Window>

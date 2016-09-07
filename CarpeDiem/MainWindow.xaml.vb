@@ -146,4 +146,9 @@ Class MainWindow
     Private Sub buttonInspiration_Click(sender As Object, e As RoutedEventArgs) Handles buttonInspiration.Click
         RefreshInspiration()
     End Sub
+
+    Private Sub buttonClock_Copy_Click(sender As Object, e As RoutedEventArgs) Handles buttonClock_Copy.Click
+        Dim d As New Diary
+        d.Show()
+    End Sub
 End Class
