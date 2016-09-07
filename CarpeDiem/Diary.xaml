@@ -1,0 +1,14 @@
+﻿<Window x:Class="Diary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarpeDiem"
+        mc:Ignorable="d"
+        Title="Diary" Height="404" Width="671" Loaded="Window_Loaded">
+    <Grid>
+        <Calendar x:Name="Calendar1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="326" Margin="194,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="440" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+    </Grid>
+</Window>

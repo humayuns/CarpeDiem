@@ -129,6 +129,9 @@ Class MainWindow
             Case "Ability"
                 Dim a As New Ability
                 a.Show()
+            Case "Diary"
+                Dim d As New Diary
+                d.Show()
         End Select
     End Sub
 
