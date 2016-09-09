@@ -6,8 +6,8 @@ Public Class Diary
     Private Sub Calendar1_SelectedDatesChanged(sender As Object, e As SelectionChangedEventArgs) Handles Calendar1.SelectedDatesChanged
 
         Dim dt = Calendar1.SelectedDate
-        If File.Exists("Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & ".txt") Then
-            textBox.Text = File.ReadAllText("Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & ".txt")
+        If File.Exists("Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt") Then
+            textBox.Text = File.ReadAllText("Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt")
         Else
             textBox.Text = ""
         End If
@@ -26,8 +26,9 @@ Public Class Diary
             If Not Directory.Exists("Diary") Then Directory.CreateDirectory("Diary")
             If Not Directory.Exists("Diary\" & dt.Value.Year) Then Directory.CreateDirectory("Diary\" & dt.Value.Year)
             If Not Directory.Exists("Diary\" & dt.Value.Year & "\" & dt.Value.Month) Then Directory.CreateDirectory("Diary\" & "\" & dt.Value.Year & "\" & dt.Value.Month)
+            If Not Directory.Exists("Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day) Then Directory.CreateDirectory("Diary\" & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
 
-            File.WriteAllText("Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & ".txt", textBox.Text)
+            File.WriteAllText("Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt", textBox.Text)
         Catch ex As Exception
 
         End Try
@@ -55,5 +56,12 @@ Public Class Diary
 
     Private Sub comboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles comboBox.SelectionChanged
         textBox.FontFamily = New FontFamily(comboBox.Text)
+    End Sub
+
+    Private Sub buttonFolder_Click(sender As Object, e As RoutedEventArgs) Handles buttonFolder.Click
+        Dim dt = Calendar1.SelectedDate
+        If Directory.Exists("Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day) Then
+            Process.Start(System.AppDomain.CurrentDomain.BaseDirectory & "\" & "Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
+        End If
     End Sub
 End Class
