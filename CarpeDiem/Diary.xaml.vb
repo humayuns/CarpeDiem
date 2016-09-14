@@ -64,4 +64,9 @@ Public Class Diary
             Process.Start(System.AppDomain.CurrentDomain.BaseDirectory & "\" & "Diary\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
         End If
     End Sub
+
+    Private Sub buttonCurrentDate_Click(sender As Object, e As RoutedEventArgs) Handles buttonCurrentDate.Click
+        Calendar1.SelectedDate = Date.Now
+        Calendar1.DisplayDate = Date.Now
+    End Sub
 End Class
