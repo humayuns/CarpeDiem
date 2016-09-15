@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Windows.Media.Animation
 
 Public Class Diary
 
@@ -12,6 +13,9 @@ Public Class Diary
             textBox.Text = ""
         End If
 
+        Dim ca = New ColorAnimation(Colors.White, New Duration(TimeSpan.FromMilliseconds(500)))
+        textBox.Background = New SolidColorBrush(Colors.Azure)
+        textBox.Background.BeginAnimation(SolidColorBrush.ColorProperty, ca)
 
 
     End Sub
