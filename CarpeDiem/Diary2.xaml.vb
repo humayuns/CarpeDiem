@@ -30,6 +30,10 @@ Public Class Diary2
         textBox1.Background = New SolidColorBrush(Colors.Azure)
         textBox1.Background.BeginAnimation(SolidColorBrush.ColorProperty, ca)
 
+        textBox1.Background = New SolidColorBrush(Colors.White)
+        textBox2.Background = New SolidColorBrush(Colors.White)
+        textBox3.Background = New SolidColorBrush(Colors.White)
+
         Select Case Core.TimeManagement.GetDaySection(Now)
             Case "1"
                 textBox1.Background = New SolidColorBrush(Colors.Bisque)
