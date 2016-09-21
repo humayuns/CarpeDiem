@@ -1,9 +1,10 @@
 ﻿Imports System.IO
 Imports System.Windows.Media.Animation
+Imports System.Windows.Threading
 
 Public Class Diary2
 
-
+    ReadOnly timer1 As New DispatcherTimer
     Const DiaryFolder As String = "Diary2"
     Private Sub Calendar1_SelectedDatesChanged(sender As Object, e As SelectionChangedEventArgs) Handles Calendar1.SelectedDatesChanged
 
@@ -73,6 +74,24 @@ Public Class Diary2
         End If
 
         comboBox.Text = "Segoe UI"
+        AddHandler timer1.Tick, AddressOf timer1_Tick
+        timer1.Interval = New TimeSpan(0, 0, 1)
+        timer1.Start()
+    End Sub
+
+    Private Sub timer1_Tick(sender As Object, e As EventArgs)
+        textBox1.Background = New SolidColorBrush(Colors.White)
+        textBox2.Background = New SolidColorBrush(Colors.White)
+        textBox3.Background = New SolidColorBrush(Colors.White)
+
+        Select Case Core.TimeManagement.GetDaySection(Now)
+            Case "1"
+                textBox1.Background = New SolidColorBrush(Colors.Bisque)
+            Case "2"
+                textBox2.Background = New SolidColorBrush(Colors.Bisque)
+            Case "3"
+                textBox3.Background = New SolidColorBrush(Colors.Bisque)
+        End Select
     End Sub
 
     Private Sub textBoxSpecial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxSpecial.TextChanged
