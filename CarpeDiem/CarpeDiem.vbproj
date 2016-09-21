@@ -89,6 +89,9 @@
     <Compile Include="CountDown.xaml.vb">
       <DependentUpon>CountDown.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Diary2.xaml.vb">
+      <DependentUpon>Diary2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Diary.xaml.vb">
       <DependentUpon>Diary.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
     <Page Include="CountDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diary2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Diary.xaml">
       <SubType>Designer</SubType>

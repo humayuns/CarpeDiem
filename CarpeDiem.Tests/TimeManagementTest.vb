@@ -25,11 +25,17 @@
         Assert.AreEqual(result, formatted)
     End Sub
 
+    <TestMethod()> Public Sub CorrectDaySection()
+        Assert.AreEqual(TimeManagement.GetDaySection(Date.Parse("13:00")), "2")
+    End Sub
+
     <TestMethod()> Public Sub test()
 
         Dim msg = "All good"
         Assert.AreEqual(msg, "All good")
 
     End Sub
+
+
 
 End Class

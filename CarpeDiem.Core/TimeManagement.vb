@@ -52,4 +52,16 @@
     End Function
 
 
+    Public Shared Function GetDaySection(time As Date) As String
+        Dim result As String = ""
+        If time.Hour >= 0 And time.Hour < 8 Then
+            result = "1"
+        ElseIf time.Hour >= 8 And time.Hour < 16 Then
+            result = "2"
+        ElseIf time.Hour >= 16 And time.Hour > 0 Then
+            result = "3"
+        End If
+        Return result
+    End Function
+
 End Class

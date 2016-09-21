@@ -27,6 +27,7 @@
             <ComboBoxItem Content="Calendar"/>
             <ComboBoxItem Content="Ability"/>
             <ComboBoxItem Content="Diary"/>
+            <ComboBoxItem Content="Diary2"/>
         </ComboBox>
         <Button x:Name="buttonGo" Content="Go" HorizontalAlignment="Left" Margin="452,214,0,0" VerticalAlignment="Top" Width="30" Background="#FF22B900"/>
         <ProgressBar x:Name="ProgressbarInspiration" HorizontalAlignment="Left" Height="8" Margin="87,168,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FF1865C1" Value="100"/>

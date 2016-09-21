@@ -132,6 +132,9 @@ Class MainWindow
             Case "Diary"
                 Dim d As New Diary
                 d.Show()
+            Case "Diary2"
+                Dim d2 As New Diary2
+                d2.Show()
         End Select
     End Sub
 
