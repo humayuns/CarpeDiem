@@ -29,6 +29,20 @@
         Assert.AreEqual(TimeManagement.GetDaySection(Date.Parse("13:00")), "2")
     End Sub
 
+    <TestMethod()> Public Sub CorrectSectionEndingTime1()
+        Assert.AreEqual(TimeManagement.SectionEndingTime(Date.Parse("1:00")), Date.Parse("8:00"))
+    End Sub
+    <TestMethod()> Public Sub CorrectSectionEndingTime2()
+        Assert.AreEqual(TimeManagement.SectionEndingTime(Date.Parse("10:00")), Date.Parse("16:00"))
+    End Sub
+    <TestMethod()> Public Sub CorrectSectionEndingTime3()
+        Assert.AreEqual(TimeManagement.SectionEndingTime(Date.Parse("17:00")), Date.Parse("23:59"))
+    End Sub
+
+    <TestMethod()> Public Sub CorrectSectionStartingTime()
+        Assert.AreEqual(TimeManagement.SectionStartingTime(Date.Parse("1:00")), Date.Parse("0:00"))
+    End Sub
+
     <TestMethod()> Public Sub test()
 
         Dim msg = "All good"

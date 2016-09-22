@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Windows.Media.Animation
 Imports System.Windows.Threading
+Imports CarpeDiem.Core
 
 Public Class Diary2
 
@@ -84,6 +85,8 @@ Public Class Diary2
         textBox2.Background = New SolidColorBrush(Colors.White)
         textBox3.Background = New SolidColorBrush(Colors.White)
 
+        ProgressBar1.Value = TimeManagement.GetDifferencePercentage(TimeManagement.SectionStartingTime(Now), TimeManagement.SectionEndingTime(Now))
+
         Select Case Core.TimeManagement.GetDaySection(Now)
             Case "1"
                 textBox1.Background = New SolidColorBrush(Colors.Bisque)
@@ -92,6 +95,9 @@ Public Class Diary2
             Case "3"
                 textBox3.Background = New SolidColorBrush(Colors.Bisque)
         End Select
+
+
+
     End Sub
 
     Private Sub textBoxSpecial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxSpecial.TextChanged

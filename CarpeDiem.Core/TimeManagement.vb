@@ -52,6 +52,11 @@
     End Function
 
 
+    ''' <summary>
+    ''' Gets the section number of day according to given time.
+    ''' </summary>
+    ''' <param name="time"></param>
+    ''' <returns></returns>
     Public Shared Function GetDaySection(time As Date) As String
         Dim result As String = ""
         If time.Hour >= 0 And time.Hour < 8 Then
@@ -61,6 +66,34 @@
         ElseIf time.Hour >= 16 And time.Hour > 0 Then
             result = "3"
         End If
+        Return result
+    End Function
+
+    Public Shared Function SectionEndingTime(time As Date) As Date
+        Dim result As Date
+
+        Select Case GetDaySection(time)
+            Case "1"
+                result = Date.Parse(time.ToShortDateString() & " 8:00")
+            Case "2"
+                result = Date.Parse(time.ToShortDateString() & " 16:00")
+            Case "3"
+                result = Date.Parse(time.ToShortDateString() & " 23:59")
+        End Select
+        Return result
+    End Function
+
+    Public Shared Function SectionStartingTime(time As Date) As Date
+        Dim result As Date
+
+        Select Case GetDaySection(time)
+            Case "1"
+                result = Date.Parse(time.ToShortDateString() & " 0:00")
+            Case "2"
+                result = Date.Parse(time.ToShortDateString() & " 8:00")
+            Case "3"
+                result = Date.Parse(time.ToShortDateString() & " 16:00")
+        End Select
         Return result
     End Function
 
