@@ -7,9 +7,14 @@ Public Class Diary2
 
     ReadOnly timer1 As New DispatcherTimer
     Const DiaryFolder As String = "Diary2"
+    Dim currentDate As Date?
+    Dim fileChanged As Boolean = False
+    Dim fsWatcher As New FileSystemWatcher()
     Private Sub Calendar1_SelectedDatesChanged(sender As Object, e As SelectionChangedEventArgs) Handles Calendar1.SelectedDatesChanged
 
         Dim dt = Calendar1.SelectedDate
+        currentDate = dt
+
         If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt") Then
             textBox1.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt")
         Else
@@ -45,6 +50,7 @@ Public Class Diary2
                 textBox3.Background = New SolidColorBrush(Colors.Bisque)
         End Select
 
+        fsWatcher.Path = My.Application.Info.DirectoryPath & "\" & DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day
 
     End Sub
 
@@ -78,6 +84,26 @@ Public Class Diary2
         AddHandler timer1.Tick, AddressOf timer1_Tick
         timer1.Interval = New TimeSpan(0, 0, 1)
         timer1.Start()
+
+        SetupFileSystemWatcher()
+    End Sub
+
+    Private Sub SetupFileSystemWatcher()
+
+        ' add the handler to each event
+        AddHandler fsWatcher.Changed, AddressOf fsWatcher_Changed
+        AddHandler fsWatcher.Created, AddressOf fsWatcher_Changed
+        AddHandler fsWatcher.Deleted, AddressOf fsWatcher_Changed
+
+        'Set this property to true to start watching
+        fsWatcher.EnableRaisingEvents = True
+    End Sub
+
+    Private Sub fsWatcher_Changed(sender As Object, e As FileSystemEventArgs)
+
+        If e.ChangeType = WatcherChangeTypes.Changed Then
+            fileChanged = True
+        End If
     End Sub
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
@@ -97,6 +123,22 @@ Public Class Diary2
         End Select
 
 
+        If fileChanged Then
+            Dim dt = currentDate
+            If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt") Then
+                textBox1.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt")
+            End If
+
+
+            If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes2.txt") Then
+                textBox2.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes2.txt")
+            End If
+
+            If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes3.txt") Then
+                textBox3.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes3.txt")
+            End If
+            fileChanged = False
+        End If
 
     End Sub
 
