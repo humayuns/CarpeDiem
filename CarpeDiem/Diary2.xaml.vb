@@ -50,7 +50,12 @@ Public Class Diary2
                 textBox3.Background = New SolidColorBrush(Colors.Bisque)
         End Select
 
-        fsWatcher.Path = My.Application.Info.DirectoryPath & "\" & DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day
+        Try
+            fsWatcher.Path = My.Application.Info.DirectoryPath & "\" & DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day
+        Catch ex As Exception
+
+        End Try
+
 
     End Sub
 
@@ -85,7 +90,11 @@ Public Class Diary2
         timer1.Interval = New TimeSpan(0, 0, 1)
         timer1.Start()
 
-        SetupFileSystemWatcher()
+        Try
+            SetupFileSystemWatcher()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub SetupFileSystemWatcher()
@@ -139,6 +148,8 @@ Public Class Diary2
             End If
             fileChanged = False
         End If
+
+        Me.Title = "Diary2 - " & Now.ToLongTimeString() & " - " & Now.ToLongDateString()
 
     End Sub
 
