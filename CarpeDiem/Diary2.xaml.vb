@@ -163,7 +163,11 @@ Public Class Diary2
     End Sub
 
     Private Sub comboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles comboBox.SelectionChanged
-        textBox1.FontFamily = New FontFamily(comboBox.Text)
+        Dim newFont As String = ""
+        newFont = e.AddedItems(0).ToString()
+        textBox1.FontFamily = New FontFamily(newFont)
+        textBox2.FontFamily = New FontFamily(newFont)
+        textBox3.FontFamily = New FontFamily(newFont)
     End Sub
 
     Private Sub buttonFolder_Click(sender As Object, e As RoutedEventArgs) Handles buttonFolder.Click
