@@ -8,6 +8,7 @@ Public Class Diary2
     ReadOnly timer1 As New DispatcherTimer
     Const DiaryFolder As String = "Diary2"
     Dim currentDate As Date?
+    Dim todayDate As String = ""
     Dim fileChanged As Boolean = False
     Dim fsWatcher As New FileSystemWatcher()
     Private Sub Calendar1_SelectedDatesChanged(sender As Object, e As SelectionChangedEventArgs) Handles Calendar1.SelectedDatesChanged
@@ -90,6 +91,8 @@ Public Class Diary2
         timer1.Interval = New TimeSpan(0, 0, 1)
         timer1.Start()
 
+        todayDate = Now.ToShortDateString()
+
         Try
             SetupFileSystemWatcher()
         Catch ex As Exception
@@ -150,6 +153,13 @@ Public Class Diary2
         End If
 
         Me.Title = "Diary2 - " & Now.ToLongTimeString() & " - " & Now.ToLongDateString()
+
+        If todayDate <> Now.ToShortDateString() Then
+            Calendar1.SelectedDate = Date.Now
+            Calendar1.DisplayDate = Date.Now
+
+            todayDate = Now.ToShortDateString()
+        End If
 
     End Sub
 
