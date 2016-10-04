@@ -30,7 +30,29 @@
             <ComboBoxItem Content="Diary2"/>
         </ComboBox>
         <Button x:Name="buttonGo" Content="Go" HorizontalAlignment="Left" Margin="452,214,0,0" VerticalAlignment="Top" Width="30" Background="#FF22B900"/>
-        <ProgressBar x:Name="ProgressbarInspiration" HorizontalAlignment="Left" Height="8" Margin="87,168,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FF1865C1" Value="100"/>
+        <ProgressBar x:Name="ProgressbarInspiration" HorizontalAlignment="Left" Height="8" Margin="87,168,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Value="100">
+            <ProgressBar.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Foreground.(GradientBrush.GradientStops)[1].(GradientStop.Offset)" From="-1" To="0" Duration="0:0:1.5" RepeatBehavior="Forever"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Foreground.(GradientBrush.GradientStops)[2].(GradientStop.Offset)" From="0" To="1" Duration="0:0:1.5" RepeatBehavior="Forever"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Foreground.(GradientBrush.GradientStops)[3].(GradientStop.Offset)" From="1" To="2" Duration="0:0:1.5" RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ProgressBar.Triggers>
+            <ProgressBar.Foreground>
+                <LinearGradientBrush>
+                    <!--Foreground="#FF1865C1"-->
+                    <GradientStop Color="#FF218ED6" Offset="0.0" />
+                    <GradientStop Color="#FF4BA5E0" Offset="0.4" />
+                    <GradientStop Color="#FF8ECCF5" Offset="0.5" />
+                    <GradientStop Color="#FF4BA5E0" Offset="0.6" />
+                    <GradientStop Color="#FF218ED6" Offset="1.0" />
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
         <ProgressBar x:Name="ProgressbarLT" HorizontalAlignment="Left" Height="5" Margin="87,146,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF00971B"/>
         <ProgressBar x:Name="ProgressbarMonth" HorizontalAlignment="Left" Height="5" Margin="87,140,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF2868B6"/>
         <ProgressBar x:Name="ProgressbarMotivation" HorizontalAlignment="Left" Height="8" Margin="87,177,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FFBF6001" Value="100"/>
