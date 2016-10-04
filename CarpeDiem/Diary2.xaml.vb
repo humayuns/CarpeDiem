@@ -16,6 +16,13 @@ Public Class Diary2
         Dim dt = Calendar1.SelectedDate
         currentDate = dt
 
+
+        If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt") Then
+            textBoxDay.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt")
+        Else
+            textBoxDay.Text = ""
+        End If
+
         If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt") Then
             textBox1.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt")
         Else
@@ -137,6 +144,11 @@ Public Class Diary2
 
         If fileChanged Then
             Dim dt = currentDate
+
+            If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt") Then
+                textBoxDay.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt")
+            End If
+
             If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt") Then
                 textBox1.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt")
             End If
@@ -169,7 +181,13 @@ Public Class Diary2
     End Sub
 
     Private Sub textBoxFontSize_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxFontSize.TextChanged
-        textBox1.FontSize = textBoxFontSize.Text
+        Try
+            textBox1.FontSize = textBoxFontSize.Text
+            textBox2.FontSize = textBoxFontSize.Text
+            textBox3.FontSize = textBoxFontSize.Text
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub comboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles comboBox.SelectionChanged
@@ -232,5 +250,21 @@ Public Class Diary2
     Private Sub buttonPreviousDate_Click(sender As Object, e As RoutedEventArgs) Handles buttonPreviousDate.Click
         Calendar1.SelectedDate = Calendar1.SelectedDate.Value.AddDays(-1)
         Calendar1.DisplayDate = Calendar1.SelectedDate
+    End Sub
+
+    Private Sub textBoxDay_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxDay.TextChanged
+        Dim dt = Calendar1.SelectedDate
+
+
+        Try
+            If Not Directory.Exists(DiaryFolder) Then Directory.CreateDirectory(DiaryFolder)
+            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year)
+            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month) Then Directory.CreateDirectory(DiaryFolder & "\" & "\" & dt.Value.Year & "\" & dt.Value.Month)
+            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
+
+            File.WriteAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt", textBoxDay.Text)
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

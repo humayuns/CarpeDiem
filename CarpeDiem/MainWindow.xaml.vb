@@ -151,7 +151,7 @@ Class MainWindow
     End Sub
 
     Private Sub buttonClock_Copy_Click(sender As Object, e As RoutedEventArgs) Handles buttonClock_Copy.Click
-        Dim d As New Diary
+        Dim d As New Diary2
         d.Show()
     End Sub
 End Class
