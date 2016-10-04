@@ -10,14 +10,17 @@
         <Calendar x:Name="Calendar1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="165" Margin="194,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="579" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
         <TextBox x:Name="textBoxSpecial" HorizontalAlignment="Left" Height="309" Margin="10,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <Label x:Name="label" Content="Special Symbols" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
+        <Label x:Name="label" Content="Symbols" HorizontalAlignment="Left" Margin="5,188,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" FontSize="8" Width="43"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,528,0,0" VerticalAlignment="Top" Width="143" ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}"/>
         <TextBox x:Name="textBoxFontSize" HorizontalAlignment="Left" Height="23" Margin="158,527,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Text="12" TextAlignment="Center"/>
-        <Button x:Name="buttonFolder" Content="📂" HorizontalAlignment="Left" Margin="158,186,0,0" VerticalAlignment="Top" Width="32"/>
-        <Button x:Name="buttonCurrentDate" Content="🗓" HorizontalAlignment="Left" Margin="121,186,0,0" VerticalAlignment="Top" Width="32"/>
+        <Button x:Name="buttonFolder" Content="📂" HorizontalAlignment="Left" Margin="158,186,0,0" VerticalAlignment="Top" Width="32" ToolTip="Open Current Day Folder"/>
+        <Button x:Name="buttonCurrentDate" Content="🗓" HorizontalAlignment="Left" Margin="121,186,0,0" VerticalAlignment="Top" Width="32" ToolTip="Current Date"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="165" Margin="194,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="579" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
         <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="165" Margin="194,358,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="579" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
         <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="22" Margin="194,528,0,0" VerticalAlignment="Top" Width="579" Foreground="#FFECCB37" Background="#FF4D4D4D"/>
+        <Button x:Name="buttonPreviousDate" Content="◀" HorizontalAlignment="Left" Margin="48,186,0,0" VerticalAlignment="Top" Width="32" ToolTip="Previous Date" />
+        <Button x:Name="buttonNextDate" Content="▶" HorizontalAlignment="Left" Margin="84,186,0,0" VerticalAlignment="Top" Width="32" ToolTip="Next Date"/>
+        
 
     </Grid>
 </Window>

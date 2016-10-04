@@ -223,4 +223,14 @@ Public Class Diary2
 
         End Try
     End Sub
+
+    Private Sub buttonNextDate_Click(sender As Object, e As RoutedEventArgs) Handles buttonNextDate.Click
+        Calendar1.SelectedDate = Calendar1.SelectedDate.Value.AddDays(1)
+        Calendar1.DisplayDate = Calendar1.SelectedDate
+    End Sub
+
+    Private Sub buttonPreviousDate_Click(sender As Object, e As RoutedEventArgs) Handles buttonPreviousDate.Click
+        Calendar1.SelectedDate = Calendar1.SelectedDate.Value.AddDays(-1)
+        Calendar1.DisplayDate = Calendar1.SelectedDate
+    End Sub
 End Class
