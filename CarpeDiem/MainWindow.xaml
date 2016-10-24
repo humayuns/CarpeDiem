@@ -3,22 +3,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Carpe Diem" Height="287" Width="586" Loaded="Window_Loaded" MouseDown="Window_MouseDown" Icon="Images/ClearD-A.ico">
     <Grid Unloaded="Grid_Unloaded">
-        
-        <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="54,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"/>
+
+        <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="53,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"/>
         <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="7,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF0CA83E"/>
-        <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="7,86,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelTarget" Content="Target" HorizontalAlignment="Left" Margin="120,86,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="6,185,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelTarget" Content="Target" HorizontalAlignment="Left" Margin="119,185,0,0" VerticalAlignment="Top"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="462,10,0,0" VerticalAlignment="Top" Width="100" Source="Images/John-Keating.jpg"/>
-        <Label x:Name="labelTitle" Content="Carpe Diem" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="29.333" Width="182" Foreground="#FFF10000" FontStyle="Italic" FontWeight="Bold"/>
-        <Label x:Name="labelHoursLeft" Content="00" HorizontalAlignment="Left" Margin="87,86,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelTitle" Content="Carpe Diem" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="82" Foreground="#FFF10000" FontStyle="Italic" FontWeight="Bold"/>
+        <Label x:Name="labelHoursLeft" Content="00" HorizontalAlignment="Left" Margin="86,185,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSprite" Content="Sprite" HorizontalAlignment="Left" Margin="87,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF4AC8EE"/>
-        <ProgressBar x:Name="ProgressbarFood" HorizontalAlignment="Left" Height="13" Margin="87,154,0,0" VerticalAlignment="Top" Width="475" Background="#FFBD2E2E" Foreground="#FFF3EA1C" Value="100"/>
+        <ProgressBar x:Name="ProgressbarFood" HorizontalAlignment="Left" Height="15" Margin="87,151,0,0" VerticalAlignment="Top" Width="475" Background="#FFBD2E2E" Foreground="#FFF3EA1C" Value="100"/>
         <Button x:Name="buttonFood" Content="Food" HorizontalAlignment="Left" Margin="327,188,0,0" VerticalAlignment="Top" Width="75" Background="#FFF19E26" FontSize="9" Height="15" Foreground="White"/>
         <Button x:Name="buttonClock" Content="Clock" HorizontalAlignment="Left" Margin="247,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF269EF1"/>
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="70" Margin="10,117,0,0" VerticalAlignment="Top" Width="70" Source="Images/User.png"/>
         <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="487,214,0,0" VerticalAlignment="Top" Width="75" Background="#FFF15D26"/>
-        <Label x:Name="labelTime" Content="00:00:00 AM" HorizontalAlignment="Left" Margin="270,10,0,0" VerticalAlignment="Top" FontSize="32" Width="187" Foreground="#FF464646" FontFamily="Adobe Caslon Pro Bold" Background="#FFE4E4E4" Height="42" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
-        <Label x:Name="labelTimeUTC" Content="Long Date String" HorizontalAlignment="Left" Margin="270,57,0,0" VerticalAlignment="Top" FontSize="16" Width="187" Foreground="#FF464646" FontFamily="Adobe Caslon Pro Bold" Background="#FFC7DCFF" Height="29" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
+        <Label x:Name="labelTime" Content="00:00:00 AM" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" Width="187" Foreground="#FF464646" FontFamily="Monotype Corsiva" Background="#FFE4E4E4" Height="26" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
+        <Label x:Name="labelTimeUTC" Content="Long Date String" HorizontalAlignment="Left" Margin="275,10,0,0" VerticalAlignment="Top" Width="182" Foreground="#FF464646" FontFamily="Monotype Corsiva" Background="#FFC7DCFF" Height="26" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="327,214,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="CountDown"/>
             <ComboBoxItem Content="Stop Watch"/>
@@ -53,12 +53,37 @@
                 </LinearGradientBrush>
             </ProgressBar.Foreground>
         </ProgressBar>
-        <ProgressBar x:Name="ProgressbarLT" HorizontalAlignment="Left" Height="5" Margin="87,146,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF00971B"/>
-        <ProgressBar x:Name="ProgressbarMonth" HorizontalAlignment="Left" Height="5" Margin="87,140,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF2868B6"/>
+
+        <Grid HorizontalAlignment="Left" Height="15" Margin="10,41,0,0" VerticalAlignment="Top" Width="447">
+            <ProgressBar x:Name="ProgressbarDay" Foreground="#FFE4BE3B"/>
+            <TextBlock x:Name="ProgressbarDayText" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" >
+            DAY
+            </TextBlock>
+        </Grid>
+
+        <Grid HorizontalAlignment="Left" Height="15" Margin="10,58,0,0" VerticalAlignment="Top" Width="447">
+            <ProgressBar x:Name="ProgressbarWeek" Foreground="#FF00828F"/>
+            <TextBlock x:Name="ProgressbarWeekText" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" >
+            WEEK
+            </TextBlock>
+        </Grid>
+
+        <Grid HorizontalAlignment="Left" Height="15" Margin="10,75,0,0" VerticalAlignment="Top" Width="447">
+            <ProgressBar x:Name="ProgressbarMonth" Foreground="#FF2868B6"/>
+            <TextBlock x:Name="ProgressbarMonthText" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" >
+            MONTH
+            </TextBlock>
+        </Grid>
+
+        <Grid HorizontalAlignment="Left" Height="15" Margin="10,92,0,0" VerticalAlignment="Top" Width="447">
+            <ProgressBar x:Name="ProgressbarLT"  Foreground="#FF00971B"/>
+            <TextBlock x:Name="ProgressbarLTText" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" >
+            YEAR
+            </TextBlock>
+        </Grid>
+
         <ProgressBar x:Name="ProgressbarMotivation" HorizontalAlignment="Left" Height="8" Margin="87,177,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FFBF6001" Value="100"/>
-        <ProgressBar x:Name="ProgressbarWeek" HorizontalAlignment="Left" Height="8" Margin="87,131,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF00828F"/>
-        <ProgressBar x:Name="ProgressbarDay" HorizontalAlignment="Left" Height="5" Margin="87,126,0,0" VerticalAlignment="Top" Width="475" Foreground="#FFE4BE3B"/>
-        <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="8" Margin="87,117,0,0" VerticalAlignment="Top" Width="475"/>
+        <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="32" Margin="87,117,0,0" VerticalAlignment="Top" Width="475"/>
         <Button x:Name="buttonMotivation" Content="Motivation" HorizontalAlignment="Left" Margin="407,188,0,0" VerticalAlignment="Top" Width="75" Background="#FFBF6001" FontSize="9" Height="15" Foreground="#FFFFDADA"/>
         <Button x:Name="buttonInspiration" Content="Inspiration" HorizontalAlignment="Left" Margin="487,188,0,0" VerticalAlignment="Top" Width="75" Background="#FF1865C1" FontSize="9" Height="15" Foreground="White"/>
         <Button x:Name="buttonClock_Copy" Content="Diary" HorizontalAlignment="Left" Margin="167,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF2476EC"/>

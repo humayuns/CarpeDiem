@@ -53,6 +53,13 @@ Class MainWindow
         ProgressbarWeek.Value = TimeManagement.GetDifferencePercentage(TimeManagement.GetFirstDayOfWeek(Now, DayOfWeek.Monday), TimeManagement.GetFirstDayOfWeek(Now, DayOfWeek.Monday).AddDays(7))
         ProgressbarDay.Value = TimeManagement.GetDifferencePercentage(Now.Date, Now.Date.AddDays(1).AddTicks(-1))
 
+
+        ProgressbarDayText.Text = Now.Day & " - " & (ProgressbarDay.Value / 100).ToString("p")
+        ProgressbarWeekText.Text = TimeManagement.GetIso8601WeekOfYear(Now) & " - " & (ProgressbarWeek.Value / 100).ToString("p")
+        ProgressbarMonthText.Text = TimeManagement.GetMonthName(Now.Month) & "(" & Now.Month & ")" & " - " & (ProgressbarMonth.Value / 100).ToString("p")
+        ProgressbarLTText.Text = Now.Year & " - " & (ProgressbarLT.Value / 100).ToString("p")
+
+
         labelHoursLeft.Content = Math.Round(targetTime.Subtract(Now).TotalHours, 2)
 
         If Progressbar1.Value >= 100 Then

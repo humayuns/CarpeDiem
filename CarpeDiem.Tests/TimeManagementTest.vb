@@ -43,6 +43,14 @@
         Assert.AreEqual(TimeManagement.SectionStartingTime(Date.Parse("1:00")), Date.Parse("0:00"))
     End Sub
 
+    <TestMethod()> Public Sub CorrectWeekOfYear()
+        Assert.AreEqual(TimeManagement.GetIso8601WeekOfYear(New Date(2016, 10, 25)), 43)
+    End Sub
+
+    <TestMethod()> Public Sub CorrectMonthName()
+        Assert.AreEqual(TimeManagement.GetMonthName(10), "October")
+    End Sub
+
     <TestMethod()> Public Sub test()
 
         Dim msg = "All good"
