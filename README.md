@@ -10,5 +10,12 @@ Tools that help get the most from days.
 * Year countdown
 * Diary
 
+## Main Window
+* Custom Progress
+* Day Progress (in development)
+* Week Progress
+* Month Progress
+* Year Progress
+
 # Resources
 * [wiki](https://github.com/humayuns/CarpeDiem/wiki)
