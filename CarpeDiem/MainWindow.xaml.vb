@@ -49,9 +49,9 @@ Class MainWindow
         ProgressbarInspiration.Value = timeDiffInspiration.GetDifferencePercentage()
 
         ProgressbarLT.Value = TimeManagement.GetDifferencePercentage(My.Settings.LTGoalStart, My.Settings.LTGoalEnd)
-        ProgressbarMonth.Value = TimeManagement.GetDifferencePercentage(TimeManagement.GetFirstDayOfMonth(now), TimeManagement.GetLastDayOfMonth(now))
-        
+        ProgressbarMonth.Value = TimeManagement.GetDifferencePercentage(TimeManagement.GetFirstDayOfMonth(Now), TimeManagement.GetLastDayOfMonth(Now))
         ProgressbarWeek.Value = TimeManagement.GetDifferencePercentage(TimeManagement.GetFirstDayOfWeek(Now, DayOfWeek.Monday), TimeManagement.GetFirstDayOfWeek(Now, DayOfWeek.Monday).AddDays(7))
+        ProgressbarDay.Value = TimeManagement.GetDifferencePercentage(Now.Date, Now.Date.AddDays(1).AddTicks(-1))
 
         labelHoursLeft.Content = Math.Round(targetTime.Subtract(Now).TotalHours, 2)
 

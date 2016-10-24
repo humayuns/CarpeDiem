@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Carpe Diem" Height="287" Width="586" Loaded="Window_Loaded" MouseDown="Window_MouseDown" Icon="Images/ClearD-A.ico">
     <Grid Unloaded="Grid_Unloaded">
-        <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="13" Margin="87,117,0,0" VerticalAlignment="Top" Width="475"/>
+        
         <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="54,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"/>
         <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="7,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF0CA83E"/>
         <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="7,86,0,0" VerticalAlignment="Top"/>
@@ -57,6 +57,8 @@
         <ProgressBar x:Name="ProgressbarMonth" HorizontalAlignment="Left" Height="5" Margin="87,140,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF2868B6"/>
         <ProgressBar x:Name="ProgressbarMotivation" HorizontalAlignment="Left" Height="8" Margin="87,177,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Foreground="#FFBF6001" Value="100"/>
         <ProgressBar x:Name="ProgressbarWeek" HorizontalAlignment="Left" Height="8" Margin="87,131,0,0" VerticalAlignment="Top" Width="475" Foreground="#FF00828F"/>
+        <ProgressBar x:Name="ProgressbarDay" HorizontalAlignment="Left" Height="5" Margin="87,126,0,0" VerticalAlignment="Top" Width="475" Foreground="#FFE4BE3B"/>
+        <ProgressBar x:Name="Progressbar1" HorizontalAlignment="Left" Height="8" Margin="87,117,0,0" VerticalAlignment="Top" Width="475"/>
         <Button x:Name="buttonMotivation" Content="Motivation" HorizontalAlignment="Left" Margin="407,188,0,0" VerticalAlignment="Top" Width="75" Background="#FFBF6001" FontSize="9" Height="15" Foreground="#FFFFDADA"/>
         <Button x:Name="buttonInspiration" Content="Inspiration" HorizontalAlignment="Left" Margin="487,188,0,0" VerticalAlignment="Top" Width="75" Background="#FF1865C1" FontSize="9" Height="15" Foreground="White"/>
         <Button x:Name="buttonClock_Copy" Content="Diary" HorizontalAlignment="Left" Margin="167,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF2476EC"/>
