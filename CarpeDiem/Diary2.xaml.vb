@@ -41,6 +41,20 @@ Public Class Diary2
             textBox3.Text = ""
         End If
 
+        If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\ideas.rtf") Then
+            Try
+                Dim TextRange = New TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd)
+                Using fs = New System.IO.FileStream(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\ideas.rtf", System.IO.FileMode.OpenOrCreate)
+                    richTextBox.Document.Blocks.Clear()
+                    TextRange.Load(fs, System.Windows.DataFormats.Rtf)
+                End Using
+            Catch ex As Exception
+
+            End Try
+        Else
+            richTextBox.Document.Blocks.Clear()
+        End If
+
         Dim ca = New ColorAnimation(Colors.White, New Duration(TimeSpan.FromMilliseconds(500)))
         textBox1.Background = New SolidColorBrush(Colors.Azure)
         textBox1.Background.BeginAnimation(SolidColorBrush.ColorProperty, ca)
@@ -161,6 +175,23 @@ Public Class Diary2
             If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes3.txt") Then
                 textBox3.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes3.txt")
             End If
+
+            Try
+
+                If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\ideas.rtf") Then
+                    Dim TextRange = New TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd)
+                    Using fs = New System.IO.FileStream(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\ideas.rtf", System.IO.FileMode.OpenOrCreate)
+                        richTextBox.Document.Blocks.Clear()
+                        TextRange.Load(fs, System.Windows.DataFormats.Rtf)
+                    End Using
+                Else
+                    richTextBox.Document.Blocks.Clear()
+                End If
+
+            Catch ex As Exception
+
+            End Try
+
             fileChanged = False
         End If
 
@@ -215,11 +246,7 @@ Public Class Diary2
 
 
         Try
-            If Not Directory.Exists(DiaryFolder) Then Directory.CreateDirectory(DiaryFolder)
-            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year)
-            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month) Then Directory.CreateDirectory(DiaryFolder & "\" & "\" & dt.Value.Year & "\" & dt.Value.Month)
-            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
-
+            CreateDirectoryIfNotExists()
             File.WriteAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes2.txt", textBox2.Text)
         Catch ex As Exception
 
@@ -231,11 +258,7 @@ Public Class Diary2
 
 
         Try
-            If Not Directory.Exists(DiaryFolder) Then Directory.CreateDirectory(DiaryFolder)
-            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year)
-            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month) Then Directory.CreateDirectory(DiaryFolder & "\" & "\" & dt.Value.Year & "\" & dt.Value.Month)
-            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
-
+            CreateDirectoryIfNotExists()
             File.WriteAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes3.txt", textBox3.Text)
         Catch ex As Exception
 
@@ -253,18 +276,84 @@ Public Class Diary2
     End Sub
 
     Private Sub textBoxDay_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxDay.TextChanged
+
         Dim dt = Calendar1.SelectedDate
 
-
         Try
-            If Not Directory.Exists(DiaryFolder) Then Directory.CreateDirectory(DiaryFolder)
-            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year)
-            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month) Then Directory.CreateDirectory(DiaryFolder & "\" & "\" & dt.Value.Year & "\" & dt.Value.Month)
-            If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
-
+            CreateDirectoryIfNotExists()
             File.WriteAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt", textBoxDay.Text)
         Catch ex As Exception
 
         End Try
+    End Sub
+
+
+
+    Private Sub btnSmoothDraw_Click(sender As Object, e As RoutedEventArgs) Handles btnSmoothDraw.Click
+        CopyTemplateAndStart("ideas.sddoc")
+
+    End Sub
+
+
+
+    Private Sub btnSketchBook_Click(sender As Object, e As RoutedEventArgs) Handles btnSketchBook.Click
+        MsgBox("Coming soon!")
+    End Sub
+
+
+
+    Private Sub CreateFileAndStart(fileName As String)
+        Dim dt = Calendar1.SelectedDate
+        Dim fpath = DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\" & fileName
+
+        If Not File.Exists(fpath) Then
+            File.WriteAllText(fpath, "")
+        End If
+
+        Process.Start(fpath)
+    End Sub
+
+    Private Sub CreateDirectoryIfNotExists()
+        Dim dt = Calendar1.SelectedDate
+        If Not Directory.Exists(DiaryFolder) Then Directory.CreateDirectory(DiaryFolder)
+        If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year)
+        If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month) Then Directory.CreateDirectory(DiaryFolder & "\" & "\" & dt.Value.Year & "\" & dt.Value.Month)
+        If Not Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day) Then Directory.CreateDirectory(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
+    End Sub
+
+    Private Sub CopyTemplateAndStart(fileName As String)
+        Dim dt = Calendar1.SelectedDate
+        Dim fpath = DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\" & fileName
+
+        If Not File.Exists(fpath) Then
+            File.Copy(DiaryFolder & "\templates\" & fileName, fpath)
+        End If
+
+        Process.Start(fpath)
+    End Sub
+
+    Private Sub btnWordDoc_Click(sender As Object, e As RoutedEventArgs) Handles btnWordDoc.Click
+        CreateFileAndStart("ideas.docx")
+    End Sub
+
+    Private Sub btnWordPad_Click(sender As Object, e As RoutedEventArgs) Handles btnWordPad.Click
+        CreateFileAndStart("ideas.rtf")
+    End Sub
+
+    Private Sub btnPhotoshop_Click(sender As Object, e As RoutedEventArgs) Handles btnPhotoshop.Click
+        CopyTemplateAndStart("ideas.psd")
+    End Sub
+
+    Private Sub richTextBox_TextChanged(sender As Object, e As TextChangedEventArgs) Handles richTextBox.TextChanged
+        'Try
+        '    Dim dt = Calendar1.SelectedDate
+        '    Dim TextRange = New TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd)
+        '    Using fs = New FileStream(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\ideas.rtf", FileMode.OpenOrCreate)
+        '        TextRange.Save(fs, System.Windows.DataFormats.Rtf)
+        '    End Using
+
+        'Catch ex As Exception
+
+        'End Try
     End Sub
 End Class

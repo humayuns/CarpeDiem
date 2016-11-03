@@ -30,6 +30,23 @@
                     <TextBox x:Name="textBoxDay" HorizontalAlignment="Left" Height="521" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="581" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
                 </Grid>
             </TabItem>
+            <TabItem Header="RichText">
+                <Grid Background="#FFE5E5E5">
+                    <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="501" Margin="10,10,0,0" VerticalAlignment="Top" Width="561">
+                        <FlowDocument/>
+                    </RichTextBox>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tools" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="btnSmoothDraw" Content="🌼 SmoothDraw" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
+                    <Button x:Name="btnSketchBook" Content="✎ SketchBook" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="100"/>
+                    <Button x:Name="btnWordDoc" Content="✍ Word Doc" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="100"/>
+                    <Button x:Name="btnWordPad" Content="✏ WordPad" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="100"/>
+                    <Button x:Name="btnPhotoshop" Content="✨ Photoshop" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="100"/>
+                </Grid>
+            </TabItem>
         </TabControl>
 
 
