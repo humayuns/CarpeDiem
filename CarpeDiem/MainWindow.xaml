@@ -17,8 +17,8 @@
         <Button x:Name="buttonClock" Content="Clock" HorizontalAlignment="Left" Margin="247,214,0,0" VerticalAlignment="Top" Width="75" Background="#FF269EF1"/>
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="70" Margin="10,117,0,0" VerticalAlignment="Top" Width="70" Source="Images/User.png"/>
         <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="487,214,0,0" VerticalAlignment="Top" Width="75" Background="#FFF15D26"/>
-        <Label x:Name="labelTime" Content="00:00:00 AM" HorizontalAlignment="Left" Margin="87,10,0,0" VerticalAlignment="Top" Width="187" Foreground="#FF464646" FontFamily="Monotype Corsiva" Background="#FFE4E4E4" Height="26" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
-        <Label x:Name="labelTimeUTC" Content="Long Date String" HorizontalAlignment="Left" Margin="275,10,0,0" VerticalAlignment="Top" Width="182" Foreground="#FF464646" FontFamily="Monotype Corsiva" Background="#FFC7DCFF" Height="26" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
+        <Label x:Name="labelTime" Content="00:00:00 AM" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Width="95" Foreground="#FF464646" FontFamily="Fira Code Medium" Background="#FFE4E4E4" Height="26" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
+        <Label x:Name="labelTimeUTC" Content="Weekday, Month 00, 0000" HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" Width="215" Foreground="#FF464646" FontFamily="Fira Code Medium" Background="#FFC7DCFF" Height="26" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="327,214,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="CountDown"/>
             <ComboBoxItem Content="Stop Watch"/>
