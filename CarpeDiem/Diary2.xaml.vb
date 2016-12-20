@@ -16,30 +16,13 @@ Public Class Diary2
         Dim dt = Calendar1.SelectedDate
         currentDate = dt
 
+        Dim dayFolder = DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day
 
-        If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt") Then
-            textBoxDay.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt")
-        Else
-            textBoxDay.Text = ""
-        End If
-
-        If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt") Then
-            textBox1.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt")
-        Else
-            textBox1.Text = ""
-        End If
-
-        If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes2.txt") Then
-            textBox2.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes2.txt")
-        Else
-            textBox2.Text = ""
-        End If
-
-        If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes3.txt") Then
-            textBox3.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes3.txt")
-        Else
-            textBox3.Text = ""
-        End If
+        textBoxDay.Text = GetFileText(dayFolder & "\notes.txt")
+        textBox1.Text = GetFileText(dayFolder & "\notes1.txt")
+        textBox2.Text = GetFileText(dayFolder & "\notes2.txt")
+        textBox3.Text = GetFileText(dayFolder & "\notes3.txt")
+        textBoxMonoSpace.Text = GetFileText(dayFolder & "\monospace.txt")
 
         If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\ideas.rtf") Then
             Try
@@ -81,6 +64,14 @@ Public Class Diary2
 
     End Sub
 
+
+    Private Function GetFileText(filePath As String) As String
+        If File.Exists(filePath) Then
+            Return File.ReadAllText(filePath)
+        Else
+            Return ""
+        End If
+    End Function
 
     Private Sub textBox1_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBox1.TextChanged
 
@@ -159,22 +150,14 @@ Public Class Diary2
         If fileChanged Then
             Dim dt = currentDate
 
-            If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt") Then
-                textBoxDay.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes.txt")
-            End If
 
-            If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt") Then
-                textBox1.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes1.txt")
-            End If
+            Dim dayFolder = DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day
 
-
-            If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes2.txt") Then
-                textBox2.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes2.txt")
-            End If
-
-            If File.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes3.txt") Then
-                textBox3.Text = File.ReadAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\notes3.txt")
-            End If
+            textBoxDay.Text = GetFileText(dayFolder & "\notes.txt")
+            textBox1.Text = GetFileText(dayFolder & "\notes1.txt")
+            textBox2.Text = GetFileText(dayFolder & "\notes2.txt")
+            textBox3.Text = GetFileText(dayFolder & "\notes3.txt")
+            textBoxMonoSpace.Text = GetFileText(dayFolder & "\monospace.txt")
 
             Try
 
@@ -345,6 +328,7 @@ Public Class Diary2
     End Sub
 
     Private Sub richTextBox_TextChanged(sender As Object, e As TextChangedEventArgs) Handles richTextBox.TextChanged
+        ' FIX: Fix the saving of RTF.
         'Try
         '    Dim dt = Calendar1.SelectedDate
         '    Dim TextRange = New TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd)
@@ -355,5 +339,16 @@ Public Class Diary2
         'Catch ex As Exception
 
         'End Try
+    End Sub
+
+    Private Sub textBoxMonoSpace_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxMonoSpace.TextChanged
+        Dim dt = Calendar1.SelectedDate
+
+        Try
+            CreateDirectoryIfNotExists()
+            File.WriteAllText(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\monospace.txt", textBoxMonoSpace.Text)
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

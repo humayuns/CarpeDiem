@@ -30,6 +30,11 @@
                     <TextBox x:Name="textBoxDay" HorizontalAlignment="Left" Height="521" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="581" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
                 </Grid>
             </TabItem>
+            <TabItem Header="Monospace" >
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="textBoxMonoSpace" HorizontalAlignment="Left" Height="521" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="581" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="Fira Code" />
+                </Grid>
+            </TabItem>
             <TabItem Header="RichText">
                 <Grid Background="#FFE5E5E5">
                     <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="501" Margin="10,10,0,0" VerticalAlignment="Top" Width="561">
@@ -47,6 +52,7 @@
                     <Button x:Name="btnPhotoshop" Content="✨ Photoshop" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="100"/>
                 </Grid>
             </TabItem>
+            
         </TabControl>
 
 
