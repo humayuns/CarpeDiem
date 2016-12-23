@@ -180,6 +180,7 @@ Public Class Diary2
 
         Me.Title = "Diary2 - " & Now.ToLongTimeString() & " - " & Now.ToLongDateString()
 
+        ' Check for day change
         If todayDate <> Now.ToShortDateString() Then
             Calendar1.SelectedDate = Date.Now
             Calendar1.DisplayDate = Date.Now
