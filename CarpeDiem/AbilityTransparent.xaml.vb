@@ -10,4 +10,20 @@
         Me.Hide()
         Me.ParentWindow.Show()
     End Sub
+
+
+    Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)
+        Select Case e.Key
+            Case Key.OemPlus
+                Me.Width += 10
+                Me.Height += 10
+                Me.image.Width += 10
+                Me.image.Height += 10
+            Case Key.OemMinus
+                Me.Width -= 10
+                Me.Height -= 10
+                Me.image.Width -= 10
+                Me.image.Height -= 10
+        End Select
+    End Sub
 End Class
