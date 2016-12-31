@@ -36,7 +36,7 @@ Public Class TimeManagement
 
     Public Shared Function GetLastDayOfMonth(dateTime As DateTime) As DateTime
         Dim firstDayOfTheMonth As New DateTime(dateTime.Year, dateTime.Month, 1)
-        Return firstDayOfTheMonth.AddMonths(1).AddDays(-1)
+        Return firstDayOfTheMonth.AddMonths(1).AddMinutes(-1)
     End Function
 
     ''' <summary>
