@@ -32,7 +32,7 @@
             </TabItem>
             <TabItem Header="Monospace" >
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="textBoxMonoSpace" HorizontalAlignment="Left" Height="521" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="581" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="Fira Code" />
+                    <TextBox x:Name="textBoxMonoSpace" HorizontalAlignment="Left" Height="521" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="581" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="Fira Code" AcceptsTab="True" />
                 </Grid>
             </TabItem>
             <TabItem Header="RichText">
@@ -43,7 +43,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Tools" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
+            <TabItem Header="Tools">
                 <Grid Background="#FFE5E5E5">
                     <Button x:Name="btnSmoothDraw" Content="🌼 SmoothDraw" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
                     <Button x:Name="btnSketchBook" Content="✎ SketchBook" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="100"/>
