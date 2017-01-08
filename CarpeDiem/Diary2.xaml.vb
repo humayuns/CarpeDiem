@@ -215,8 +215,9 @@ Public Class Diary2
 
     Private Sub buttonFolder_Click(sender As Object, e As RoutedEventArgs) Handles buttonFolder.Click
         Dim dt = Calendar1.SelectedDate
+        CreateDirectoryIfNotExists()
         If Directory.Exists(DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day) Then
-            Process.Start(System.AppDomain.CurrentDomain.BaseDirectory & "\" & DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
+            Process.Start(AppDomain.CurrentDomain.BaseDirectory & "\" & DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day)
         End If
     End Sub
 
@@ -308,6 +309,7 @@ Public Class Diary2
     Private Sub CopyTemplateAndStart(fileName As String)
         Dim dt = Calendar1.SelectedDate
         Dim fpath = DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day & "\" & fileName
+        CreateDirectoryIfNotExists()
 
         If Not File.Exists(fpath) Then
             File.Copy(DiaryFolder & "\templates\" & fileName, fpath)
