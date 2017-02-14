@@ -44,7 +44,12 @@ Public Class Ability
     End Sub
 
     Private Sub buttonStart_Click(sender As Object, e As RoutedEventArgs) Handles buttonStart.Click
+        StartAbility()
+    End Sub
+
+    Public Sub StartAbility()
         ' Get time difference
+        If textBoxTime.Text = "" Then textBoxTime.Text = 1
         targetTime = TimeManagement.GetTimeAfterMinutes(textBoxTime.Text)
         totalSeconds = targetTime.Subtract(Date.Now).TotalSeconds
         ProgressBar1.Value = 100

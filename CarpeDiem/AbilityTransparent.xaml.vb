@@ -1,6 +1,6 @@
 ﻿Public Class AbilityTransparent
 
-    Public Property ParentWindow As Window
+    Public Property ParentWindow As Ability
 
     Private Sub Window_MouseDown(sender As Object, e As MouseButtonEventArgs)
         If (e.ChangedButton = MouseButton.Left) Then DragMove()
@@ -24,6 +24,8 @@
                 Me.Height -= 10
                 Me.image.Width -= 10
                 Me.image.Height -= 10
+            Case Key.Enter
+                Me.ParentWindow.StartAbility()
         End Select
     End Sub
 End Class
