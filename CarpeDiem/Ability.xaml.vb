@@ -34,7 +34,7 @@ Public Class Ability
             PlaySound("C:\Windows\Media\tada.wav")
             abilityTransparent.ProgressBar1.Visibility = Visibility.Hidden
             counter += 1
-            Me.Title = "Ability (" + counter + ")"
+            Me.Title = "Ability (+" & counter & ")"
             If checkBoxAuto.IsChecked Then StartAbility()
             If Not checkBoxRepeat.IsChecked Then Close()
 
