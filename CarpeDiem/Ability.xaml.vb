@@ -6,6 +6,7 @@ Public Class Ability
     Dim targetTime As New Date
     Dim totalSeconds As Integer
     Dim abilityTransparent As AbilityTransparent
+    Dim counter As Integer = 0
 
     Private Sub Ability_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         AddHandler timer1.Tick, AddressOf timer1_Tick
@@ -32,7 +33,8 @@ Public Class Ability
             timer1.Stop()
             PlaySound("C:\Windows\Media\tada.wav")
             abilityTransparent.ProgressBar1.Visibility = Visibility.Hidden
-
+            counter += 1
+            Me.Title = "Ability (" + counter + ")"
             If checkBoxAuto.IsChecked Then StartAbility()
             If Not checkBoxRepeat.IsChecked Then Close()
 
