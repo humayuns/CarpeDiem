@@ -28,14 +28,14 @@ Public Class Ability
         abilityTransparent.ProgressBar1.Value = ProgressBar1.Value
         Debug.Print(ProgressBar1.Value)
         If ProgressBar1.Value = 0 Then
-            timer1.Stop()
-            'MsgBox("Finished!", MsgBoxStyle.Information)
-            PlaySound("C:\Windows\Media\tada.wav")
 
+            timer1.Stop()
+            PlaySound("C:\Windows\Media\tada.wav")
             abilityTransparent.ProgressBar1.Visibility = Visibility.Hidden
-            If not checkBoxRepeat.IsChecked Then
-                Me.Close
-            End If
+
+            If checkBoxAuto.IsChecked Then StartAbility()
+            If Not checkBoxRepeat.IsChecked Then Close()
+
         End If
     End Sub
 
