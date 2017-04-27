@@ -15,9 +15,13 @@ Class MainWindow
     Dim targetTime As DateTime
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         AddHandler timer1.Tick, AddressOf timer1_Tick
+        timer1.Interval = New TimeSpan(0, 0, 1)
+        timer1.Start()
+
         UpdateFoodClock()
         RefreshMotivation()
         RefreshInspiration()
+
     End Sub
 
     Private Sub UpdateFoodClock()
@@ -43,7 +47,13 @@ Class MainWindow
         labelTime.Content = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
         labelTimeUTC.Content = Date.Now.ToLongDateString()
 
-        Progressbar1.Value = timeDiff.GetDifferencePercentage()
+        Try
+            Progressbar1.Value = timeDiff.GetDifferencePercentage()
+            labelHoursLeft.Content = Math.Round(targetTime.Subtract(Now).TotalHours, 2)
+        Catch ex As Exception
+
+        End Try
+
         ProgressbarFood.Value = timeDiffFood.GetDifferencePercentage()
         ProgressbarMotivation.Value = timeDiffMotivation.GetDifferencePercentage()
         ProgressbarInspiration.Value = timeDiffInspiration.GetDifferencePercentage()
@@ -60,7 +70,7 @@ Class MainWindow
         ProgressbarLTText.Text = Now.Year & " - " & (ProgressbarLT.Value / 100).ToString("p")
 
 
-        labelHoursLeft.Content = Math.Round(targetTime.Subtract(Now).TotalHours, 2)
+
 
         If Progressbar1.Value >= 100 Then
             timer1.IsEnabled = False
@@ -68,8 +78,8 @@ Class MainWindow
         End If
 
         If Progressbar1.Value <= 0 Then
-            timer1.IsEnabled = False
-            MsgBox("Finished!", MsgBoxStyle.Information)
+            'timer1.IsEnabled = False
+            'MsgBox("Finished!", MsgBoxStyle.Information)
         End If
     End Sub
 
