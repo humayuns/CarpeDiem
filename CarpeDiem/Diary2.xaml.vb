@@ -186,6 +186,9 @@ Public Class Diary2
             Calendar1.DisplayDate = Date.Now
 
             todayDate = Now.ToShortDateString()
+
+            ' Automatically open smooth draw doc
+            CopyTemplateAndStart("ideas.sddoc")
         End If
 
     End Sub
