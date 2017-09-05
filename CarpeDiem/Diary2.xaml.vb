@@ -14,6 +14,14 @@ Public Class Diary2
     Private Sub Calendar1_SelectedDatesChanged(sender As Object, e As SelectionChangedEventArgs) Handles Calendar1.SelectedDatesChanged
 
         Dim dt = Calendar1.SelectedDate
+
+
+        If dt.Value.ToShortDateString() = DateTime.Now.ToShortDateString() Then
+            buttonCurrentDate.Background = Brushes.LightBlue
+        Else
+            buttonCurrentDate.Background = Brushes.LightYellow
+        End If
+
         currentDate = dt
 
         Dim dayFolder = DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day
