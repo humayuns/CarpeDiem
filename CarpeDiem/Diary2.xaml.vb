@@ -19,7 +19,7 @@ Public Class Diary2
         If dt.Value.ToShortDateString() = DateTime.Now.ToShortDateString() Then
             buttonCurrentDate.Background = Brushes.LightBlue
         Else
-            buttonCurrentDate.Background = Brushes.LightYellow
+            buttonCurrentDate.Background = Brushes.Yellow
         End If
 
         currentDate = dt
