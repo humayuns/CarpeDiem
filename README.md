@@ -8,7 +8,7 @@ Tools that help get the most from days.
 * Week countdown
 * Month countdown
 * Year countdown
-* Diary
+* Diary :calendar:
 
 ## Main Window
 * Custom Progress
