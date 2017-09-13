@@ -85,6 +85,11 @@ Class MainWindow
 
     Private Sub button_Click(sender As Object, e As RoutedEventArgs) Handles button.Click
 
+        StartTimeProgress()
+
+    End Sub
+
+    Private Sub StartTimeProgress()
         ' set up timer and start it
         targetTime = Date.Now.AddHours(textBoxHours.Text)
         labelTarget.Content = targetTime.ToString()
@@ -93,7 +98,6 @@ Class MainWindow
 
         timer1.Interval = New TimeSpan(0, 0, 1)
         timer1.Start()
-
     End Sub
 
     Private Sub textBoxHours_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxHours.TextChanged
@@ -170,5 +174,11 @@ Class MainWindow
     Private Sub buttonClock_Copy_Click(sender As Object, e As RoutedEventArgs) Handles buttonClock_Copy.Click
         Dim d As New Diary2
         d.Show()
+    End Sub
+
+    Private Sub textBoxHours_KeyDown(sender As Object, e As KeyEventArgs) Handles textBoxHours.KeyDown
+        If textBoxHours.Text <> "" And e.Key = Key.Return Then
+            StartTimeProgress()
+        End If
     End Sub
 End Class
