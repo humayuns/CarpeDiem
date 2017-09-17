@@ -144,6 +144,7 @@ Public Class Diary2
         textBox3.Background = New SolidColorBrush(Colors.White)
 
         ProgressBar1.Value = TimeManagement.GetDifferencePercentage(TimeManagement.SectionStartingTime(Now), TimeManagement.SectionEndingTime(Now))
+        Progressbar1Text.Text = (ProgressBar1.Value / 100).ToString("p")
 
         Select Case Core.TimeManagement.GetDaySection(Now)
             Case "1"

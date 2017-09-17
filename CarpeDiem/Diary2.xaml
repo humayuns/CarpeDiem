@@ -22,7 +22,13 @@
                     <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="165" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="581" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
                     <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="165" Margin="0,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="581" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
                     <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="165" Margin="0,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="581" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-                    <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="26" Margin="0,495,0,0" VerticalAlignment="Top" Width="581" Foreground="#FFECCB37" Background="#FF4D4D4D"/>
+                    <Grid HorizontalAlignment="Left" Height="26" Margin="0,495,0,0" VerticalAlignment="Top" Width="581">
+                        <ProgressBar x:Name="ProgressBar1" Foreground="#FFECCB37" Background="#FF4D4D4D"/>
+                        <TextBlock x:Name="Progressbar1Text" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" >
+                        Time
+                        </TextBlock>
+                    </Grid>
+                    
                 </Grid>
             </TabItem>
             <TabItem Header="Day">
