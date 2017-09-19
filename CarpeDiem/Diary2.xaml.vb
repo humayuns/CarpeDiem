@@ -145,6 +145,7 @@ Public Class Diary2
 
         ProgressBar1.Value = TimeManagement.GetDifferencePercentage(TimeManagement.SectionStartingTime(Now), TimeManagement.SectionEndingTime(Now))
         Progressbar1Text.Text = (ProgressBar1.Value / 100).ToString("p")
+        ProgressBar1.ToolTip = Progressbar1Text.Text
 
         Select Case Core.TimeManagement.GetDaySection(Now)
             Case "1"
