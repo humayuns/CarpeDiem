@@ -51,6 +51,11 @@
         Assert.AreEqual(TimeManagement.GetMonthName(10), "October")
     End Sub
 
+    <TestMethod()> Public Sub CorrectGetDifferenceTimespan()
+        Dim diff = TimeManagement.GetDifferenceTimespan(Date.Parse("0:00"), Date.Parse("1:00"))
+        Assert.AreEqual(diff, New TimeSpan(1, 0, 0))
+    End Sub
+
     <TestMethod()> Public Sub test()
 
         Dim msg = "All good"

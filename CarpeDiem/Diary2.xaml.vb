@@ -149,6 +149,8 @@ Public Class Diary2
         ProgressBar1.Value = TimeManagement.GetDifferencePercentage(sectionStartTime, sectionEndTime)
         Progressbar1Text.Text = (ProgressBar1.Value / 100).ToString("p")
         Dim timeString = $"{diff.Hours}:{diff.Minutes}:{diff.Seconds}"
+        ' Standard TimeSpan Format Strings
+        ' https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-timespan-format-strings
         ProgressBar1.ToolTip = $"{Progressbar1Text.Text} - {timeString}"
 
         Select Case Core.TimeManagement.GetDaySection(Now)
