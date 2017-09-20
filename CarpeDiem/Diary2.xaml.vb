@@ -143,9 +143,13 @@ Public Class Diary2
         textBox2.Background = New SolidColorBrush(Colors.White)
         textBox3.Background = New SolidColorBrush(Colors.White)
 
-        ProgressBar1.Value = TimeManagement.GetDifferencePercentage(TimeManagement.SectionStartingTime(Now), TimeManagement.SectionEndingTime(Now))
+        Dim sectionStartTime = TimeManagement.SectionStartingTime(Now)
+        Dim sectionEndTime = TimeManagement.SectionEndingTime(Now)
+        Dim diff = TimeManagement.GetDifferenceTimespan(Now, sectionEndTime)
+        ProgressBar1.Value = TimeManagement.GetDifferencePercentage(sectionStartTime, sectionEndTime)
         Progressbar1Text.Text = (ProgressBar1.Value / 100).ToString("p")
-        ProgressBar1.ToolTip = Progressbar1Text.Text
+        Dim timeString = $"{diff.Hours}:{diff.Minutes}:{diff.Seconds}"
+        ProgressBar1.ToolTip = $"{Progressbar1Text.Text} - {timeString}"
 
         Select Case Core.TimeManagement.GetDaySection(Now)
             Case "1"

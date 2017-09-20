@@ -120,4 +120,9 @@ Public Class TimeManagement
         Return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday)
     End Function
 
+
+    Public Shared Function GetDifferenceTimespan(startTime As DateTime, endTime As DateTime) As TimeSpan
+        Return endTime.Subtract(startTime)
+    End Function
+
 End Class
