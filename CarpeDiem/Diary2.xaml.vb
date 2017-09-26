@@ -374,5 +374,9 @@ Public Class Diary2
 
         End Try
     End Sub
+
+    Private Sub btnMathematica_Click(sender As Object, e As RoutedEventArgs) Handles btnMathematica.Click
+        CopyTemplateAndStart("ideas.nb")
+    End Sub
 End Class
 

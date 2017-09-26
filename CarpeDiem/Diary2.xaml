@@ -56,6 +56,7 @@
                     <Button x:Name="btnWordDoc" Content="✍ Word Doc" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="100"/>
                     <Button x:Name="btnWordPad" Content="✏ WordPad" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="100"/>
                     <Button x:Name="btnPhotoshop" Content="✨ Photoshop" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="100"/>
+                    <Button x:Name="btnMathematica" Content="✡ Mathematica" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="100"/>
                 </Grid>
             </TabItem>
 
