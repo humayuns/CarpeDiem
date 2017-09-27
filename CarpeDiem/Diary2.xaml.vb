@@ -204,10 +204,16 @@ Public Class Diary2
 
             todayDate = Now.ToShortDateString()
 
-            ' Automatically open smooth draw doc
-            CopyTemplateAndStart("ideas.sddoc")
+            AutoStartDailyDocuments()
         End If
 
+    End Sub
+
+    Private Sub AutoStartDailyDocuments()
+        ' Automatically open smooth draw doc
+        CopyTemplateAndStart("ideas.sddoc")
+
+        CopyTemplateAndStart("ideas.nb")
     End Sub
 
     Private Sub textBoxSpecial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxSpecial.TextChanged
