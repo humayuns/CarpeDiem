@@ -213,7 +213,7 @@ Public Class Diary2
         ' Automatically open smooth draw doc
         CopyTemplateAndStart("ideas.sddoc")
 
-        CopyTemplateAndStart("ideas.nb")
+        'CopyTemplateAndStart("ideas.nb")
     End Sub
 
     Private Sub textBoxSpecial_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxSpecial.TextChanged

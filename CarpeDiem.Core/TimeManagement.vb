@@ -30,6 +30,26 @@ Public Class TimeManagement
         Return 100 * (Now.Subtract(endDate).TotalMinutes / startDate.Subtract(endDate).TotalMinutes)
     End Function
 
+    Public Shared Function GetDifferencePercentageHour(startDate As Date, endDate As Date) As Decimal
+
+        Dim target = New Date(startDate.Year, startDate.Month, startDate.Day, startDate.Hour, 0, 0).AddHours(1)
+        Dim remaining = target.Subtract(startDate).TotalMinutes
+        Dim total = 60 'startDate.Subtract(endDate).TotalMinutes
+
+        Return 100 * (remaining / total)
+
+    End Function
+
+    Public Shared Function GetDifferencePercentageMinute(startDate As Date, endDate As Date) As Decimal
+
+        Dim target = New Date(startDate.Year, startDate.Month, startDate.Day, startDate.Hour, startDate.Minute, 0).AddMinutes(1)
+        Dim remaining = target.Subtract(startDate).TotalSeconds
+        Dim total = 60 'startDate.Subtract(endDate).TotalMinutes
+
+        Return 100 * (remaining / total)
+
+    End Function
+
     Public Shared Function GetFirstDayOfMonth(DateTime As Date) As DateTime
         Return New DateTime(DateTime.Year, DateTime.Month, 1)
     End Function
