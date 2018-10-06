@@ -50,6 +50,16 @@ Public Class TimeManagement
 
     End Function
 
+    Public Shared Function GetDifferencePercentageSecond(startDate As Date, endDate As Date) As Decimal
+
+        Dim target = New Date(startDate.Year, startDate.Month, startDate.Day, startDate.Hour, startDate.Minute, startDate.Second)
+        Dim remaining = 1000 + target.Subtract(startDate).TotalMilliseconds
+        Dim total = 1000 'startDate.Subtract(endDate).TotalMinutes
+
+        Return 100 * (remaining / total)
+
+    End Function
+
     Public Shared Function GetFirstDayOfMonth(DateTime As Date) As DateTime
         Return New DateTime(DateTime.Year, DateTime.Month, 1)
     End Function

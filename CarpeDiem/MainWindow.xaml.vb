@@ -15,25 +15,25 @@ Class MainWindow
     Dim targetTime As DateTime
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         AddHandler timer1.Tick, AddressOf timer1_Tick
-        timer1.Interval = New TimeSpan(0, 0, 1)
+        timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
         timer1.Start()
 
-        UpdateFoodClock()
+        UpdateEnergyClock()
         RefreshMotivation()
         RefreshInspiration()
 
     End Sub
 
-    Private Sub UpdateFoodClock()
-        timeDiffFood.AddHours(3)
+    Private Sub UpdateEnergyClock()
+        timeDiffFood.AddHours(16)
     End Sub
 
-    Private sub RefreshMotivation()
+    Private Sub RefreshMotivation()
         timeDiffMotivation.AddHours(1)
-    End sub
+    End Sub
 
     Private Sub RefreshInspiration()
-        timeDiffInspiration.AddHours(0.10)
+        timeDiffInspiration.AddHours(0.1)
     End Sub
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
@@ -58,17 +58,21 @@ Class MainWindow
         ProgressbarMotivation.Value = timeDiffMotivation.GetDifferencePercentage()
         ProgressbarInspiration.Value = timeDiffInspiration.GetDifferencePercentage()
 
-        ProgressbarLT.Value = TimeManagement.GetDifferencePercentage(New Date(Now.Year, 1, 1), New Date(Now.Year, 12, 31, 23, 59, 59))
+        ProgressbarLT.Value = TimeManagement.GetDifferencePercentage(New Date(Now.Year, 1, 1), New Date(Now.Year, 12, 31, 23, 59, 59))  ' new year progress
         ProgressbarMonth.Value = TimeManagement.GetDifferencePercentage(TimeManagement.GetFirstDayOfMonth(Now), TimeManagement.GetLastDayOfMonth(Now))
         ProgressbarWeek.Value = TimeManagement.GetDifferencePercentage(TimeManagement.GetFirstDayOfWeek(Now, DayOfWeek.Monday), TimeManagement.GetFirstDayOfWeek(Now, DayOfWeek.Monday).AddDays(7))
+
         ProgressbarDay.Value = TimeManagement.GetDifferencePercentage(Now.Date, Now.Date.AddDays(1).AddTicks(-1))
         ProgressbarHour.Value = TimeManagement.GetDifferencePercentageHour(Now, Now.AddHours(1).AddTicks(-1))
         ProgressbarMinute.Value = TimeManagement.GetDifferencePercentageMinute(Now, Now.AddMinutes(1).AddTicks(-1))
+        ProgressbarSecond.Value = TimeManagement.GetDifferencePercentageSecond(Now, Now.AddSeconds(1).AddTicks(-1))
 
-
+        ProgressbarSecondText.Text = Now.Second & " - " & (ProgressbarSecond.Value / 100).ToString("p")
         ProgressbarMinuteText.Text = Now.Minute & " - " & (ProgressbarMinute.Value / 100).ToString("p")
         ProgressbarHourText.Text = Now.Hour & " - " & (ProgressbarHour.Value / 100).ToString("p")
-        ProgressbarDayText.Text = Now.Day & " - " & (ProgressbarDay.Value / 100).ToString("p")
+        Dim remainingTime = Now.Date.AddDays(1).AddTicks(-1).Subtract(Now)
+        ProgressbarDayText.Text = Now.DayOfWeek.ToString() & " - " & Now.Day & " - " & (ProgressbarDay.Value / 100).ToString("p") & " - " & remainingTime.ToString()
+        ProgressbarDay.ToolTip = ProgressbarDayText.Text
         ProgressbarWeekText.Text = TimeManagement.GetIso8601WeekOfYear(Now) & " - " & (ProgressbarWeek.Value / 100).ToString("p")
         ProgressbarMonthText.Text = TimeManagement.GetMonthName(Now.Month) & "(" & Now.Month & ")" & " - " & (ProgressbarMonth.Value / 100).ToString("p")
         ProgressbarLTText.Text = Now.Year & " - " & (ProgressbarLT.Value / 100).ToString("p")
@@ -100,7 +104,7 @@ Class MainWindow
 
         timeDiff.AddHours(textBoxHours.Text)
 
-        timer1.Interval = New TimeSpan(0, 0, 1)
+        timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
         timer1.Start()
     End Sub
 
@@ -130,7 +134,7 @@ Class MainWindow
 
 
     Private Sub buttonFood_Click(sender As Object, e As RoutedEventArgs) Handles buttonFood.Click
-        UpdateFoodClock()
+        UpdateEnergyClock()
     End Sub
 
 
