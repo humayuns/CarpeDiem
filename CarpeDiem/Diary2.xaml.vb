@@ -384,5 +384,15 @@ Public Class Diary2
     Private Sub btnMathematica_Click(sender As Object, e As RoutedEventArgs) Handles btnMathematica.Click
         CopyTemplateAndStart("ideas.nb")
     End Sub
+
+    Private Sub GoPrevious(sender As Object, e As ExecutedRoutedEventArgs)
+        Calendar1.SelectedDate = Calendar1.SelectedDate.Value.AddDays(-1)
+        Calendar1.DisplayDate = Calendar1.SelectedDate
+    End Sub
+
+    Private Sub GoNext(sender As Object, e As ExecutedRoutedEventArgs)
+        Calendar1.SelectedDate = Calendar1.SelectedDate.Value.AddDays(1)
+        Calendar1.DisplayDate = Calendar1.SelectedDate
+    End Sub
 End Class
 

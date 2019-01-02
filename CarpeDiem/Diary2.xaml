@@ -6,6 +6,18 @@
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
         Title="Diary2" Height="600" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <RoutedCommand x:Key="GoPrevious" />
+        <RoutedCommand x:Key="GoNext" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource GoPrevious}" Executed="GoPrevious"/>
+        <CommandBinding Command="{StaticResource GoNext}" Executed="GoNext"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="P" Modifiers="Ctrl" Command="{StaticResource GoPrevious}"/>
+        <KeyBinding Key="N" Modifiers="Ctrl" Command="{StaticResource GoNext}"/>
+    </Window.InputBindings>
     <Grid>
         <Calendar x:Name="Calendar1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBoxSpecial" HorizontalAlignment="Left" Height="309" Margin="10,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
