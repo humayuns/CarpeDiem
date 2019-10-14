@@ -190,9 +190,10 @@ Class MainWindow
         End If
     End Sub
 
-    Private Sub Window_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs)
+
+    Private Sub Grid_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs)
         If timerSpeed = "fast" Then
-            timer1.Interval = New TimeSpan(0, 0, 0, 0, 20)
+            timer1.Interval = New TimeSpan(0, 0, 0, 1, 0)
             timerSpeed = "slow"
         Else
             timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)

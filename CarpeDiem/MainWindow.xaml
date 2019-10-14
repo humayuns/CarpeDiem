@@ -1,8 +1,8 @@
 ﻿<Window x:Class="MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Carpe Diem" Height="328.81" Width="586" Loaded="Window_Loaded" MouseDown="Window_MouseDown" Icon="Images/ClearD-A.ico" MouseRightButtonUp="Window_MouseRightButtonUp">
-    <Grid Unloaded="Grid_Unloaded">
+    Title="Carpe Diem" Height="328.81" Width="586" Loaded="Window_Loaded" MouseDown="Window_MouseDown" Icon="Images/ClearD-A.ico">
+    <Grid Unloaded="Grid_Unloaded" MouseRightButtonUp="Grid_MouseRightButtonUp">
 
         <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="10,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71"/>
         <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="7,255,0,0" VerticalAlignment="Top" Width="75" Background="#FF0CA83E"/>
@@ -31,27 +31,6 @@
         </ComboBox>
         <Button x:Name="buttonGo" Content="Go" HorizontalAlignment="Left" Margin="452,255,0,0" VerticalAlignment="Top" Width="30" Background="#FF22B900"/>
         <ProgressBar x:Name="ProgressbarInspiration" HorizontalAlignment="Left" Height="8" Margin="87,209,0,0" VerticalAlignment="Top" Width="475" Background="#FF9E9E9E" Value="100">
-            <ProgressBar.Triggers>
-                <EventTrigger RoutedEvent="Window.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Foreground.(GradientBrush.GradientStops)[1].(GradientStop.Offset)" From="-1" To="0" Duration="0:0:1.5" RepeatBehavior="Forever"/>
-                            <DoubleAnimation Storyboard.TargetProperty="Foreground.(GradientBrush.GradientStops)[2].(GradientStop.Offset)" From="0" To="1" Duration="0:0:1.5" RepeatBehavior="Forever"/>
-                            <DoubleAnimation Storyboard.TargetProperty="Foreground.(GradientBrush.GradientStops)[3].(GradientStop.Offset)" From="1" To="2" Duration="0:0:1.5" RepeatBehavior="Forever"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </ProgressBar.Triggers>
-            <ProgressBar.Foreground>
-                <LinearGradientBrush>
-                    <!--Foreground="#FF1865C1"-->
-                    <GradientStop Color="#FF218ED6" Offset="0.0" />
-                    <GradientStop Color="#FF4BA5E0" Offset="0.4" />
-                    <GradientStop Color="#FF8ECCF5" Offset="0.5" />
-                    <GradientStop Color="#FF4BA5E0" Offset="0.6" />
-                    <GradientStop Color="#FF218ED6" Offset="1.0" />
-                </LinearGradientBrush>
-            </ProgressBar.Foreground>
         </ProgressBar>
 
 
