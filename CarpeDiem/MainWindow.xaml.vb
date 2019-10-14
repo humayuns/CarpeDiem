@@ -104,9 +104,17 @@ Class MainWindow
 
         timeDiff.AddHours(textBoxHours.Text)
 
-        timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
+        timer1.Interval = getInterval()
         timer1.Start()
     End Sub
+
+    Private Function getInterval() As TimeSpan
+        If timerSpeed = "fast" Then
+            Return New TimeSpan(0, 0, 0, 1, 0)
+        Else
+            Return New TimeSpan(0, 0, 0, 0, 1)
+        End If
+    End Function
 
     Private Sub textBoxHours_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxHours.TextChanged
         targetTime = Date.Now.AddHours(Val(textBoxHours.Text))
@@ -192,11 +200,10 @@ Class MainWindow
 
 
     Private Sub Grid_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs)
+        timer1.Interval = getInterval()
         If timerSpeed = "fast" Then
-            timer1.Interval = New TimeSpan(0, 0, 0, 1, 0)
             timerSpeed = "slow"
         Else
-            timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
             timerSpeed = "fast"
         End If
     End Sub
