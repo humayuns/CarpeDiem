@@ -67,9 +67,9 @@ Class MainWindow
         ProgressbarMinute.Value = TimeManagement.GetDifferencePercentageMinute(Now, Now.AddMinutes(1).AddTicks(-1))
         ProgressbarSecond.Value = TimeManagement.GetDifferencePercentageSecond(Now, Now.AddSeconds(1).AddTicks(-1))
 
-        ProgressbarSecondText.Text = Now.Second & " - " & (ProgressbarSecond.Value / 100).ToString("p")
-        ProgressbarMinuteText.Text = Now.Minute & " - " & (ProgressbarMinute.Value / 100).ToString("p")
-        ProgressbarHourText.Text = Now.Hour & " - " & (ProgressbarHour.Value / 100).ToString("p")
+        ProgressbarSecondText.Text = "Second " & Now.Second + 1 & " - " & (ProgressbarSecond.Value / 100).ToString("p")
+        ProgressbarMinuteText.Text = "Minute " & Now.Minute + 1 & " - " & (ProgressbarMinute.Value / 100).ToString("p")
+        ProgressbarHourText.Text = "Hour " & Now.Hour & " - " & (ProgressbarHour.Value / 100).ToString("p")
         Dim remainingTime = Now.Date.AddDays(1).AddTicks(-1).Subtract(Now)
         ProgressbarDayText.Text = Now.DayOfWeek.ToString() & " - " & Now.Day & " - " & (ProgressbarDay.Value / 100).ToString("p") & " - " & remainingTime.ToString()
         ProgressbarDay.ToolTip = ProgressbarDayText.Text
