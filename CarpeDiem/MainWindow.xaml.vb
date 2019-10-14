@@ -4,9 +4,9 @@ Imports CarpeDiem.Core
 Class MainWindow
 
     ReadOnly timer1 As New DispatcherTimer
+    Dim timerSpeed = "fast"
 
-
-    dim timeDiff as new TimeCountDown
+    Dim timeDiff as new TimeCountDown
     Dim timeDiffFood as new TimeCountDown
     Dim timeDiffMotivation as new TimeCountDown
     Dim timeDiffInspiration as new TimeCountDown
@@ -187,6 +187,16 @@ Class MainWindow
     Private Sub textBoxHours_KeyDown(sender As Object, e As KeyEventArgs) Handles textBoxHours.KeyDown
         If textBoxHours.Text <> "" And e.Key = Key.Return Then
             StartTimeProgress()
+        End If
+    End Sub
+
+    Private Sub Window_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs)
+        If timerSpeed = "fast" Then
+            timer1.Interval = New TimeSpan(0, 0, 0, 0, 20)
+            timerSpeed = "slow"
+        Else
+            timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            timerSpeed = "fast"
         End If
     End Sub
 End Class
