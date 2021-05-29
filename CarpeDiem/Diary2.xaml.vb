@@ -211,7 +211,7 @@ Public Class Diary2
 
     Private Sub AutoStartDailyDocuments()
         ' Automatically open smooth draw doc
-        CopyTemplateAndStart("ideas.sddoc")
+        'CopyTemplateAndStart("ideas.sddoc")
 
         'CopyTemplateAndStart("ideas.nb")
     End Sub
