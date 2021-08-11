@@ -27,6 +27,9 @@ Public Class Ability
         ' change progress bar value according to time difference
         ProgressBar1.Value = (100 * targetTime.Subtract(Date.Now).TotalSeconds / totalSeconds)
         abilityTransparent.ProgressBar1.Value = ProgressBar1.Value
+        Dim remainingTime = targetTime.Subtract(Date.Now)
+        abilityTransparent.ToolTip = remainingTime.ToString("hh\:mm\:ss")
+
         Debug.Print(ProgressBar1.Value)
         If ProgressBar1.Value = 0 Then
 
