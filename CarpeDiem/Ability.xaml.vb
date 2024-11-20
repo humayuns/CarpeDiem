@@ -123,8 +123,10 @@ Public Class Ability
 
         ' Create the associated transparent window
         If newAbility.abilityTransparent Is Nothing Then
-            newAbility.abilityTransparent = New AbilityTransparent
-            newAbility.abilityTransparent.ParentWindow = newAbility
+            newAbility.abilityTransparent = New AbilityTransparent With {
+                .ParentWindow = newAbility,
+                .Topmost = True
+            }
         End If
 
         ' Set the same selected image
@@ -142,6 +144,7 @@ Public Class Ability
         newAbility.abilityTransparent.Top = newAbility.Top + 50
 
         ' Start the ability timer and show the new windows
+        newAbility.Show()
         newAbility.Hide()
         'newAbility.StartAbility()
         newAbility.abilityTransparent.Show()
