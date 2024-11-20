@@ -92,16 +92,59 @@ Public Class Ability
     End Sub
 
     Private Sub comboBoxImage_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles comboBoxImage.SelectionChanged
+        UpdateAbilityIcon(e.AddedItems(0), abilityTransparent)
+    End Sub
+
+    Public Sub UpdateAbilityIcon(imgName As String, at As AbilityTransparent)
         Try
-            Dim imgpath = My.Application.Info.DirectoryPath & "/images/" & e.AddedItems(0)
+            Dim imgpath = My.Application.Info.DirectoryPath & "/images/" & imgName
             Debug.Print(comboBoxImage.Text)
             image.Source = New BitmapImage(New Uri(imgpath))
-            abilityTransparent.image.Source = image.Source
+            at.image.Source = image.Source
         Catch
         End Try
     End Sub
 
     Private Sub Ability_Unloaded(sender As Object, e As RoutedEventArgs) Handles Me.Unloaded
-        abilityTransparent.Close
+        abilityTransparent.Close()
     End Sub
+
+
+    Public Sub DuplicateAbility()
+        ' Create a new instance of the Ability window
+        Dim newAbility As New Ability
+
+        ' Set the position of the new window similar to the current one
+        newAbility.Left = Me.Left + 20 ' Offset slightly for visibility
+        newAbility.Top = Me.Top + 20
+
+        ' Set the same time duration
+        newAbility.textBoxTime.Text = Me.textBoxTime.Text
+
+        ' Create the associated transparent window
+        If newAbility.abilityTransparent Is Nothing Then
+            newAbility.abilityTransparent = New AbilityTransparent
+            newAbility.abilityTransparent.ParentWindow = newAbility
+        End If
+
+        ' Set the same selected image
+        If Not String.IsNullOrEmpty(comboBoxImage.Text) Then
+            newAbility.textBoxImage.Text = comboBoxImage.Text
+            newAbility.comboBoxImage.Text = comboBoxImage.Text
+            newAbility.UpdateAbilityIcon(comboBoxImage.Text, newAbility.abilityTransparent)
+
+        End If
+
+
+
+        ' Set the transparent window to the same position
+        newAbility.abilityTransparent.Left = newAbility.Left + 371
+        newAbility.abilityTransparent.Top = newAbility.Top + 50
+
+        ' Start the ability timer and show the new windows
+        newAbility.Hide()
+        'newAbility.StartAbility()
+        newAbility.abilityTransparent.Show()
+    End Sub
+
 End Class

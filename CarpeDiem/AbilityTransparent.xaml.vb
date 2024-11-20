@@ -26,6 +26,8 @@
                 Me.image.Height -= 10
             Case Key.Enter
                 Me.ParentWindow.StartAbility()
+            Case Key.D
+                Me.ParentWindow.DuplicateAbility()
         End Select
     End Sub
 End Class
