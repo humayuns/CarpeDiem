@@ -8,7 +8,7 @@
         Title="AbilityTransparent" Height="110" Width="100" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown" Background="{x:Null}" ShowInTaskbar="False" KeyDown="Window_KeyDown">
     <Grid>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="Images/artifact_epic.png"/>
-        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="10" Margin="0,100,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
+        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="2" Margin="0,100,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
 
     </Grid>
 </Window>

@@ -28,6 +28,16 @@
                 Me.ParentWindow.StartAbility()
             Case Key.D
                 Me.ParentWindow.DuplicateAbility()
+            Case Key.Q
+                ToggleProgressBarSize()
         End Select
+    End Sub
+
+    Private Sub ToggleProgressBarSize()
+        If ProgressBar1.Height = 10 Then
+            ProgressBar1.Height = 2
+        Else
+            ProgressBar1.Height = 10
+        End If
     End Sub
 End Class
