@@ -4,7 +4,9 @@ Public Class ClockWindow
 
     Dim timer1 As New DispatcherTimer
     Private Sub Window_MouseDown(sender As Object, e As MouseButtonEventArgs)
-        Me.DragMove()
+        If e.ChangedButton = MouseButton.Left Then
+            Me.DragMove()
+        End If
     End Sub
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
