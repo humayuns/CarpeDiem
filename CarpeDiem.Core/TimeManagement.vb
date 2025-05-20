@@ -27,36 +27,71 @@ Public Class TimeManagement
     ''' <param name="endDate"></param>
     ''' <returns>a value between 0 to 100</returns>
     Public Shared Function GetDifferencePercentage(startDate As Date, endDate As Date) As Decimal
-        Return 100 * (Now.Subtract(endDate).TotalMinutes / startDate.Subtract(endDate).TotalMinutes)
+        Dim total As Double = endDate.Subtract(startDate).TotalMinutes
+        If total = 0 Then
+            Return 100
+        End If
+
+        Dim elapsed As Double = Date.Now.Subtract(startDate).TotalMinutes
+        Dim percentage As Double = 100 * (elapsed / total)
+
+        If percentage < 0 Then
+            Return 0
+        ElseIf percentage > 100 Then
+            Return 100
+        End If
+
+        Return CDec(percentage)
     End Function
 
     Public Shared Function GetDifferencePercentageHour(startDate As Date, endDate As Date) As Decimal
 
-        Dim target = New Date(startDate.Year, startDate.Month, startDate.Day, startDate.Hour, 0, 0).AddHours(1)
-        Dim remaining = target.Subtract(startDate).TotalMinutes
-        Dim total = 60 'startDate.Subtract(endDate).TotalMinutes
+        Dim startOfHour = New Date(startDate.Year, startDate.Month, startDate.Day, startDate.Hour, 0, 0)
+        Dim elapsed = startDate.Subtract(startOfHour).TotalMinutes
+        Dim total = 60
 
-        Return 100 * (remaining / total)
+        Dim percentage As Double = 100 * (elapsed / total)
+
+        If percentage < 0 Then
+            Return 0
+        ElseIf percentage > 100 Then
+            Return 100
+        End If
+
+        Return CDec(percentage)
 
     End Function
 
     Public Shared Function GetDifferencePercentageMinute(startDate As Date, endDate As Date) As Decimal
 
-        Dim target = New Date(startDate.Year, startDate.Month, startDate.Day, startDate.Hour, startDate.Minute, 0).AddMinutes(1)
-        Dim remaining = target.Subtract(startDate).TotalSeconds
-        Dim total = 60 'startDate.Subtract(endDate).TotalMinutes
+        Dim startOfMinute = New Date(startDate.Year, startDate.Month, startDate.Day, startDate.Hour, startDate.Minute, 0)
+        Dim elapsed = startDate.Subtract(startOfMinute).TotalSeconds
+        Dim total = 60
 
-        Return 100 * (remaining / total)
+        Dim percentage As Double = 100 * (elapsed / total)
+
+        If percentage < 0 Then
+            Return 0
+        ElseIf percentage > 100 Then
+            Return 100
+        End If
+
+        Return CDec(percentage)
 
     End Function
 
     Public Shared Function GetDifferencePercentageSecond(startDate As Date, endDate As Date) As Decimal
 
-        Dim target = New Date(startDate.Year, startDate.Month, startDate.Day, startDate.Hour, startDate.Minute, startDate.Second)
-        Dim remaining = 1000 + target.Subtract(startDate).TotalMilliseconds
-        Dim total = 1000 'startDate.Subtract(endDate).TotalMinutes
+        Dim milliseconds = startDate.Millisecond
+        Dim percentage As Double = 100 * (milliseconds / 1000.0)
 
-        Return 100 * (remaining / total)
+        If percentage < 0 Then
+            Return 0
+        ElseIf percentage > 100 Then
+            Return 100
+        End If
+
+        Return CDec(percentage)
 
     End Function
 

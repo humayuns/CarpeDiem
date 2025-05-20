@@ -56,6 +56,13 @@
         Assert.AreEqual(diff, New TimeSpan(1, 0, 0))
     End Sub
 
+    <TestMethod()> Public Sub DifferencePercentageStartAtZero()
+        Dim startTime = Date.Now
+        Dim endTime = startTime.AddMinutes(1)
+        Dim percentage = TimeManagement.GetDifferencePercentage(startTime, endTime)
+        Assert.IsTrue(percentage <= 1 AndAlso percentage >= 0)
+    End Sub
+
     <TestMethod()> Public Sub test()
 
         Dim msg = "All good"
