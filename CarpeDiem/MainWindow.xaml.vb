@@ -207,4 +207,8 @@ Class MainWindow
             timerSpeed = "fast"
         End If
     End Sub
+
+    Private Sub menuItemAlwaysOnTop_Click(sender As Object, e As RoutedEventArgs)
+        Me.Topmost = menuItemAlwaysOnTop.IsChecked
+    End Sub
 End Class

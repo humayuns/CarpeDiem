@@ -3,6 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Carpe Diem" Height="328.81" Width="586" Loaded="Window_Loaded" MouseDown="Window_MouseDown" Icon="Images/ClearD-A.ico">
     <Grid Unloaded="Grid_Unloaded" MouseRightButtonUp="Grid_MouseRightButtonUp" Background="Black">
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem x:Name="menuItemAlwaysOnTop" Header="Always on Top" IsCheckable="True" Click="menuItemAlwaysOnTop_Click"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
 
         <TextBox x:Name="textBoxHours" HorizontalAlignment="Left" Height="23" Margin="10,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71"/>
         <Button x:Name="button" Content="Start Day" HorizontalAlignment="Left" Margin="7,255,0,0" VerticalAlignment="Top" Width="75" Background="#FF0CA83E"/>

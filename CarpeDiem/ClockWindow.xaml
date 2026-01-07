@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="ClockWindow" Height="120" Width="120" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" MouseDown="Window_MouseDown" Loaded="Window_Loaded">
     <Grid>
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem x:Name="menuItemAlwaysOnTop" Header="Always on Top" IsCheckable="True" Click="menuItemAlwaysOnTop_Click"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
         <Image x:Name="image" HorizontalAlignment="Left" Height="120" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Images/clock.png"/>
         <Image x:Name="imageHours" HorizontalAlignment="Left" Height="50" Margin="58,10,0,0" VerticalAlignment="Top" Width="3" Source="Images/clock-hours.png" RenderTransformOrigin="0.417,0.995">
             <Image.RenderTransform>

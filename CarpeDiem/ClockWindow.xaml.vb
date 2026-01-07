@@ -20,4 +20,8 @@ Public Class ClockWindow
         MinutesAngle.Angle = DateTime.Now.Minute * 6
         HoursAngle.Angle = (DateTime.Now.Hour * 30) + (DateTime.Now.Minute * 0.5)
     End Sub
+
+    Private Sub menuItemAlwaysOnTop_Click(sender As Object, e As RoutedEventArgs)
+        Me.Topmost = menuItemAlwaysOnTop.IsChecked
+    End Sub
 End Class
