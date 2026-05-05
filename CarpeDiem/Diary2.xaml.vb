@@ -222,6 +222,7 @@ Public Class Diary2
     End Sub
 
     Private Sub textBoxFontSize_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxFontSize.TextChanged
+        If textBox1 Is Nothing OrElse textBox2 Is Nothing OrElse textBox3 Is Nothing Then Return
         Try
             textBox1.FontSize = textBoxFontSize.Text
             textBox2.FontSize = textBoxFontSize.Text
