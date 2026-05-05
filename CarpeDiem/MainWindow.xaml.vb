@@ -98,11 +98,14 @@ Class MainWindow
     End Sub
 
     Private Sub StartTimeProgress()
+        Dim hours As Double
+        If Not Double.TryParse(textBoxHours.Text, hours) Then Return
+
         ' set up timer and start it
-        targetTime = Date.Now.AddHours(textBoxHours.Text)
+        targetTime = Date.Now.AddHours(hours)
         labelTarget.Content = targetTime.ToString()
 
-        timeDiff.AddHours(textBoxHours.Text)
+        timeDiff.AddHours(hours)
 
         timer1.Interval = getInterval()
         timer1.Start()
