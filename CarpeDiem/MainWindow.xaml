@@ -2,7 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Carpe Diem" Height="328.81" Width="586" Loaded="Window_Loaded" MouseDown="Window_MouseDown" Icon="Images/ClearD-A.ico">
-    <Grid Unloaded="Grid_Unloaded" MouseRightButtonUp="Grid_MouseRightButtonUp" Background="Black">
+    <Grid Unloaded="Grid_Unloaded" MouseRightButtonUp="Grid_MouseRightButtonUp">
         <Grid.ContextMenu>
             <ContextMenu>
                 <MenuItem x:Name="menuItemAlwaysOnTop" Header="Always on Top" IsCheckable="True" Click="menuItemAlwaysOnTop_Click"/>
