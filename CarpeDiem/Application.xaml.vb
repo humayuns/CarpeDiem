@@ -9,8 +9,9 @@ Class Application
         EventManager.RegisterClassHandler(GetType(Window), FrameworkElement.LoadedEvent,
                                           New RoutedEventHandler(AddressOf OnAnyWindowLoaded))
 
-        ' Restore the last selected theme.
+        ' Restore the last selected theme and sound preference.
         ThemeManager.ApplyTheme(SettingsStore.Read("Theme", "Original"))
+        Functions.SoundsEnabled = SettingsStore.Read("PlaySounds", "True") = "True"
     End Sub
 
     Private Sub OnAnyWindowLoaded(sender As Object, e As RoutedEventArgs)

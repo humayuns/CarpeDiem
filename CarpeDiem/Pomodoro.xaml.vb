@@ -8,22 +8,35 @@ Public Class Pomodoro
         LongBreak
     End Enum
 
-    Const WorkMinutes As Double = 25
-    Const ShortBreakMinutes As Double = 5
-    Const LongBreakMinutes As Double = 15
     Const SessionsPerCycle As Integer = 4
+
+    ' Durations are configurable in the Settings window.
+    Dim workMinutes As Double = 25
+    Dim shortBreakMinutes As Double = 5
+    Dim longBreakMinutes As Double = 15
 
     ReadOnly timer1 As New DispatcherTimer With {.Interval = TimeSpan.FromMilliseconds(250)}
     Dim phase As PhaseKind = PhaseKind.Work
     Dim sessionsDone As Integer = 0
     Dim phaseEnd As Date
-    Dim remaining As TimeSpan = TimeSpan.FromMinutes(WorkMinutes)
+    Dim remaining As TimeSpan = TimeSpan.FromMinutes(25)
     Dim running As Boolean = False
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
+        workMinutes = ReadMinutesSetting("PomodoroWork", 25)
+        shortBreakMinutes = ReadMinutesSetting("PomodoroShort", 5)
+        longBreakMinutes = ReadMinutesSetting("PomodoroLong", 15)
+        remaining = TimeSpan.FromMinutes(workMinutes)
+
         AddHandler timer1.Tick, AddressOf timer1_Tick
         UpdateUi()
     End Sub
+
+    Private Function ReadMinutesSetting(key As String, fallback As Double) As Double
+        Dim value As Double
+        If Double.TryParse(SettingsStore.Read(key, fallback.ToString()), value) AndAlso value > 0 Then Return value
+        Return fallback
+    End Function
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
         remaining = phaseEnd.Subtract(Now)
@@ -77,9 +90,9 @@ Public Class Pomodoro
 
     Private Function PhaseDuration(kind As PhaseKind) As TimeSpan
         Select Case kind
-            Case PhaseKind.ShortBreak : Return TimeSpan.FromMinutes(ShortBreakMinutes)
-            Case PhaseKind.LongBreak : Return TimeSpan.FromMinutes(LongBreakMinutes)
-            Case Else : Return TimeSpan.FromMinutes(WorkMinutes)
+            Case PhaseKind.ShortBreak : Return TimeSpan.FromMinutes(shortBreakMinutes)
+            Case PhaseKind.LongBreak : Return TimeSpan.FromMinutes(longBreakMinutes)
+            Case Else : Return TimeSpan.FromMinutes(workMinutes)
         End Select
     End Function
 

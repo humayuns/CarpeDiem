@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Settings" Height="190" Width="330" WindowStyle="ToolWindow" ResizeMode="NoResize"
+        Title="Settings" Height="430" Width="340" WindowStyle="ToolWindow" ResizeMode="NoResize"
         Loaded="Window_Loaded"
         Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
         UseLayoutRounding="True" SnapsToDevicePixels="True"
         TextOptions.TextFormattingMode="Display">
     <Grid Margin="12">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -29,12 +31,63 @@
             <ComboBox x:Name="comboTheme" Grid.Column="1" Height="24"/>
         </Grid>
 
-        <!-- Always on top -->
-        <CheckBox x:Name="checkAlwaysOnTop" Grid.Row="1" Content="Keep main window always on top"
-                  Margin="0,12,0,0"/>
+        <!-- Behavior -->
+        <StackPanel Grid.Row="1" Margin="0,12,0,0">
+            <CheckBox x:Name="checkAlwaysOnTop" Content="Keep main window always on top" Margin="0,0,0,6"/>
+            <CheckBox x:Name="check24Hour" Content="Use 24-hour clock" Margin="0,0,0,6"
+                      ToolTip="Show the main window clock as 13:05:09 instead of 01:05:09 PM"/>
+            <CheckBox x:Name="checkSounds" Content="Play sounds" Margin="0,0,0,6"
+                      ToolTip="Chimes when timers complete (CountDown, Pomodoro, Ability, Focus)"/>
+            <CheckBox x:Name="checkStartup" Content="Start with Windows"
+                      ToolTip="Run Carpe Diem automatically when you sign in"/>
+        </StackPanel>
+
+        <!-- Defaults -->
+        <StackPanel Grid.Row="2" Margin="0,12,0,0">
+            <Label Content="Defaults" Padding="0,0,0,4" FontWeight="Bold"
+                   Foreground="{DynamicResource TextSecondaryBrush}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Plan hours (prefills Start Day):" Padding="0,0,8,4"
+                       VerticalAlignment="Center" Foreground="{DynamicResource TextSecondaryBrush}"/>
+                <TextBox x:Name="textPlanHours" Grid.Row="0" Grid.Column="1" Width="60" Height="24"
+                         Margin="0,0,0,4" TextAlignment="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Energy refill (hours):" Padding="0,0,8,0"
+                       VerticalAlignment="Center" Foreground="{DynamicResource TextSecondaryBrush}"
+                       ToolTip="How long the energy bar lasts after Restore"/>
+                <TextBox x:Name="textFoodHours" Grid.Row="1" Grid.Column="1" Width="60" Height="24"
+                         TextAlignment="Center"/>
+            </Grid>
+        </StackPanel>
+
+        <!-- Pomodoro -->
+        <StackPanel Grid.Row="3" Margin="0,12,0,0">
+            <Label Content="Pomodoro (minutes)" Padding="0,0,0,4" FontWeight="Bold"
+                   Foreground="{DynamicResource TextSecondaryBrush}"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Work:" Padding="0,0,4,0" VerticalAlignment="Center"
+                       Foreground="{DynamicResource TextSecondaryBrush}"/>
+                <TextBox x:Name="textPomodoroWork" Width="44" Height="24" TextAlignment="Center" Margin="0,0,10,0"/>
+                <Label Content="Short break:" Padding="0,0,4,0" VerticalAlignment="Center"
+                       Foreground="{DynamicResource TextSecondaryBrush}"/>
+                <TextBox x:Name="textPomodoroShort" Width="44" Height="24" TextAlignment="Center" Margin="0,0,10,0"/>
+                <Label Content="Long:" Padding="0,0,4,0" VerticalAlignment="Center"
+                       Foreground="{DynamicResource TextSecondaryBrush}"/>
+                <TextBox x:Name="textPomodoroLong" Width="44" Height="24" TextAlignment="Center"/>
+            </StackPanel>
+            <Label Content="Applies to newly opened Pomodoro windows."
+                   Padding="0,2,0,0" FontSize="10" Foreground="{DynamicResource TextSecondaryBrush}"/>
+        </StackPanel>
 
         <!-- Theme manager shortcut -->
-        <Button x:Name="buttonOpenThemes" Grid.Row="3" Content="🎨 Open Theme Manager" Width="160" Height="26"
+        <Button x:Name="buttonOpenThemes" Grid.Row="5" Content="🎨 Open Theme Manager" Width="160" Height="26"
                 HorizontalAlignment="Left" Background="{DynamicResource ButtonClockBrush}"/>
     </Grid>
 </Window>

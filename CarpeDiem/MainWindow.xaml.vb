@@ -27,6 +27,9 @@ Class MainWindow
         Me.Topmost = onTop
         menuItemAlwaysOnTop.IsChecked = onTop
 
+        Dim defaultHours = SettingsStore.Read("DefaultPlanHours", "")
+        If defaultHours <> "" Then textBoxHours.Text = defaultHours
+
     End Sub
 
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
@@ -49,7 +52,9 @@ Class MainWindow
     End Sub
 
     Private Sub UpdateEnergyClock()
-        timeDiffFood.AddHours(16)
+        Dim hours As Double
+        If Not Double.TryParse(SettingsStore.Read("FoodHours", "16"), hours) OrElse hours <= 0 Then hours = 16
+        timeDiffFood.AddHours(hours)
     End Sub
 
     Private Sub RefreshMotivation()
@@ -68,7 +73,8 @@ Class MainWindow
     Private Sub UpdateProgress()
 
         ' Display current local and UTC time.
-        labelTime.Content = TimeManagement.GetFormattedDateTime("hh:mm:ss tt")
+        Dim timeFormat = If(SettingsStore.Read("Use24HourClock", "False") = "True", "HH:mm:ss", "hh:mm:ss tt")
+        labelTime.Content = TimeManagement.GetFormattedDateTime(timeFormat)
         labelTimeUTC.Content = Date.Now.ToLongDateString()
 
         Try
