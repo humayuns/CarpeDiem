@@ -29,6 +29,28 @@ Class MainWindow
         Dim defaultHours = SettingsStore.Read("DefaultPlanHours", "")
         If defaultHours <> "" Then textBoxHours.Text = defaultHours
 
+        RestoreWindowSize()
+
+    End Sub
+
+    Private Sub RestoreWindowSize()
+        Dim savedWidth, savedHeight As Double
+        If Not Double.TryParse(SettingsStore.Read("MainWidth", ""), Globalization.NumberStyles.Float,
+                               Globalization.CultureInfo.InvariantCulture, savedWidth) Then Return
+        If Not Double.TryParse(SettingsStore.Read("MainHeight", ""), Globalization.NumberStyles.Float,
+                               Globalization.CultureInfo.InvariantCulture, savedHeight) Then Return
+
+        ' Sanity: respect minimums and never restore larger than the working area.
+        If savedWidth < Me.MinWidth OrElse savedHeight < Me.MinHeight Then Return
+        Me.Width = Math.Min(savedWidth, SystemParameters.WorkArea.Width)
+        Me.Height = Math.Min(savedHeight, SystemParameters.WorkArea.Height)
+    End Sub
+
+    Private Sub MainWindow_Closing(sender As Object, e As ComponentModel.CancelEventArgs) Handles Me.Closing
+        If Me.WindowState = WindowState.Normal Then
+            SettingsStore.Write("MainWidth", Me.ActualWidth.ToString(Globalization.CultureInfo.InvariantCulture))
+            SettingsStore.Write("MainHeight", Me.ActualHeight.ToString(Globalization.CultureInfo.InvariantCulture))
+        End If
     End Sub
 
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
