@@ -59,9 +59,10 @@ Class MainWindow
 
     Private Sub UpdateProgressBarFontSizes()
         ' Each of the 7 bars gets an equal share of the UniformGrid height.
-        ' Use ~55% of that row height as font size, clamped between 8 and 20.
+        ' Use ~70% of that row height as font size so the labels nearly fill
+        ' the bars when maximized, clamped between 8 and 72.
         Dim barHeight As Double = ProgressBarsGrid.ActualHeight / 7
-        Dim fontSize As Double = Math.Max(8, Math.Min(20, barHeight * 0.55))
+        Dim fontSize As Double = Math.Max(8, Math.Min(72, barHeight * 0.7))
 
         ProgressbarSecondText.FontSize = fontSize
         ProgressbarMinuteText.FontSize = fontSize
@@ -120,11 +121,12 @@ Class MainWindow
 
         ProgressbarSecondText.Text = "Second " & Now.Second + 1 & " - " & (ProgressbarSecond.Value / 100).ToString("p")
         ProgressbarMinuteText.Text = "Minute " & Now.Minute + 1 & " - " & (ProgressbarMinute.Value / 100).ToString("p")
-        ProgressbarHourText.Text = "Hour " & Now.Hour & " - " & (ProgressbarHour.Value / 100).ToString("p")
+        Dim hourRemaining = Now.Date.AddHours(Now.Hour + 1).Subtract(Now)
+        ProgressbarHourText.Text = "Hour " & Now.Hour & " - " & (ProgressbarHour.Value / 100).ToString("p") & " - " & hourRemaining.ToString("mm\:ss")
         Dim remainingTime = Now.Date.AddDays(1).AddTicks(-1).Subtract(Now)
-        ProgressbarDayText.Text = Now.DayOfWeek.ToString() & " - " & Now.Day & " - " & (ProgressbarDay.Value / 100).ToString("p") & " - " & remainingTime.ToString()
+        ProgressbarDayText.Text = Now.DayOfWeek.ToString() & " - " & Now.Day & " - " & (ProgressbarDay.Value / 100).ToString("p") & " - " & remainingTime.ToString("hh\:mm\:ss")
         ProgressbarDay.ToolTip = ProgressbarDayText.Text
-        ProgressbarWeekText.Text = TimeManagement.GetIso8601WeekOfYear(Now) & " - " & (ProgressbarWeek.Value / 100).ToString("p")
+        ProgressbarWeekText.Text = "Week " & TimeManagement.GetIso8601WeekOfYear(Now) & " - " & (ProgressbarWeek.Value / 100).ToString("p")
         ProgressbarMonthText.Text = TimeManagement.GetMonthName(Now.Month) & "(" & Now.Month & ")" & " - " & (ProgressbarMonth.Value / 100).ToString("p")
         ProgressbarLTText.Text = Now.Year & " - " & (ProgressbarLT.Value / 100).ToString("p")
 
