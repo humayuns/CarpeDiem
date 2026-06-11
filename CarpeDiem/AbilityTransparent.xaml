@@ -1,14 +1,24 @@
-﻿<Window x:Class="AbilityTransparent"
+<Window x:Class="AbilityTransparent"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="AbilityTransparent" Height="110" Width="100" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown" Background="{x:Null}" ShowInTaskbar="False" KeyDown="Window_KeyDown">
+        Title="AbilityTransparent" Height="110" Width="100" AllowsTransparency="True" WindowStyle="None"
+        MouseDown="Window_MouseDown" Background="{x:Null}" ShowInTaskbar="False" KeyDown="Window_KeyDown"
+        ToolTip="Drag to move • Right-click to open • Enter: start • + / −: resize • D: duplicate • Q: bar size">
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="Images/artifact_epic.png"/>
-        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="2" Margin="0,100,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="image" Grid.Row="0" Width="100" Height="100" Source="Images/artifact_epic.png" Stretch="Uniform">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="8" ShadowDepth="1" Opacity="0.5"/>
+            </Image.Effect>
+        </Image>
+        <ProgressBar x:Name="ProgressBar1" Grid.Row="1" Height="4" Margin="2,2,2,0" Visibility="Hidden"
+                     Foreground="{DynamicResource BarCountdownBrush}"/>
     </Grid>
 </Window>

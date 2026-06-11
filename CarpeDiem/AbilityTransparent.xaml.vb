@@ -8,7 +8,8 @@
 
     Private Sub image_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs) Handles image.MouseRightButtonUp
         Me.Hide()
-        Me.ParentWindow.Show()
+        ' Reposition the window so its icon preview lands where this icon was.
+        Me.ParentWindow.ShowAtIcon(Me.Left, Me.Top)
     End Sub
 
 
@@ -35,7 +36,7 @@
 
     Private Sub ToggleProgressBarSize()
         If ProgressBar1.Height = 10 Then
-            ProgressBar1.Height = 2
+            ProgressBar1.Height = 4
         Else
             ProgressBar1.Height = 10
         End If

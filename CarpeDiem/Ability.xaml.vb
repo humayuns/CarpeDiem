@@ -63,13 +63,54 @@ Public Class Ability
         timer1.Start()
     End Sub
 
-    Private Sub image_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs) Handles image.MouseRightButtonUp
+    ' Offset of the icon preview within the window (including chrome), measured each
+    ' time the window floats so the icon and window swap in exactly the same spot.
+    Private iconOffsetX As Double = 350
+    Private iconOffsetY As Double = 40
 
-        abilityTransparent.Left = Me.Left + 371
-        abilityTransparent.Top = Me.Top + 50
+    Private Sub image_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs) Handles image.MouseRightButtonUp
+        ShowFloatingIcon()
+    End Sub
+
+    Private Sub buttonFloat_Click(sender As Object, e As RoutedEventArgs) Handles buttonFloat.Click
+        ShowFloatingIcon()
+    End Sub
+
+    Public Sub ShowFloatingIcon()
+        Try
+            Dim source = PresentationSource.FromVisual(Me)
+            If source IsNot Nothing Then
+                Dim devicePos = image.PointToScreen(New Point(0, 0))
+                Dim dipPos = source.CompositionTarget.TransformFromDevice.Transform(devicePos)
+                iconOffsetX = dipPos.X - Me.Left
+                iconOffsetY = dipPos.Y - Me.Top
+            End If
+        Catch
+        End Try
+
+        abilityTransparent.Left = Me.Left + iconOffsetX
+        abilityTransparent.Top = Me.Top + iconOffsetY
         abilityTransparent.Show()
         Me.Hide()
+    End Sub
 
+    ''' <summary>
+    ''' Shows the window positioned so its icon preview sits exactly where the
+    ''' floating icon was, even after the icon has been dragged around.
+    ''' </summary>
+    Public Sub ShowAtIcon(iconLeft As Double, iconTop As Double)
+        Dim newLeft = iconLeft - iconOffsetX
+        Dim newTop = iconTop - iconOffsetY
+
+        ' Keep the window on the working area.
+        Dim work = SystemParameters.WorkArea
+        newLeft = Math.Max(work.Left, Math.Min(newLeft, work.Right - Me.Width))
+        newTop = Math.Max(work.Top, Math.Min(newTop, work.Bottom - Me.Height))
+
+        Me.Left = newLeft
+        Me.Top = newTop
+        Me.Show()
+        Me.Activate()
     End Sub
 
     Private Sub checkBoxTopMost_Checked(sender As Object, e As RoutedEventArgs) Handles checkBoxTopMost.Checked
@@ -139,15 +180,10 @@ Public Class Ability
 
 
 
-        ' Set the transparent window to the same position
-        newAbility.abilityTransparent.Left = newAbility.Left + 371
-        newAbility.abilityTransparent.Top = newAbility.Top + 50
-
-        ' Start the ability timer and show the new windows
+        ' Show the duplicate, then collapse it to its floating icon in the same spot.
         newAbility.Show()
-        newAbility.Hide()
+        newAbility.ShowFloatingIcon()
         'newAbility.StartAbility()
-        newAbility.abilityTransparent.Show()
     End Sub
 
 End Class

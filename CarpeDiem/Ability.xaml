@@ -5,23 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Ability" Height="125.439" Width="452.632" MouseDown="Window_MouseDown" WindowStyle="ToolWindow"
+        Title="Ability" Height="170" Width="450" MinHeight="170" MinWidth="400"
+        MouseDown="Window_MouseDown" WindowStyle="ToolWindow"
         Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
         UseLayoutRounding="True" SnapsToDevicePixels="True"
         TextOptions.TextFormattingMode="Display">
-    <Grid>
-        <!-- Image position is load-bearing: AbilityTransparent aligns to Left+371 in code. -->
-        <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="371,10,0,0" VerticalAlignment="Top" Width="64" Source="Images/artifact_epic.png"/>
-        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="10" Margin="10,74,0,0" VerticalAlignment="Top" Width="425"
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Options -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+            <CheckBox x:Name="checkBoxTopMost" Content="TopMost" Margin="0,0,12,0"
+                      ToolTip="Keep the floating icon above other windows"/>
+            <CheckBox x:Name="checkBoxRepeat" Content="Repeat" Margin="0,0,12,0"
+                      ToolTip="Keep the window open after the timer completes"/>
+            <CheckBox x:Name="checkBoxAuto" Content="Auto"
+                      ToolTip="Automatically restart the timer when it completes"/>
+        </StackPanel>
+
+        <!-- Icon preview; floating icon appears exactly here when toggled -->
+        <Border Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Style="{StaticResource PhotoFrame}"
+                Margin="8,0,0,0" VerticalAlignment="Top"
+                ToolTip="Right-click to float as a desktop icon">
+            <Image x:Name="image" Width="72" Height="72" Source="Images/artifact_epic.png" Stretch="Uniform"/>
+        </Border>
+
+        <!-- Timer row -->
+        <Grid Grid.Row="1" Grid.Column="0" Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Minutes:" Padding="0,0,6,0" VerticalAlignment="Center"
+                   Foreground="{DynamicResource TextSecondaryBrush}"/>
+            <TextBox x:Name="textBoxTime" Grid.Column="1" Width="60" Height="24" VerticalAlignment="Center"
+                     ToolTip="Timer length in minutes"/>
+            <Button x:Name="buttonStart" Grid.Column="2" Content="Start" Width="64" Height="24" Margin="6,0,0,0"
+                    Background="{DynamicResource ButtonStartBrush}"/>
+            <Button x:Name="buttonFloat" Grid.Column="3" Content="Float" Width="64" Height="24" Margin="6,0,0,0"
+                    Background="{DynamicResource ButtonClockBrush}"
+                    ToolTip="Hide the window and leave the floating icon (right-click the icon to come back)"/>
+        </Grid>
+
+        <!-- Icon picker row -->
+        <Grid Grid.Row="2" Grid.Column="0" Margin="0,6,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Icon:" Padding="0,0,6,0" VerticalAlignment="Center"
+                   Foreground="{DynamicResource TextSecondaryBrush}"/>
+            <ComboBox x:Name="comboBoxImage" Grid.Column="1" Height="24" IsEditable="True"
+                      ToolTip="Pick an image from the Images folder"/>
+            <TextBox x:Name="textBoxImage" Grid.Column="2" Width="110" Height="24" Margin="6,0,0,0"
+                     ToolTip="Type an image name (without .png)"/>
+        </Grid>
+
+        <!-- Countdown -->
+        <ProgressBar x:Name="ProgressBar1" Grid.Row="3" Grid.ColumnSpan="2" Height="10"
+                     VerticalAlignment="Bottom" Margin="0,8,0,0"
                      Foreground="{DynamicResource BarCountdownBrush}"/>
-        <TextBox x:Name="textBoxTime" HorizontalAlignment="Left" Height="23" Margin="10,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74"
-                 ToolTip="Minutes"/>
-        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="89,46,0,0" VerticalAlignment="Top" Width="75" Height="23"
-                Background="{DynamicResource ButtonStartBrush}"/>
-        <CheckBox x:Name="checkBoxTopMost" Content="TopMost" HorizontalAlignment="Left" Margin="169,50,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxImage" HorizontalAlignment="Left" Height="23" Margin="251,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="comboBoxImage" HorizontalAlignment="Left" Margin="251,24,0,0" VerticalAlignment="Top" Width="120" IsEditable="True"/>
-        <CheckBox x:Name="checkBoxRepeat" Content="Repeat" HorizontalAlignment="Left" Margin="251,6,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBoxAuto" Content="Auto" HorizontalAlignment="Left" Margin="313,6,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
