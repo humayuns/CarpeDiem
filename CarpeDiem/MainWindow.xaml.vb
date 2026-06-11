@@ -59,10 +59,10 @@ Class MainWindow
 
     Private Sub UpdateProgressBarFontSizes()
         ' Each of the 7 bars gets an equal share of the UniformGrid height.
-        ' Use ~70% of that row height as font size so the labels nearly fill
-        ' the bars when maximized, clamped between 8 and 72.
+        ' Use ~60% of that row height as font size so the labels stay large
+        ' when maximized without filling the whole bar, clamped between 8 and 60.
         Dim barHeight As Double = ProgressBarsGrid.ActualHeight / 7
-        Dim fontSize As Double = Math.Max(8, Math.Min(72, barHeight * 0.7))
+        Dim fontSize As Double = Math.Max(8, Math.Min(60, barHeight * 0.6))
 
         ProgressbarSecondText.FontSize = fontSize
         ProgressbarMinuteText.FontSize = fontSize
