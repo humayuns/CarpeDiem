@@ -168,33 +168,14 @@ Class MainWindow
     End Sub
 
 
-    Private Sub buttonGo_Click(sender As Object, e As RoutedEventArgs) Handles buttonGo.Click
-        Select Case ComboBox.Text
-            Case "CountDown"
-                Dim c As New CountDown
-                c.Show()
-            Case "Stop Watch"
-                Dim s As New StopWatch
-                s.Show()
-            Case "Focus"
-                Dim f As New Focus
-                f.Show()
-            Case "Body Clock"
-                Dim b As New BodyClock
-                b.Show()
-            Case "Calendar"
-                Dim c As New Calendar
-                c.Show()
-            Case "Ability"
-                Dim a As New Ability
-                a.Show()
-            Case "Diary"
-                Dim d As New Diary
-                d.Show()
-            Case "Diary2"
-                Dim d2 As New Diary2
-                d2.Show()
-        End Select
+    Dim launcherWindow As Launcher
+
+    Private Sub buttonLauncher_Click(sender As Object, e As RoutedEventArgs) Handles buttonLauncher.Click
+        If launcherWindow Is Nothing OrElse Not launcherWindow.IsLoaded Then
+            launcherWindow = New Launcher
+        End If
+        launcherWindow.Show()
+        launcherWindow.Activate()
     End Sub
 
     Private Sub Grid_Unloaded(sender As Object, e As RoutedEventArgs)

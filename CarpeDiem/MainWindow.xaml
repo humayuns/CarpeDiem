@@ -194,18 +194,8 @@
             <Button x:Name="buttonSprite" Content="Sprite" Width="78" Height="26" Margin="0,0,5,0" Background="{DynamicResource ButtonSpriteBrush}"/>
             <Button x:Name="buttonClock_Copy" Content="Diary" Width="78" Height="26" Margin="0,0,5,0" Background="{DynamicResource ButtonDiaryBrush}"/>
             <Button x:Name="buttonClock" Content="Clock" Width="78" Height="26" Margin="0,0,5,0" Background="{DynamicResource ButtonClockBrush}"/>
-            <ComboBox x:Name="comboBox" Width="120" Height="26" Margin="0,0,5,0" VerticalAlignment="Center"
-                      VerticalContentAlignment="Center">
-                <ComboBoxItem Content="CountDown"/>
-                <ComboBoxItem Content="Stop Watch"/>
-                <ComboBoxItem Content="Focus"/>
-                <ComboBoxItem Content="Body Clock"/>
-                <ComboBoxItem Content="Calendar"/>
-                <ComboBoxItem Content="Ability"/>
-                <ComboBoxItem Content="Diary"/>
-                <ComboBoxItem Content="Diary2"/>
-            </ComboBox>
-            <Button x:Name="buttonGo" Content="Go" Width="36" Height="26" Margin="0,0,5,0" Background="{DynamicResource ButtonGoBrush}"/>
+            <Button x:Name="buttonLauncher" Content="🚀 Launcher" Width="90" Height="26" Margin="0,0,5,0"
+                    Background="{DynamicResource ButtonGoBrush}" ToolTip="Open the tool launcher"/>
             <Button x:Name="buttonClose" Content="Close" Width="78" Height="26" Background="{DynamicResource ButtonCloseBrush}"/>
         </WrapPanel>
 
