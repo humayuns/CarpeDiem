@@ -8,6 +8,9 @@ Class Application
         ' including windows opened after a theme switch.
         EventManager.RegisterClassHandler(GetType(Window), FrameworkElement.LoadedEvent,
                                           New RoutedEventHandler(AddressOf OnAnyWindowLoaded))
+
+        ' Restore the last selected theme.
+        ThemeManager.ApplyTheme(SettingsStore.Read("Theme", "Original"))
     End Sub
 
     Private Sub OnAnyWindowLoaded(sender As Object, e As RoutedEventArgs)

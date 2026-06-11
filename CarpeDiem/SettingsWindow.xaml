@@ -1,0 +1,40 @@
+<Window x:Class="SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarpeDiem"
+        mc:Ignorable="d"
+        Title="Settings" Height="190" Width="330" WindowStyle="ToolWindow" ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+        Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
+        UseLayoutRounding="True" SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Theme -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Theme:" Padding="0,0,8,0" VerticalAlignment="Center"
+                   Foreground="{DynamicResource TextSecondaryBrush}"/>
+            <ComboBox x:Name="comboTheme" Grid.Column="1" Height="24"/>
+        </Grid>
+
+        <!-- Always on top -->
+        <CheckBox x:Name="checkAlwaysOnTop" Grid.Row="1" Content="Keep main window always on top"
+                  Margin="0,12,0,0"/>
+
+        <!-- Theme manager shortcut -->
+        <Button x:Name="buttonOpenThemes" Grid.Row="3" Content="🎨 Open Theme Manager" Width="160" Height="26"
+                HorizontalAlignment="Left" Background="{DynamicResource ButtonClockBrush}"/>
+    </Grid>
+</Window>

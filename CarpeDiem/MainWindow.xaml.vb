@@ -22,6 +22,11 @@ Class MainWindow
         RefreshMotivation()
         RefreshInspiration()
 
+        UpdateThemeButton()
+        Dim onTop = SettingsStore.Read("AlwaysOnTop", "False") = "True"
+        Me.Topmost = onTop
+        menuItemAlwaysOnTop.IsChecked = onTop
+
     End Sub
 
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
@@ -213,6 +218,7 @@ Class MainWindow
 
     Private Sub menuItemAlwaysOnTop_Click(sender As Object, e As RoutedEventArgs)
         Me.Topmost = menuItemAlwaysOnTop.IsChecked
+        SettingsStore.Write("AlwaysOnTop", menuItemAlwaysOnTop.IsChecked.ToString())
     End Sub
 
     Private Sub buttonTheme_Click(sender As Object, e As RoutedEventArgs) Handles buttonTheme.Click
@@ -220,17 +226,34 @@ Class MainWindow
         UpdateThemeButton()
     End Sub
 
-    Private Sub UpdateThemeButton()
-        Select Case ThemeManager.NextTheme()
-            Case "Dark"
-                buttonTheme.Content = "☾"
-                buttonTheme.ToolTip = "Switch to dark mode"
-            Case "Original"
-                buttonTheme.Content = "◉"
-                buttonTheme.ToolTip = "Switch to original colors"
-            Case Else
-                buttonTheme.Content = "☼"
-                buttonTheme.ToolTip = "Switch to soft mode"
-        End Select
+    Public Sub UpdateThemeButton()
+        Dim nxt = ThemeManager.NextTheme()
+        If nxt = "Original" Then
+            buttonTheme.Content = "◉"
+        ElseIf ThemeManager.IsDarkTheme(nxt) Then
+            buttonTheme.Content = "☾"
+        Else
+            buttonTheme.Content = "☼"
+        End If
+        buttonTheme.ToolTip = "Switch to " & nxt & " theme"
+    End Sub
+
+    Dim themeManagerWindow As ThemeManagerWindow
+    Dim settingsWindow As SettingsWindow
+
+    Private Sub buttonThemes_Click(sender As Object, e As RoutedEventArgs) Handles buttonThemes.Click
+        If themeManagerWindow Is Nothing OrElse Not themeManagerWindow.IsLoaded Then
+            themeManagerWindow = New ThemeManagerWindow
+        End If
+        themeManagerWindow.Show()
+        themeManagerWindow.Activate()
+    End Sub
+
+    Private Sub buttonSettings_Click(sender As Object, e As RoutedEventArgs) Handles buttonSettings.Click
+        If settingsWindow Is Nothing OrElse Not settingsWindow.IsLoaded Then
+            settingsWindow = New SettingsWindow
+        End If
+        settingsWindow.Show()
+        settingsWindow.Activate()
     End Sub
 End Class

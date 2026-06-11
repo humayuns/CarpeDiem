@@ -1,0 +1,60 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Base surfaces and text -->
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FF0E1117"/>
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="#FFD6DEEA"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="#FF8A94A6"/>
+    <SolidColorBrush x:Key="TitleBrush" Color="#FFE08590"/>
+    <SolidColorBrush x:Key="ButtonTextBrush" Color="#FFE9EDF4"/>
+    <SolidColorBrush x:Key="ButtonNeutralBrush" Color="#FF39414F"/>
+
+    <!-- Header chips -->
+    <SolidColorBrush x:Key="ChipTimeBackgroundBrush" Color="#FF1A202B"/>
+    <SolidColorBrush x:Key="ChipTimeForegroundBrush" Color="#FFB8C2D2"/>
+    <SolidColorBrush x:Key="ChipDateBackgroundBrush" Color="#FF18243A"/>
+    <SolidColorBrush x:Key="ChipDateForegroundBrush" Color="#FF8FB2E8"/>
+
+    <!-- Photo frames -->
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#FF151A23"/>
+    <SolidColorBrush x:Key="SurfaceBorderBrush" Color="#FF2A323F"/>
+
+    <!-- Inputs -->
+    <SolidColorBrush x:Key="InputBackgroundBrush" Color="#FF151A23"/>
+    <SolidColorBrush x:Key="InputBorderBrush" Color="#FF333D4D"/>
+    <SolidColorBrush x:Key="InputFocusBrush" Color="#FF5C8FE0"/>
+    <SolidColorBrush x:Key="ItemHoverBrush" Color="#FF222B3A"/>
+
+    <!-- Diary day sections -->
+    <SolidColorBrush x:Key="SectionBoxBrush" Color="#FF151A23"/>
+    <SolidColorBrush x:Key="SectionHighlightBrush" Color="#FF3A3322"/>
+    <SolidColorBrush x:Key="SectionFlashBrush" Color="#FF1C3540"/>
+
+    <!-- Progress bars -->
+    <SolidColorBrush x:Key="BarTrackBrush" Color="#FF202734"/>
+    <SolidColorBrush x:Key="BarTextBrush" Color="#FFD0D8E4"/>
+    <SolidColorBrush x:Key="BarSecondBrush" Color="#FF2E6B74"/>
+    <SolidColorBrush x:Key="BarMinuteBrush" Color="#FF2A5E6B"/>
+    <SolidColorBrush x:Key="BarHourBrush" Color="#FF5C6E33"/>
+    <SolidColorBrush x:Key="BarDayBrush" Color="#FF7C6E35"/>
+    <SolidColorBrush x:Key="BarWeekBrush" Color="#FF2C6271"/>
+    <SolidColorBrush x:Key="BarMonthBrush" Color="#FF3A5380"/>
+    <SolidColorBrush x:Key="BarYearBrush" Color="#FF356E48"/>
+    <SolidColorBrush x:Key="BarCountdownBrush" Color="#FF316E46"/>
+    <SolidColorBrush x:Key="BarFoodTrackBrush" Color="#FF6E332E"/>
+    <SolidColorBrush x:Key="BarFoodFillBrush" Color="#FF8C7E34"/>
+    <SolidColorBrush x:Key="BarInspirationBrush" Color="#FF3A5380"/>
+    <SolidColorBrush x:Key="BarMotivationBrush" Color="#FF7E5226"/>
+
+    <!-- Buttons -->
+    <SolidColorBrush x:Key="ButtonStartBrush" Color="#FF2F6E4A"/>
+    <SolidColorBrush x:Key="ButtonSpriteBrush" Color="#FF31708A"/>
+    <SolidColorBrush x:Key="ButtonDiaryBrush" Color="#FF3A5A92"/>
+    <SolidColorBrush x:Key="ButtonClockBrush" Color="#FF3E6B99"/>
+    <SolidColorBrush x:Key="ButtonGoBrush" Color="#FF347244"/>
+    <SolidColorBrush x:Key="ButtonCloseBrush" Color="#FF94503C"/>
+    <SolidColorBrush x:Key="ButtonRestoreBrush" Color="#FF96702F"/>
+    <SolidColorBrush x:Key="ButtonMotivationBrush" Color="#FF80582C"/>
+    <SolidColorBrush x:Key="ButtonInspirationBrush" Color="#FF3A5A92"/>
+
+</ResourceDictionary>
