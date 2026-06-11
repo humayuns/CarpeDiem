@@ -58,9 +58,9 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox x:Name="comboBox" Grid.Column="0" Height="24"
+                <ComboBox x:Name="comboBox" Grid.Column="0" Height="28"
                           ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}"/>
-                <TextBox x:Name="textBoxFontSize" Grid.Column="1" Width="42" Height="24" Margin="4,0,0,0" Padding="2,3"
+                <TextBox x:Name="textBoxFontSize" Grid.Column="1" Width="42" Height="28" Margin="4,0,0,0" Padding="2,3"
                          Text="12" TextAlignment="Center" ToolTip="Font size"/>
             </Grid>
         </Grid>

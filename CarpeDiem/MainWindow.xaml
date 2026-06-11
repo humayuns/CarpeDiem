@@ -184,7 +184,7 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Plan hours:" Foreground="{DynamicResource TextSecondaryBrush}"
                    VerticalAlignment="Center" Padding="0,0,6,0"/>
-            <TextBox x:Name="textBoxHours" Grid.Column="1" Width="80" Height="24"
+            <TextBox x:Name="textBoxHours" Grid.Column="1" Width="80" Height="28"
                      VerticalAlignment="Center"/>
         </Grid>
 

@@ -51,6 +51,7 @@
 
     <!-- Rounded text box -->
     <Style TargetType="TextBox">
+        <Setter Property="MinHeight" Value="28"/>
         <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="CaretBrush" Value="{DynamicResource TextPrimaryBrush}"/>
@@ -123,7 +124,7 @@
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
         <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}"/>
-        <Setter Property="MinHeight" Value="24"/>
+        <Setter Property="MinHeight" Value="28"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
