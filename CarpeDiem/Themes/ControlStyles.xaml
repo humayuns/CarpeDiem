@@ -241,6 +241,170 @@
         </Setter>
     </Style>
 
+    <!-- Themed calendar (used by Calendar, Diary and Diary2 windows) -->
+    <Style x:Key="ThemedCalendarDayButton" TargetType="CalendarDayButton">
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="MinWidth" Value="5"/>
+        <Setter Property="MinHeight" Value="5"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CalendarDayButton">
+                    <Grid>
+                        <Border x:Name="bg" Background="Transparent" CornerRadius="3"/>
+                        <Border x:Name="todayRing" BorderBrush="{DynamicResource InputFocusBrush}"
+                                BorderThickness="1.5" CornerRadius="3" Visibility="Collapsed"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,2"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bg" Property="Background" Value="{DynamicResource ItemHoverBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsToday" Value="True">
+                            <Setter TargetName="todayRing" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="bg" Property="Background" Value="{DynamicResource InputFocusBrush}"/>
+                            <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                        </Trigger>
+                        <Trigger Property="IsInactive" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
+                            <Setter Property="Opacity" Value="0.6"/>
+                        </Trigger>
+                        <Trigger Property="IsBlackedOut" Value="True">
+                            <Setter Property="Opacity" Value="0.3"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ThemedCalendarButton" TargetType="CalendarButton">
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CalendarButton">
+                    <Grid>
+                        <Border x:Name="bg" Background="Transparent" CornerRadius="3"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6,4"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bg" Property="Background" Value="{DynamicResource ItemHoverBrush}"/>
+                        </Trigger>
+                        <Trigger Property="HasSelectedDays" Value="True">
+                            <Setter TargetName="bg" Property="Background" Value="{DynamicResource InputFocusBrush}"/>
+                            <Setter Property="Foreground" Value="#FFFFFFFF"/>
+                        </Trigger>
+                        <Trigger Property="IsInactive" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}"/>
+                            <Setter Property="Opacity" Value="0.6"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ThemedCalendarItem" TargetType="CalendarItem">
+        <Setter Property="Background" Value="{DynamicResource SurfaceBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CalendarItem">
+                    <ControlTemplate.Resources>
+                        <!-- Day-of-week titles -->
+                        <DataTemplate x:Key="{x:Static CalendarItem.DayTitleTemplateResourceKey}">
+                            <TextBlock Text="{Binding}" FontWeight="Bold" FontSize="10.5" Margin="0,4"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Foreground="{DynamicResource TextSecondaryBrush}"/>
+                        </DataTemplate>
+                    </ControlTemplate.Resources>
+                    <Grid x:Name="PART_Root">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{DynamicResource SurfaceBorderBrush}"
+                                BorderThickness="1" CornerRadius="6" Padding="4">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Header: previous / month-year / next -->
+                                <Grid Grid.Row="0" Margin="2,2,2,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button x:Name="PART_PreviousButton" Grid.Column="0" Content="◀" Width="26" Height="20"
+                                            Padding="0" FontSize="9"
+                                            Background="{DynamicResource ChipTimeBackgroundBrush}"
+                                            Foreground="{DynamicResource ChipTimeForegroundBrush}"/>
+                                    <Button x:Name="PART_HeaderButton" Grid.Column="1" Height="20" Padding="0"
+                                            FontWeight="Bold" FontSize="12" Background="Transparent"
+                                            Foreground="{DynamicResource TextPrimaryBrush}"/>
+                                    <Button x:Name="PART_NextButton" Grid.Column="2" Content="▶" Width="26" Height="20"
+                                            Padding="0" FontSize="9"
+                                            Background="{DynamicResource ChipTimeBackgroundBrush}"
+                                            Foreground="{DynamicResource ChipTimeForegroundBrush}"/>
+                                </Grid>
+
+                                <!-- Month view -->
+                                <Grid x:Name="PART_MonthView" Grid.Row="1" Visibility="Visible"
+                                      HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                </Grid>
+
+                                <!-- Year / decade view -->
+                                <Grid x:Name="PART_YearView" Grid.Row="1" Visibility="Hidden"
+                                      HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Calendar">
+        <Setter Property="Background" Value="{DynamicResource SurfaceBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SurfaceBorderBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}"/>
+        <Setter Property="CalendarDayButtonStyle" Value="{StaticResource ThemedCalendarDayButton}"/>
+        <Setter Property="CalendarButtonStyle" Value="{StaticResource ThemedCalendarButton}"/>
+        <Setter Property="CalendarItemStyle" Value="{StaticResource ThemedCalendarItem}"/>
+    </Style>
+
     <!-- Text overlaid on progress bars. Monospace so ticking digits keep a fixed width. -->
     <Style x:Key="BarLabel" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Center"/>
