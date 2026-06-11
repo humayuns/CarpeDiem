@@ -9,7 +9,7 @@
 
     <!-- Shared themes and control styles live in Application.Resources (Themes/*.xaml). -->
 
-    <Grid Unloaded="Grid_Unloaded" MouseRightButtonUp="Grid_MouseRightButtonUp" Margin="10">
+    <Grid Unloaded="Grid_Unloaded" Margin="10">
         <Grid.ContextMenu>
             <ContextMenu>
                 <MenuItem x:Name="menuItemAlwaysOnTop" Header="Always on Top" IsCheckable="True" Click="menuItemAlwaysOnTop_Click"/>

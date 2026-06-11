@@ -20,6 +20,7 @@ Public Class SettingsWindow
         checkAlwaysOnTop.IsChecked = SettingsStore.Read("AlwaysOnTop", "False") = "True"
         check24Hour.IsChecked = SettingsStore.Read("Use24HourClock", "False") = "True"
         checkSounds.IsChecked = SettingsStore.Read("PlaySounds", "True") = "True"
+        checkFastBars.IsChecked = SettingsStore.Read("FastProgressBars", "True") = "True"
         checkStartup.IsChecked = IsStartupEnabled()
 
         textPlanHours.Text = SettingsStore.Read("DefaultPlanHours", "")
@@ -59,6 +60,13 @@ Public Class SettingsWindow
         Dim enabled = (checkSounds.IsChecked = True)
         SettingsStore.Write("PlaySounds", enabled.ToString())
         Functions.SoundsEnabled = enabled
+    End Sub
+
+    Private Sub checkFastBars_Changed(sender As Object, e As RoutedEventArgs) Handles checkFastBars.Checked, checkFastBars.Unchecked
+        If suppressEvents Then Return
+        SettingsStore.Write("FastProgressBars", (checkFastBars.IsChecked = True).ToString())
+        Dim mw = TryCast(Application.Current.MainWindow, MainWindow)
+        If mw IsNot Nothing Then mw.ApplyTimerInterval()
     End Sub
 
     Private Sub checkStartup_Changed(sender As Object, e As RoutedEventArgs) Handles checkStartup.Checked, checkStartup.Unchecked

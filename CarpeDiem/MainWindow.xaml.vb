@@ -4,18 +4,17 @@ Imports CarpeDiem.Core
 Class MainWindow
 
     ReadOnly timer1 As New DispatcherTimer
-    Dim timerSpeed = "fast"
 
-    Dim timeDiff as new TimeCountDown
-    Dim timeDiffFood as new TimeCountDown
-    Dim timeDiffMotivation as new TimeCountDown
-    Dim timeDiffInspiration as new TimeCountDown
+    Dim timeDiff As New TimeCountDown
+    Dim timeDiffFood As New TimeCountDown
+    Dim timeDiffMotivation As New TimeCountDown
+    Dim timeDiffInspiration As New TimeCountDown
 
 
     Dim targetTime As DateTime
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         AddHandler timer1.Tick, AddressOf timer1_Tick
-        timer1.Interval = New TimeSpan(0, 0, 0, 0, 1)
+        timer1.Interval = getInterval()
         timer1.Start()
 
         UpdateEnergyClock()
@@ -142,12 +141,19 @@ Class MainWindow
     End Sub
 
     Private Function getInterval() As TimeSpan
-        If timerSpeed = "fast" Then
-            Return New TimeSpan(0, 0, 0, 1, 0)
-        Else
+        ' "Fast-moving progress bars" setting: update as fast as the dispatcher
+        ' allows for smooth motion, otherwise once per second.
+        If SettingsStore.Read("FastProgressBars", "True") = "True" Then
             Return New TimeSpan(0, 0, 0, 0, 1)
+        Else
+            Return New TimeSpan(0, 0, 0, 1, 0)
         End If
     End Function
+
+    ''' <summary>Called from the Settings window when the speed setting changes.</summary>
+    Public Sub ApplyTimerInterval()
+        timer1.Interval = getInterval()
+    End Sub
 
     Private Sub textBoxHours_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBoxHours.TextChanged
         targetTime = Date.Now.AddHours(Val(textBoxHours.Text))
@@ -212,15 +218,6 @@ Class MainWindow
         End If
     End Sub
 
-
-    Private Sub Grid_MouseRightButtonUp(sender As Object, e As MouseButtonEventArgs)
-        timer1.Interval = getInterval()
-        If timerSpeed = "fast" Then
-            timerSpeed = "slow"
-        Else
-            timerSpeed = "fast"
-        End If
-    End Sub
 
     Private Sub menuItemAlwaysOnTop_Click(sender As Object, e As RoutedEventArgs)
         Me.Topmost = menuItemAlwaysOnTop.IsChecked
