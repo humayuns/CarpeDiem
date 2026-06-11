@@ -11,6 +11,32 @@ Public Class Diary2
     Dim todayDate As String = ""
     Dim fileChanged As Boolean = False
     Dim fsWatcher As New FileSystemWatcher()
+    Dim lastSection As String = ""
+
+    Private Sub ApplySectionBackgrounds(Optional force As Boolean = False)
+        Dim section = Core.TimeManagement.GetDaySection(Now)
+        If Not force AndAlso section = lastSection Then Return
+        lastSection = section
+
+        ' Resource references (not brush instances) so the boxes follow runtime theme switches.
+        textBox1.SetResourceReference(BackgroundProperty, If(section = "1", "SectionHighlightBrush", "SectionBoxBrush"))
+        textBox2.SetResourceReference(BackgroundProperty, If(section = "2", "SectionHighlightBrush", "SectionBoxBrush"))
+        textBox3.SetResourceReference(BackgroundProperty, If(section = "3", "SectionHighlightBrush", "SectionBoxBrush"))
+    End Sub
+
+    Private Sub FlashSectionBox(box As TextBox)
+        Dim flash = TryCast(Application.Current.Resources("SectionFlashBrush"), SolidColorBrush)
+        Dim target = TryCast(box.Background, SolidColorBrush)
+        If flash Is Nothing OrElse target Is Nothing Then Return
+
+        ' Animate a local brush copy; restore the theme resource reference once done.
+        Dim animBrush As New SolidColorBrush(flash.Color)
+        Dim ca As New ColorAnimation(target.Color, New Duration(TimeSpan.FromMilliseconds(500)))
+        AddHandler ca.Completed, Sub() ApplySectionBackgrounds(force:=True)
+        box.Background = animBrush
+        animBrush.BeginAnimation(SolidColorBrush.ColorProperty, ca)
+    End Sub
+
     Private Sub Calendar1_SelectedDatesChanged(sender As Object, e As SelectionChangedEventArgs) Handles Calendar1.SelectedDatesChanged
 
         Dim dt = Calendar1.SelectedDate
@@ -46,22 +72,8 @@ Public Class Diary2
             richTextBox.Document.Blocks.Clear()
         End If
 
-        Dim ca = New ColorAnimation(Colors.White, New Duration(TimeSpan.FromMilliseconds(500)))
-        textBox1.Background = New SolidColorBrush(Colors.Azure)
-        textBox1.Background.BeginAnimation(SolidColorBrush.ColorProperty, ca)
-
-        textBox1.Background = New SolidColorBrush(Colors.White)
-        textBox2.Background = New SolidColorBrush(Colors.White)
-        textBox3.Background = New SolidColorBrush(Colors.White)
-
-        Select Case Core.TimeManagement.GetDaySection(Now)
-            Case "1"
-                textBox1.Background = New SolidColorBrush(Colors.Bisque)
-            Case "2"
-                textBox2.Background = New SolidColorBrush(Colors.Bisque)
-            Case "3"
-                textBox3.Background = New SolidColorBrush(Colors.Bisque)
-        End Select
+        ApplySectionBackgrounds(force:=True)
+        FlashSectionBox(textBox1)
 
         Try
             fsWatcher.Path = My.Application.Info.DirectoryPath & "\" & DiaryFolder & "\" & dt.Value.Year & "\" & dt.Value.Month & "\" & dt.Value.Day
@@ -139,9 +151,7 @@ Public Class Diary2
     End Sub
 
     Private Sub timer1_Tick(sender As Object, e As EventArgs)
-        textBox1.Background = New SolidColorBrush(Colors.White)
-        textBox2.Background = New SolidColorBrush(Colors.White)
-        textBox3.Background = New SolidColorBrush(Colors.White)
+        ApplySectionBackgrounds()
 
         Dim sectionStartTime = TimeManagement.SectionStartingTime(Now)
         Dim sectionEndTime = TimeManagement.SectionEndingTime(Now)
@@ -153,16 +163,6 @@ Public Class Diary2
         ' https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-timespan-format-strings
         ' https://msdn.microsoft.com/en-us/library/dd992632(v=vs.110).aspx ✔
         ProgressBar1.ToolTip = $"{Progressbar1Text.Text} - {diff.ToString("hh\:mm\:ss")}"
-
-        Select Case Core.TimeManagement.GetDaySection(Now)
-            Case "1"
-                textBox1.Background = New SolidColorBrush(Colors.Bisque)
-            Case "2"
-                textBox2.Background = New SolidColorBrush(Colors.Bisque)
-            Case "3"
-                textBox3.Background = New SolidColorBrush(Colors.Bisque)
-        End Select
-
 
         If fileChanged Then
             Dim dt = currentDate

@@ -5,11 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="BodyClock" Height="300" Width="300"
+        Title="Body Clock" Height="470" Width="380" MinHeight="400" MinWidth="330" Loaded="Window_Loaded"
         Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
         UseLayoutRounding="True" SnapsToDevicePixels="True"
         TextOptions.TextFormattingMode="Display">
-    <Grid>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <!-- Header -->
+        <Grid Grid.Row="0" Margin="0,0,0,4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Body Clock" FontSize="15" FontWeight="Bold" FontStyle="Italic"
+                   Foreground="{DynamicResource TitleBrush}" VerticalAlignment="Center" Padding="0"/>
+            <Border Grid.Column="2" Style="{StaticResource TimeChip}" Background="{DynamicResource ChipTimeBackgroundBrush}">
+                <Label x:Name="labelTime" Content="00:00:00" Padding="0" FontWeight="Bold"
+                       FontFamily="Fira Code Medium, Consolas"
+                       Foreground="{DynamicResource ChipTimeForegroundBrush}"/>
+            </Border>
+        </Grid>
+
+        <!-- 24h circadian dial; ring segments and hour labels are drawn in code-behind. -->
+        <Viewbox Grid.Row="1" Stretch="Uniform" Margin="0,2,0,2">
+            <Canvas x:Name="canvasDial" Width="300" Height="300">
+                <Line x:Name="handLine" X1="150" Y1="80" X2="150" Y2="26"
+                      Stroke="{DynamicResource TitleBrush}" StrokeThickness="2.5"
+                      StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                <TextBlock x:Name="textCenterTime" Canvas.Left="100" Canvas.Top="124" Width="100"
+                           TextAlignment="Center" FontSize="22" FontWeight="Bold"
+                           Foreground="{DynamicResource TextPrimaryBrush}">00:00</TextBlock>
+                <TextBlock x:Name="textCenterPhase" Canvas.Left="90" Canvas.Top="153" Width="120"
+                           TextAlignment="Center" FontSize="10"
+                           Foreground="{DynamicResource TextSecondaryBrush}"/>
+            </Canvas>
+        </Viewbox>
+
+        <!-- Current phase -->
+        <Border Grid.Row="2" Style="{StaticResource TimeChip}" Background="{DynamicResource ChipDateBackgroundBrush}"
+                Padding="10,6" MinHeight="56">
+            <StackPanel VerticalAlignment="Center">
+                <Label x:Name="labelPhaseName" Content="" Padding="0" FontWeight="Bold"
+                       Foreground="{DynamicResource ChipDateForegroundBrush}"/>
+                <TextBlock x:Name="textPhaseTip" TextWrapping="Wrap" Margin="0,2,0,0"
+                           Foreground="{DynamicResource TextSecondaryBrush}"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

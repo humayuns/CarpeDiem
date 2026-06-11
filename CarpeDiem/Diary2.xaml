@@ -67,8 +67,8 @@
         <!-- Tabs -->
         <TabControl x:Name="tabControl" Grid.Column="1">
             <TabItem Header="Sections">
-                <!-- The three section boxes keep white backgrounds: the code-behind
-                     repaints them (White/Bisque/Azure) every second. -->
+                <!-- The code-behind swaps each box between SectionBoxBrush and
+                     SectionHighlightBrush as the day section changes. -->
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -79,15 +79,15 @@
                     <TextBox x:Name="textBox1" Grid.Row="0" Margin="0,0,0,4"
                              TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Stretch"
                              ScrollViewer.VerticalScrollBarVisibility="Auto"
-                             Background="White" Foreground="#FF1A1A1A" CaretBrush="#FF1A1A1A"/>
+                             Background="{DynamicResource SectionBoxBrush}"/>
                     <TextBox x:Name="textBox2" Grid.Row="1" Margin="0,0,0,4"
                              TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Stretch"
                              ScrollViewer.VerticalScrollBarVisibility="Auto"
-                             Background="White" Foreground="#FF1A1A1A" CaretBrush="#FF1A1A1A"/>
+                             Background="{DynamicResource SectionBoxBrush}"/>
                     <TextBox x:Name="textBox3" Grid.Row="2" Margin="0,0,0,4"
                              TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Stretch"
                              ScrollViewer.VerticalScrollBarVisibility="Auto"
-                             Background="White" Foreground="#FF1A1A1A" CaretBrush="#FF1A1A1A"/>
+                             Background="{DynamicResource SectionBoxBrush}"/>
                     <Grid Grid.Row="3" Height="22">
                         <ProgressBar x:Name="ProgressBar1"
                                      Foreground="{DynamicResource BarDayBrush}"

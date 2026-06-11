@@ -25,6 +25,11 @@
     <SolidColorBrush x:Key="InputFocusBrush" Color="#FF6F9BD9"/>
     <SolidColorBrush x:Key="ItemHoverBrush" Color="#FF343947"/>
 
+    <!-- Diary day sections -->
+    <SolidColorBrush x:Key="SectionBoxBrush" Color="#FF26282F"/>
+    <SolidColorBrush x:Key="SectionHighlightBrush" Color="#FF463A26"/>
+    <SolidColorBrush x:Key="SectionFlashBrush" Color="#FF24424B"/>
+
     <!-- Progress bars -->
     <SolidColorBrush x:Key="BarTrackBrush" Color="#FF30333B"/>
     <SolidColorBrush x:Key="BarTextBrush" Color="#FFDDE0E8"/>
