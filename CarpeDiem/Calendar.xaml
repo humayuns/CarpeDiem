@@ -5,11 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Calendar" Height="300" Width="300"
+        Title="Calendar" Height="430" Width="350" MinHeight="360" MinWidth="300" Loaded="Window_Loaded"
         Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
         UseLayoutRounding="True" SnapsToDevicePixels="True"
         TextOptions.TextFormattingMode="Display">
-    <Grid>
-        <Calendar HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Selected date -->
+        <Border Grid.Row="0" Style="{StaticResource TimeChip}" Background="{DynamicResource ChipDateBackgroundBrush}">
+            <Label x:Name="labelSelectedDate" Content="Selected date" Padding="0" FontWeight="Bold"
+                   Foreground="{DynamicResource ChipDateForegroundBrush}"
+                   HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- Calendar scales with the window -->
+        <Viewbox Grid.Row="1" Stretch="Uniform" Margin="0,8">
+            <Calendar x:Name="Calendar1"/>
+        </Viewbox>
+
+        <!-- Facts about the selected date -->
+        <UniformGrid Grid.Row="2" Columns="3">
+            <Border Style="{StaticResource TimeChip}" Background="{DynamicResource ChipTimeBackgroundBrush}" Margin="0,0,3,0">
+                <Label x:Name="labelDayOfYear" Content="Day 0 / 365" Padding="0" FontSize="11" FontWeight="SemiBold"
+                       Foreground="{DynamicResource ChipTimeForegroundBrush}" HorizontalAlignment="Center"/>
+            </Border>
+            <Border Style="{StaticResource TimeChip}" Background="{DynamicResource ChipTimeBackgroundBrush}" Margin="3,0,3,0">
+                <Label x:Name="labelWeek" Content="Week 0" Padding="0" FontSize="11" FontWeight="SemiBold"
+                       Foreground="{DynamicResource ChipTimeForegroundBrush}" HorizontalAlignment="Center"/>
+            </Border>
+            <Border Style="{StaticResource TimeChip}" Background="{DynamicResource ChipTimeBackgroundBrush}" Margin="3,0,0,0">
+                <Label x:Name="labelRelative" Content="Today" Padding="0" FontSize="11" FontWeight="SemiBold"
+                       Foreground="{DynamicResource ChipTimeForegroundBrush}" HorizontalAlignment="Center"/>
+            </Border>
+        </UniformGrid>
+
+        <!-- Year progress up to the selected date -->
+        <Grid Grid.Row="3" Height="18" Margin="0,6,0,0">
+            <ProgressBar x:Name="progressYear" Foreground="{DynamicResource BarYearBrush}"/>
+            <TextBlock x:Name="textYear" Style="{StaticResource BarLabel}" FontSize="9"/>
+        </Grid>
+
+        <!-- Jump back to today -->
+        <Button x:Name="buttonToday" Grid.Row="4" Content="📅 Today" Width="100" Height="26" Margin="0,8,0,0"
+                HorizontalAlignment="Center" Background="{DynamicResource ButtonClockBrush}"
+                ToolTip="Jump back to today"/>
     </Grid>
 </Window>
