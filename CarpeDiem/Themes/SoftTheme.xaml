@@ -7,6 +7,7 @@
     <SolidColorBrush x:Key="TextSecondaryBrush" Color="#FF6A6F7B"/>
     <SolidColorBrush x:Key="TitleBrush" Color="#FFB5524E"/>
     <SolidColorBrush x:Key="ButtonTextBrush" Color="#FFFFFFFF"/>
+    <SolidColorBrush x:Key="ButtonNeutralBrush" Color="#FF8A93A4"/>
 
     <!-- Header chips -->
     <SolidColorBrush x:Key="ChipTimeBackgroundBrush" Color="#FFE7E9EF"/>

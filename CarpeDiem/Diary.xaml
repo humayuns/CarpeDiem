@@ -1,20 +1,68 @@
-﻿<Window x:Class="Diary"
+<Window x:Class="Diary"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Diary" Height="600" Width="800" Loaded="Window_Loaded">
-    <Grid>
-        <Calendar x:Name="Calendar1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="533" Margin="194,17,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="579" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <TextBox x:Name="textBoxSpecial" HorizontalAlignment="Left" Height="309" Margin="10,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        <Label x:Name="label" Content="Special Symbols" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,528,0,0" VerticalAlignment="Top" Width="143" ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}"/>
-        <TextBox x:Name="textBoxFontSize" HorizontalAlignment="Left" Height="23" Margin="158,527,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" Text="12" TextAlignment="Center"/>
-        <Button x:Name="buttonFolder" Content="📂" HorizontalAlignment="Left" Margin="158,186,0,0" VerticalAlignment="Top" Width="32"/>
-        <Button x:Name="buttonCurrentDate" Content="🗓" HorizontalAlignment="Left" Margin="121,186,0,0" VerticalAlignment="Top" Width="32"/>
+        Title="Diary" Height="600" Width="800" MinHeight="420" MinWidth="600" Loaded="Window_Loaded"
+        Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
+        UseLayoutRounding="True" SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <!-- Notes editor. Declared before textBoxFontSize: its TextChanged handler
+             references this element during XAML load. Background stays white because
+             the code-behind animates it (Azure -> White) on date changes. -->
+        <TextBox x:Name="textBox" Grid.Column="1" Margin="8,0,0,0"
+                 TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Stretch"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 Background="White" Foreground="#FF1A1A1A" CaretBrush="#FF1A1A1A"/>
+
+        <!-- Side panel -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Calendar x:Name="Calendar1" Grid.Row="0" HorizontalAlignment="Left"/>
+
+            <Grid Grid.Row="1" Margin="0,6,0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="label" Grid.Column="0" Content="Special Symbols" Padding="0,0,0,2"
+                       VerticalAlignment="Center" FontWeight="Bold" FontStyle="Italic"
+                       Foreground="{DynamicResource TextSecondaryBrush}"/>
+                <Button x:Name="buttonCurrentDate" Grid.Column="1" Content="🗓" Width="30" Height="22"
+                        Margin="4,0,0,0" Padding="0" ToolTip="Go to today"/>
+                <Button x:Name="buttonFolder" Grid.Column="2" Content="📂" Width="30" Height="22"
+                        Margin="4,0,0,0" Padding="0" ToolTip="Open day folder"/>
+            </Grid>
+
+            <TextBox x:Name="textBoxSpecial" Grid.Row="2"
+                     TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Stretch"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+
+            <Grid Grid.Row="3" Margin="0,6,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="comboBox" Grid.Column="0" Height="24"
+                          ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}"/>
+                <TextBox x:Name="textBoxFontSize" Grid.Column="1" Width="42" Height="24" Margin="4,0,0,0" Padding="2,3"
+                         Text="12" TextAlignment="Center" ToolTip="Font size"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

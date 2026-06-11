@@ -1,14 +1,10 @@
-﻿Imports System.Runtime.InteropServices
-Imports System.Windows.Interop
-Imports System.Windows.Threading
+﻿Imports System.Windows.Threading
 Imports CarpeDiem.Core
 
 Class MainWindow
 
     ReadOnly timer1 As New DispatcherTimer
     Dim timerSpeed = "fast"
-    Shared ReadOnly ThemeOrder As String() = {"Original", "Soft", "Dark"}
-    Dim currentTheme As String = "Original"
 
     Dim timeDiff as new TimeCountDown
     Dim timeDiffFood as new TimeCountDown
@@ -239,20 +235,12 @@ Class MainWindow
     End Sub
 
     Private Sub buttonTheme_Click(sender As Object, e As RoutedEventArgs) Handles buttonTheme.Click
-        Dim nextIndex = (Array.IndexOf(ThemeOrder, currentTheme) + 1) Mod ThemeOrder.Length
-        ApplyTheme(ThemeOrder(nextIndex))
+        ThemeManager.ApplyTheme(ThemeManager.NextTheme())
+        UpdateThemeButton()
     End Sub
 
-    Private Sub ApplyTheme(theme As String)
-        currentTheme = theme
-        Dim themeDict As New ResourceDictionary With {
-            .Source = New Uri("Themes/" & theme & "Theme.xaml", UriKind.Relative)
-        }
-        Resources.MergedDictionaries.Clear()
-        Resources.MergedDictionaries.Add(themeDict)
-
-        Dim nextTheme = ThemeOrder((Array.IndexOf(ThemeOrder, theme) + 1) Mod ThemeOrder.Length)
-        Select Case nextTheme
+    Private Sub UpdateThemeButton()
+        Select Case ThemeManager.NextTheme()
             Case "Dark"
                 buttonTheme.Content = "☾"
                 buttonTheme.ToolTip = "Switch to dark mode"
@@ -263,22 +251,5 @@ Class MainWindow
                 buttonTheme.Content = "☼"
                 buttonTheme.ToolTip = "Switch to soft mode"
         End Select
-
-        SetTitleBarDark(theme = "Dark")
-    End Sub
-
-    ' DWMWA_USE_IMMERSIVE_DARK_MODE — supported on Windows 10 1809+ / Windows 11.
-    <DllImport("dwmapi.dll")>
-    Private Shared Function DwmSetWindowAttribute(hwnd As IntPtr, attribute As Integer, ByRef value As Integer, size As Integer) As Integer
-    End Function
-
-    Private Sub SetTitleBarDark(dark As Boolean)
-        Try
-            Dim hwnd As IntPtr = New WindowInteropHelper(Me).Handle
-            If hwnd = IntPtr.Zero Then Return
-            Dim value As Integer = If(dark, 1, 0)
-            DwmSetWindowAttribute(hwnd, 20, value, 4)
-        Catch
-        End Try
     End Sub
 End Class

@@ -1,18 +1,42 @@
-﻿<Window x:Class="Focus"
+<Window x:Class="Focus"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Focus" Height="153.924" Width="464.148" Loaded="Window_Loaded" MouseDown="Window_MouseDown" WindowStyle="ToolWindow">
-    <Grid>
-        <ProgressBar x:Name="ProgressBar1" HorizontalAlignment="Left" Height="48" Margin="10,29,0,0" VerticalAlignment="Top" Width="425"/>
-        <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="75" Background="#FF31B637"/>
-        <Label x:Name="label" Content="Score: 0" HorizontalAlignment="Left" Margin="372,77,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="buttonReset" Content="Reset" HorizontalAlignment="Left" Margin="90,82,0,0" VerticalAlignment="Top" Width="75" Background="#FF4F72CF"/>
-        <Label x:Name="labelnewscore" Content="" HorizontalAlignment="Left" Margin="170,77,0,0" VerticalAlignment="Top" Foreground="#FF10933F"/>
-        <CheckBox x:Name="checkBoxAuto" Content="Auto Start" HorizontalAlignment="Left" Margin="362,10,0,0" VerticalAlignment="Top"/>
+        Title="Focus" Height="160" Width="470" Loaded="Window_Loaded" MouseDown="Window_MouseDown" WindowStyle="ToolWindow"
+        Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
+        UseLayoutRounding="True" SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <CheckBox x:Name="checkBoxAuto" Grid.Row="0" Content="Auto Start" HorizontalAlignment="Right"/>
+
+        <ProgressBar x:Name="ProgressBar1" Grid.Row="1" MinHeight="40" Margin="0,6,0,8"
+                     Foreground="{DynamicResource BarCountdownBrush}"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="buttonStart" Grid.Column="0" Content="Start" Width="75" Height="24"
+                    Background="{DynamicResource ButtonStartBrush}"/>
+            <Button x:Name="buttonReset" Grid.Column="1" Content="Reset" Width="75" Height="24" Margin="6,0,0,0"
+                    Background="{DynamicResource ButtonClockBrush}"/>
+            <Label x:Name="labelnewscore" Grid.Column="2" Content="" VerticalAlignment="Center" Margin="6,0,0,0"
+                   FontWeight="Bold"/>
+            <Label x:Name="label" Grid.Column="4" Content="Score: 0" VerticalAlignment="Center"
+                   FontWeight="SemiBold"/>
+        </Grid>
     </Grid>
 </Window>

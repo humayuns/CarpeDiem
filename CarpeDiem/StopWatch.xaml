@@ -1,15 +1,37 @@
-﻿<Window x:Class="StopWatch"
+<Window x:Class="StopWatch"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="StopWatch" Height="129" Width="217" WindowStyle="ToolWindow">
-    <Grid>
-        <Label x:Name="labelTime" Content="00:00:00 AM" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="32" Width="187" Foreground="#FF464646" FontFamily="Adobe Caslon Pro Bold" Background="#FFE4E4E4" Height="42" BorderBrush="#FFA8A8A8" BorderThickness="1"/>
-        <Button x:Name="button" Content="Start" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75" Background="#FF19CD32"/>
-        <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" Margin="90,57,0,0" VerticalAlignment="Top" Width="75" Background="#FFF36262"/>
+        Title="StopWatch" Height="140" Width="250" WindowStyle="ToolWindow"
+        Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
+        UseLayoutRounding="True" SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <Border Grid.Row="0" Style="{StaticResource TimeChip}" VerticalAlignment="Stretch"
+                Background="{DynamicResource ChipTimeBackgroundBrush}">
+            <Label x:Name="labelTime" Content="00:00:00 AM" Padding="0" FontSize="24" FontWeight="Bold"
+                   Foreground="{DynamicResource ChipTimeForegroundBrush}"
+                   FontFamily="Fira Code Medium, Consolas"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <Grid Grid.Row="1" Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="button" Grid.Column="0" Content="Start" Height="24" Margin="0,0,3,0"
+                    Background="{DynamicResource ButtonStartBrush}"/>
+            <Button x:Name="buttonClose" Grid.Column="1" Content="Close" Height="24" Margin="3,0,0,0"
+                    Background="{DynamicResource ButtonCloseBrush}"/>
+        </Grid>
     </Grid>
 </Window>

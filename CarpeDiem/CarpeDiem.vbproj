@@ -173,6 +173,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\ControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="ThemeManager.vb" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="System.Threading.Tasks" />
