@@ -24,6 +24,25 @@ Class MainWindow
 
     End Sub
 
+    Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
+        UpdateProgressBarFontSizes()
+    End Sub
+
+    Private Sub UpdateProgressBarFontSizes()
+        ' Each of the 7 bars gets an equal share of the UniformGrid height.
+        ' Use ~55% of that row height as font size, clamped between 8 and 20.
+        Dim barHeight As Double = ProgressBarsGrid.ActualHeight / 7
+        Dim fontSize As Double = Math.Max(8, Math.Min(20, barHeight * 0.55))
+
+        ProgressbarSecondText.FontSize = fontSize
+        ProgressbarMinuteText.FontSize = fontSize
+        ProgressbarHourText.FontSize = fontSize
+        ProgressbarDayText.FontSize = fontSize
+        ProgressbarWeekText.FontSize = fontSize
+        ProgressbarMonthText.FontSize = fontSize
+        ProgressbarLTText.FontSize = fontSize
+    End Sub
+
     Private Sub UpdateEnergyClock()
         timeDiffFood.AddHours(16)
     End Sub
