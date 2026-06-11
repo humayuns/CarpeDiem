@@ -185,6 +185,22 @@
       <DependentUpon>Launcher.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pomodoro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Pomodoro.xaml.vb">
+      <DependentUpon>Pomodoro.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Quotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Quotes.xaml.vb">
+      <DependentUpon>Quotes.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ThemeManager.vb" />
   </ItemGroup>
   <ItemGroup>

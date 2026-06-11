@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="StopWatch" Height="140" Width="250" WindowStyle="ToolWindow"
+        Title="StopWatch" Height="140" Width="280" WindowStyle="ToolWindow"
         Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
         UseLayoutRounding="True" SnapsToDevicePixels="True"
         TextOptions.TextFormattingMode="Display">
@@ -17,7 +17,7 @@
 
         <Border Grid.Row="0" Style="{StaticResource TimeChip}" VerticalAlignment="Stretch"
                 Background="{DynamicResource ChipTimeBackgroundBrush}">
-            <Label x:Name="labelTime" Content="00:00:00 AM" Padding="0" FontSize="24" FontWeight="Bold"
+            <Label x:Name="labelTime" Content="00:00:00.0" Padding="0" FontSize="24" FontWeight="Bold"
                    Foreground="{DynamicResource ChipTimeForegroundBrush}"
                    FontFamily="Fira Code Medium, Consolas"
                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -27,10 +27,13 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="button" Grid.Column="0" Content="Start" Height="24" Margin="0,0,3,0"
                     Background="{DynamicResource ButtonStartBrush}"/>
-            <Button x:Name="buttonClose" Grid.Column="1" Content="Close" Height="24" Margin="3,0,0,0"
+            <Button x:Name="buttonReset" Grid.Column="1" Content="Reset" Height="24" Margin="3,0,3,0"
+                    Background="{DynamicResource ButtonNeutralBrush}"/>
+            <Button x:Name="buttonClose" Grid.Column="2" Content="Close" Height="24" Margin="3,0,0,0"
                     Background="{DynamicResource ButtonCloseBrush}"/>
         </Grid>
     </Grid>

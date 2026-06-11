@@ -1,0 +1,64 @@
+<Window x:Class="Pomodoro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarpeDiem"
+        mc:Ignorable="d"
+        Title="Pomodoro" Height="240" Width="300" WindowStyle="ToolWindow" ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+        Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
+        UseLayoutRounding="True" SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Display">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Phase + completed sessions -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="labelPhase" Grid.Column="0" Content="Work" Padding="0" FontSize="14" FontWeight="Bold"
+                   Foreground="{DynamicResource TextPrimaryBrush}" VerticalAlignment="Center"/>
+            <Border Grid.Column="2" Style="{StaticResource TimeChip}" Background="{DynamicResource ChipTimeBackgroundBrush}"
+                    ToolTip="Completed work sessions — every 4th earns a long break">
+                <Label x:Name="labelSessions" Content="Done: 0" Padding="0" FontWeight="SemiBold"
+                       Foreground="{DynamicResource ChipTimeForegroundBrush}"/>
+            </Border>
+        </Grid>
+
+        <!-- Time remaining -->
+        <Border Grid.Row="1" Style="{StaticResource TimeChip}" VerticalAlignment="Stretch" Margin="0,8"
+                Background="{DynamicResource ChipDateBackgroundBrush}">
+            <Label x:Name="labelTimeLeft" Content="25:00" Padding="0" FontSize="32" FontWeight="Bold"
+                   FontFamily="Fira Code Medium, Consolas"
+                   Foreground="{DynamicResource ChipDateForegroundBrush}"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <!-- Phase progress; foreground brush is swapped in code (work vs break) -->
+        <ProgressBar x:Name="ProgressBar1" Grid.Row="2" Height="10" Margin="0,0,0,8"/>
+
+        <!-- Controls -->
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="buttonStart" Grid.Column="0" Content="Start" Height="24" Margin="0,0,3,0"
+                    Background="{DynamicResource ButtonStartBrush}"/>
+            <Button x:Name="buttonReset" Grid.Column="1" Content="Reset" Height="24" Margin="3,0,3,0"
+                    Background="{DynamicResource ButtonNeutralBrush}"/>
+            <Button x:Name="buttonSkip" Grid.Column="2" Content="Skip" Height="24" Margin="3,0,0,0"
+                    Background="{DynamicResource ButtonClockBrush}" ToolTip="Skip to the next phase"/>
+        </Grid>
+    </Grid>
+</Window>

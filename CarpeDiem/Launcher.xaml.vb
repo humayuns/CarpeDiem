@@ -40,4 +40,14 @@ Public Class Launcher
         w.Show()
     End Sub
 
+    Private Sub buttonPomodoro_Click(sender As Object, e As RoutedEventArgs) Handles buttonPomodoro.Click
+        Dim w As New Pomodoro
+        w.Show()
+    End Sub
+
+    Private Sub buttonQuotes_Click(sender As Object, e As RoutedEventArgs) Handles buttonQuotes.Click
+        Dim w As New Quotes
+        w.Show()
+    End Sub
+
 End Class

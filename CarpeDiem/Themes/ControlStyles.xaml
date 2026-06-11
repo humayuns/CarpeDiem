@@ -241,12 +241,13 @@
         </Setter>
     </Style>
 
-    <!-- Text overlaid on progress bars -->
+    <!-- Text overlaid on progress bars. Monospace so ticking digits keep a fixed width. -->
     <Style x:Key="BarLabel" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="8"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontFamily" Value="Fira Code, Consolas"/>
         <Setter Property="Foreground" Value="{DynamicResource BarTextBrush}"/>
     </Style>
 

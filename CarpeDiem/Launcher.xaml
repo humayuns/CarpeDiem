@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarpeDiem"
         mc:Ignorable="d"
-        Title="Launcher" Height="250" Width="340" WindowStyle="ToolWindow" ResizeMode="NoResize"
+        Title="Launcher" Height="290" Width="340" WindowStyle="ToolWindow" ResizeMode="NoResize"
         Background="{DynamicResource WindowBackgroundBrush}" FontFamily="Segoe UI"
         UseLayoutRounding="True" SnapsToDevicePixels="True"
         TextOptions.TextFormattingMode="Display">
@@ -35,6 +35,10 @@
                     Background="{DynamicResource ButtonInspirationBrush}"/>
             <Button x:Name="buttonDiary2" Content="📓 Diary2" Margin="3" MinHeight="32"
                     Background="{DynamicResource ButtonRestoreBrush}"/>
+            <Button x:Name="buttonPomodoro" Content="🍅 Pomodoro" Margin="3" MinHeight="32"
+                    Background="{DynamicResource ButtonCloseBrush}"/>
+            <Button x:Name="buttonQuotes" Content="💬 Quotes" Margin="3" MinHeight="32"
+                    Background="{DynamicResource ButtonNeutralBrush}"/>
         </UniformGrid>
     </Grid>
 </Window>

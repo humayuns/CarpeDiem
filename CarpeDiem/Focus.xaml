@@ -19,7 +19,8 @@
         <CheckBox x:Name="checkBoxAuto" Grid.Row="0" Content="Auto Start" HorizontalAlignment="Right"/>
 
         <ProgressBar x:Name="ProgressBar1" Grid.Row="1" MinHeight="40" Margin="0,6,0,8"
-                     Foreground="{DynamicResource BarCountdownBrush}"/>
+                     Foreground="{DynamicResource BarCountdownBrush}"
+                     ToolTip="Press Stop as close to the end of the bar as you can — above 95% scores points, stopping early loses them."/>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
